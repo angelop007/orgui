@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>treeUI - ORGUI</title>
+  
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/orgui.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/vendor/prettify/prettify-min.js"></script>
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/doc.js"></script>
+    <script src="../assets/js/function.js"></script>
+    <script src="../assets/js/orgui.js"></script>
+</head>
+<body class="yui3-smart">
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="/">
+             
+            <img alt="ORGUI" src="..\assets\css\logo.png" title="ORGUI">
+            
+                ORGUI
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    
+                    <li><a href="/">Document</a>
+                    </li>
+                    
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+	    <div id="sidebar">
+    <h3>Modules/Classes</h3>
+        <div id="api-tabview-filter">
+            <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+        </div>
+        <dl>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <a href="../modules/function.html">function</a>
+                </dt>
+                <dd class="hide">
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/pubFun.html">pubFun</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <a href="../modules/ui(User_Interface_Controls).html">UI(User Interface Controls)</a>
+                </dt>
+                <dd class="hide">
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/checkUI.html">checkUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/radioUI.html">radioUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/selectUI.html">selectUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/treeUI.html">treeUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/alertUI.html">alertUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/gridUI.html">gridUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/msgUI.html">msgUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/dialogUI.html">dialogUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/selectTreeUI.html">selectTreeUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+        </dl>
+</div>
+   
+        </div>
+        <div class="col-sm-9">
+            <!--     <form id="options-form" class="form-inline pull-right">
+        Show:
+        <label for="api-show-inherited" class="checkbox">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected" class="checkbox">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private" class="checkbox">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated" class="checkbox">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </form>
+
+ -->
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+    <h1>treeUI <small>Class</small></h1>
+</div>
+ <div class="well well-small sign-left3">
+      <p><h3>Tree</h3>
+    <b>Date:</b> 2014-11-04<br>
+    <b>Modify:</b> 2015-01-05<br>
+    <b>Pen:</b> angelop007@gmail.com<br>
+    <script>
+    $(function(){
+        $("div#method_treeUI>div.example>h4").after(
+            $("<div>",{class:"example-content prettyprint"}).append(
+                $("<div>",{"data-tree":"tree1"})
+            )
+        );
+        $("<ul>").treeUI({
+            key:"tree1",
+            data:[
+                {key:"1",val:"AAA",badge:"3",child:[
+                    {key:"1-1",val:"CCC"},
+                    {key:"1-2",val:"DDD",child:[
+                        {key:"1-2-1",val:"FFF"},
+                        {key:"1-2-2",val:"GGG"}
+                    ]},
+                    {key:"1-3",val:"EEE"}
+                ]},
+                {key:"2",val:"BBB",select:2,child:[
+                    {key:"2-1",val:"HHH"},
+                    {key:"2-2",val:"III",select:1},
+                    {key:"2-3",val:"JJJ",select:1,badge:"2",child:[
+                        {key:"2-2-1",val:"KKK",select:1,icon:"fa-gamepad"},
+                        {key:"2-2-2",val:"LLL",select:1}
+                    ]}
+                ]}
+            ],
+            of:$("div[data-tree=\"tree1\"]")
+        });
+    });
+    </script></p>
+
+ </div>
+
+<div class="well well-small sign-left2" id="classesItems">
+    
+        <div class="index-section methods">
+            <h3>Methods</h3>
+
+            <ul class="index-list methods">
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_allVal" data-tablink="allVal">allVal</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_changeVal" data-tablink="changeVal">changeVal</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_checkVal" data-tablink="checkVal">checkVal</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_closeLoading" data-tablink="closeLoading">closeLoading</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_openLoading" data-tablink="openLoading">openLoading</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_removeChangeVal" data-tablink="removeChangeVal">removeChangeVal</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_removeTag" data-tablink="removeTag">removeTag</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_setDefault" data-tablink="setDefault">setDefault</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_setKey" data-tablink="setKey">setKey</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item method">
+                        <a href="#" data-tabid="#method" data-anchor="#method_val" data-tablink="val">val</a>
+
+                        
+                        
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+    
+
+    
+
+    
+</div>
+
+<div>
+    <ul id="itemTab" class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#class">Detail</a></li>
+        
+            <li><a data-toggle="tab" href="#method">Methods</a></li>
+        
+        
+        
+        
+    </ul>
+
+    <div class="tab-content">
+        <div id="class" class="tab-pane active">
+           <div class="well well-small classDetail sign-left1">
+            
+
+            
+
+            
+                <div class="foundat">
+                    Defined in: <a href="../files/input_orgui.js.html#l756"><code>input\orgui.js:756</code></a>
+                </div>
+            
+
+            
+                
+                    Module: <a href="../modules/ui(User_Interface_Controls).html">UI(User Interface Controls)</a>
+                
+            
+
+            
+                <p>Available since 1.1.0</p>
+            
+        </div>
+
+        
+            
+                <div class="constructor">
+                    <h2>Constructor</h2>
+                    <div id="method_treeUI" class="method item">
+    <h3 class="name">treeUI</h3>
+    <code>
+    treeUI
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        _object_cfg
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l756"><code>input\orgui.js:756</code></a>
+        
+        </p>
+
+
+        
+
+        
+            <p>Available since 1.1.0</p>
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <table class="table table-bordered">
+            <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+            
+                <tr class="param">
+                    
+                       <td> <code class="param-name">_object_cfg</code>
+                       <td> <span class="type">Object | String</span>
+                       <td>
+                    
+
+                    
+                    </td>
+                    <td><div class="param-description">
+                        <p>控件配置参数 | 调用方法</p>
+
+                    </div>
+
+                    
+                        <table class="table table-bordered">
+                         <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                           
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[key=&#x27;&#x27;]</code></td>
+                                <td><span class="type">String</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>控件名称</p>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[of=$(&#x27;body&#x27;)]</code></td>
+                                <td><span class="type">Jquery object</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>控件父级</p>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[class=&#x27;&#x27;]</code></td>
+                                <td><span class="type">String</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>自定义样式</p>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[tooltip=false]</code></td>
+                                <td><span class="type">Boolean</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>提示框</p>
+<pre><code>    1. true：显示
+    2. false：不显示（默认）</code></pre>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[check=false]</code></td>
+                                <td><span class="type">Boolean</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>复选框</p>
+<pre><code>    1. true：显示
+    2. false：不显示（默认）</code></pre>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[click=true]</code></td>
+                                <td><span class="type">Boolean</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>文本点击</p>
+<pre><code>    1. true：可以点击
+    2. false：不可点击</code></pre>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[badge=true]</code></td>
+                                <td><span class="type">Boolean</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>子集统计</p>
+<pre><code>    1. true：显示
+    2. false：不显示（默认）</code></pre>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[edit=false]</code></td>
+                                <td><span class="type">Boolean</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>节点编辑</p>
+<pre><code>    1. true：显示
+    2. false：不显示（默认）</code></pre>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[open=0]</code></td>
+                                <td><span class="type">Int</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>节点展开</p>
+<pre><code>    0. 闭合（默认）
+    1. 展开</code></pre>
+
+                                </div>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[ajax]</code></td>
+                                <td><span class="type">Object</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>异步请求设置</p>
+
+                                </div>
+                                
+                                    <table class="table table-bordered">
+                                     <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                       
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[url=&#x27;&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    请求链接地址
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[id=&#x27;0&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    请求根节点编号
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[async=false]</code></td>
+                                                <td><span class="type">Boolean</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    异步请求
+			1. true：使用
+			2. false：不使用ajax（默认）
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[type=1]</code></td>
+                                                <td><span class="type">Boolean</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    异步请求类型
+			1. 加载所有根节点下的节点
+			2. 点击节点逐级加载节点
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                    </table>
+                                    </td>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[file]</code></td>
+                                <td><span class="type">Object</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>图标集合</p>
+
+                                </div>
+                                
+                                    <table class="table table-bordered">
+                                     <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                       
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[folder]</code></td>
+                                                <td><span class="type">Object</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    文件夹图标集合
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[folder.close=&#x27;fa-folder-o&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    文件夹关闭图标
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[folder.open=&#x27;fa-folder-open-o&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    文件夹打开图标
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[file]</code></td>
+                                                <td><span class="type">Object</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    异步请求
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[file.document=&#x27;fa-file-o&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    文件图标
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                    </table>
+                                    </td>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                <td>
+                                    <code class="param-name optional">[fun]</code></td>
+                                <td><span class="type">Object</span></td>
+                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>绑定事件</p>
+
+                                </div>
+                                
+                                    <table class="table table-bordered">
+                                     <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                       
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[inputBlur]</code></td>
+                                                <td><span class="type">Function</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    编辑框焦点丢失事件
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[nodeClick]</code></td>
+                                                <td><span class="type">Function</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    点击节点事件
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[loadEndCall]</code></td>
+                                                <td><span class="type">Function</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    控件初始化加载完毕事件
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[nodeRemove]</code></td>
+                                                <td><span class="type">Function</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    删除节点事件
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                    </table>
+                                    </td>
+                                
+                            </tr>
+                            
+                            <tr class="param">
+                            
+                                   <td> <code class="param-name">data</code>
+                                   <td> <span class="type">Object</span>
+                                   <td>
+                                
+
+                                
+                                </td>
+                                <td><div class="param-description">
+                                    <p>选项集合</p>
+
+                                </div>
+                                
+                                    <table class="table table-bordered">
+                                     <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+                                       
+                                        <tr class="param">
+                                        
+                                                   <td> <code class="param-name">key=&#x27;&#x27;</code>
+                                                   <td> <span class="type">String</span>
+                                                   <td>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    键
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                                   <td> <code class="param-name">val=&#x27;&#x27;</code>
+                                                   <td> <span class="type">String</span>
+                                                   <td>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    值
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[badge=&#x27;&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    统计子集值
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[type=2]</code></td>
+                                                <td><span class="type">Int</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    节点类型
+			1. 文件夹
+			2. 文件（默认）
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[edit=true]</code></td>
+                                                <td><span class="type">Boolean</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    节点编辑
+			1. true：显示（默认）
+			2. false：不显示
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[par={}]</code></td>
+                                                <td><span class="type">Object</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    传入参数
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[open=0]</code></td>
+                                                <td><span class="type">Int</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    节点编辑
+			0. 闭合
+			1. 展开（默认）
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[class=&#x27;&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    自定义样式
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[placement=&#x27;top&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    提示框显示方向
+			1. top：上（默认）
+			2. bottom：下
+			3. left：左
+			4. right：右
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[href=&#x27;javascript:;&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    链接（默认可防止页面本页滚动条置顶）
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[icon=&#x27;&#x27;]</code></td>
+                                                <td><span class="type">String</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    自定义图标
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                        <tr class="param">
+                                        
+                                            <td>
+                                                <code class="param-name optional">[select=0]</code></td>
+                                                <td><span class="type">Int</span></td>
+                                                <td><span class="flag optional" title="This parameter is optional.">optional</span>
+                                                
+
+                                                
+                                                </td>
+                                                <td><div class="param-description">
+                                                    选中项
+			0. 未中（默认）
+			1. 选中
+                                                </div>
+                                             </td>
+                                        </tr>
+                                        
+                                    </table>
+                                    </td>
+                                
+                            </tr>
+                            
+                        </table>
+                        </td>
+                    
+                </tr>
+            
+            </table>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var li1=$(&#39;&lt;li&gt;&#39;).appendTo($(&#39;body&gt;ol#__logs&#39;));
+var object_tree1=$(&#39;&lt;ul&gt;&#39;).treeUI({
+    key:&#39;tree1&#39;,
+    data:[
+        {key:&#39;1&#39;,val:&#39;AAA&#39;,badge:&#39;2&#39;,child:[
+            {key:&#39;1-1&#39;,val:&#39;CCC&#39;},
+            {key:&#39;1-2&#39;,val:&#39;DDD&#39;,child:[
+                {key:&#39;1-2-1&#39;,val:&#39;FFF&#39;},
+                {key:&#39;1-2-2&#39;,val:&#39;GGG&#39;}
+            ]},
+            {key:&#39;1-3&#39;,val:&#39;EEE&#39;}
+        ]},
+        {key:&#39;2&#39;,val:&#39;BBB&#39;,select:2,child:[
+            {key:&#39;2-1&#39;,val:&#39;HHH&#39;},
+            {key:&#39;2-2&#39;,val:&#39;III&#39;,select:1},
+            {key:&#39;2-3&#39;,val:&#39;JJJ&#39;,select:1,child:[
+                {key:&#39;2-2-1&#39;,val:&#39;KKK&#39;,select:1,badge:&#39;2&#39;,icon:&#39;fa-gamepad&#39;},
+                {key:&#39;2-2-2&#39;,val:&#39;LLL&#39;,select:1}
+            ]}
+        ]}
+    ],
+    of:li1
+});
+//or
+var li2=$(&#39;&lt;li&gt;&#39;).appendTo($(&#39;body&gt;ol#__logs&#39;));
+$(&#39;&lt;ul&gt;&#39;).treeUI({
+    key:&#39;tree2&#39;,
+    ajax:{
+        url:&#39;test/data&#39;,
+        async:true,
+        id:&#39;0&#39;,
+        type:2
+    },fun:{
+        loadEndCall:function(_object_data){
+            //console.log(_object_data.this);// treeUI 控件对象，ajax后方可返回此对象
+        }
+    },
+    of:li2
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div id="method" class="tab-pane">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_allVal" class="method item">
+    <h3 class="name">allVal</h3>
+    <code>
+    allVal
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1540"><code>input\orgui.js:1540</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>获取所有节点集合</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Object</span>]
+                    
+                    <p>节点集合</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var object_val=object_tree1.treeUI(&#39;allVal&#39;);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_changeVal" class="method item">
+    <h3 class="name">changeVal</h3>
+    <code>
+    changeVal
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1568"><code>input\orgui.js:1568</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>获取所有变更节点集合</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Object</span>]
+                    
+                    <p>所有变更节点集合</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var object_val=object_tree1.treeUI(&#39;changeVal&#39;);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_checkVal" class="method item">
+    <h3 class="name">checkVal</h3>
+    <code>
+    checkVal
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1558"><code>input\orgui.js:1558</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>获取所有CheckBox选中值集合</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Object</span>]
+                    
+                    <p>CheckBox选中值集合</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var object_val=object_tree1.treeUI(&#39;checkVal&#39;);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_closeLoading" class="method item">
+    <h3 class="name">closeLoading</h3>
+    <code>
+    closeLoading
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Jquery object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1602"><code>input\orgui.js:1602</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>关闭正在加载显示层</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Jquery object</span>]
+                    
+                    <p>当前节点</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>_object_data.this.closeLoading();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_openLoading" class="method item">
+    <h3 class="name">openLoading</h3>
+    <code>
+    openLoading
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Jquery object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1590"><code>input\orgui.js:1590</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>打开正在加载显示层</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Jquery object</span>]
+                    
+                    <p>当前节点</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>_object_data.this.openLoading();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_removeChangeVal" class="method item">
+    <h3 class="name">removeChangeVal</h3>
+    <code>
+    removeChangeVal
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1638"><code>input\orgui.js:1638</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>清空所有变更值集合</p>
+
+    </div>
+
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>object_tree1.treeUI(&#39;removeChangeVal&#39;);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_removeTag" class="method item">
+    <h3 class="name">removeTag</h3>
+    <code>
+    removeTag
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Jquery object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1578"><code>input\orgui.js:1578</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>删除变更标记</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Jquery object</span>]
+                    
+                    <p>当前节点</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>_object_data.this.removeTag();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_setDefault" class="method item">
+    <h3 class="name">setDefault</h3>
+    <code>
+    setDefault
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Jquery object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1627"><code>input\orgui.js:1627</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>设置默认值</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Jquery object</span>]
+                    
+                    <p>当前节点</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>_object_data.this.setDefault();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_setKey" class="method item">
+    <h3 class="name">setKey</h3>
+    <code>
+    setKey
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        _str_key
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Jquery object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag chainable">chainable</span>
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1614"><code>input\orgui.js:1614</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>设置节点key值</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <table class="table table-bordered">
+            <tr class='active'><th>name</th><th>type</th><th>flag</th><th>description</th></tr>
+            
+                <tr class="param">
+                    
+                       <td> <code class="param-name">_str_key</code>
+                       <td> <span class="type">String</span>
+                       <td>
+                    
+
+                    
+                    </td>
+                    <td><div class="param-description">
+                        <p>传入参数</p>
+
+                    </div>
+
+                    
+                </tr>
+            
+            </table>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Jquery object</span>]
+                    
+                    <p>当前节点</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>_object_data.this.setKey(&#39;10001&#39;);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_val" class="method item">
+    <h3 class="name">val</h3>
+    <code>
+    val
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/input_orgui.js.html#l1528"><code>input\orgui.js:1528</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <p>获取选中节点信息</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        [<span class="type">Object</span>]
+                    
+                    <p>选中节点信息</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var string_val1=object_tree1.treeUI(&#39;val&#39;);
+//or
+var string_val2=object_tree1.treeUI();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a id="gotoTop" class='well well-small' href='#'>
+    Top
+</a>
+</body>
+</html>

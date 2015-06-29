@@ -1,0 +1,3479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>input\orgui.js - ORGUI</title>
+  
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/orgui.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/vendor/prettify/prettify-min.js"></script>
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/doc.js"></script>
+    <script src="../assets/js/function.js"></script>
+    <script src="../assets/js/orgui.js"></script>
+</head>
+<body class="yui3-smart">
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="/">
+             
+            <img alt="ORGUI" src="..\assets\css\logo.png" title="ORGUI">
+            
+                ORGUI
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    
+                    <li><a href="/">Document</a>
+                    </li>
+                    
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+	    <div id="sidebar">
+    <h3>Modules/Classes</h3>
+        <div id="api-tabview-filter">
+            <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+        </div>
+        <dl>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <a href="../modules/function.html">function</a>
+                </dt>
+                <dd class="hide">
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/pubFun.html">pubFun</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <a href="../modules/ui(User_Interface_Controls).html">UI(User Interface Controls)</a>
+                </dt>
+                <dd class="hide">
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/checkUI.html">checkUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/radioUI.html">radioUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/selectUI.html">selectUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/treeUI.html">treeUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/alertUI.html">alertUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/gridUI.html">gridUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/msgUI.html">msgUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/dialogUI.html">dialogUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/selectTreeUI.html">selectTreeUI</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+        </dl>
+</div>
+   
+        </div>
+        <div class="col-sm-9">
+            <!--     <form id="options-form" class="form-inline pull-right">
+        Show:
+        <label for="api-show-inherited" class="checkbox">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected" class="checkbox">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private" class="checkbox">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated" class="checkbox">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </form>
+
+ -->
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+    <h1>input\orgui.js <small>File</small></h1>
+</div>
+
+<div class="file">
+    <pre class="prettyprint linenums" id='src_code'>
+/**
+ * UI 控件库
+ * @module UI(User Interface Controls)
+ * @requires &lt;br&gt;jquery-2.1.1.js&lt;br&gt;
+ * @requires bootstrap-3.2.css&lt;br&gt;
+ * @requires bootstrap-3.2.js&lt;br&gt;
+ * @requires font-awesome-4.2.css&lt;br&gt;
+ * @requires orgui-1.0.css
+ */
+/**
+ * &lt;h3&gt;CheckBox&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2014-10-27&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2014-11-12&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ *	&lt;script&gt;
+ *	$(function(){
+ *		$(&quot;div#method_checkUI\&gt;div.example\&gt;h4&quot;).after(
+ *			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-check&quot;:&quot;check1&quot;})
+ *			).append(&quot;&lt;br&gt;&quot;).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-check&quot;:&quot;check2&quot;})
+ *			)
+ *		);
+ *		$(&quot;&lt;div&gt;&quot;).checkUI({
+ * 			key:&quot;check1&quot;,
+ * 			data:[
+ * 				{key:&quot;1&quot;,val:&quot;A&quot;,select:1},
+ * 				{key:&quot;2&quot;,val:&quot;B&quot;}
+ * 			],
+ * 			of:$(&quot;div[data-check=\&quot;check1\&quot;]&quot;)
+ * 		});
+ *		$(&quot;&lt;div&gt;&quot;).checkUI({
+ * 			mode:2,
+ *			tooltip:true,
+ * 			data:[
+ * 				{key:&quot;1&quot;,val:&quot;A&quot;,select:1},
+ * 				{key:&quot;2&quot;,val:&quot;B&quot;}
+ * 			],
+ * 			of:$(&quot;div[data-check=\&quot;check2\&quot;]&quot;)
+ * 		});
+ *	});
+ *	&lt;/script&gt;
+ * @class checkUI
+ * @since 1.0.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {string} [_object_cfg.key=&#x27;&#x27;] 控件名称
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {boolean} [_object_cfg.tooltip=false] 提示框
+ *		1. true：显示
+ *		2. false：不显示（默认）
+ * 	@param {string} [_object_cfg.class=&#x27;&#x27;] 自定义样式
+ * 	@param {int} [_object_cfg.mode=1] 显示模式
+ *		1. 对号框组（默认）
+ *		2. 按钮组
+ * 	@param {int} [_object_cfg.compose=1] 排版模式
+ *		1. 横向（默认）
+ *		2. 纵向
+ * 	@param {object} [_object_cfg.icon] 图标样式
+ * 		@param {string} [_object_cfg.icon.default=&#x27;fa-square-o&#x27;] 默认图标
+ * 		@param {string} [_object_cfg.icon.nfull=&#x27;fa-check-square-o&#x27;] 子集不完全选中图标
+ * 		@param {string} [_object_cfg.icon.active=&#x27;fa-check-square&#x27;] 选中图标
+ * 	@param {object} [_object_cfg.fun] 绑定事件
+ * 		@param {function} [_object_cfg.fun.check] 选中触发事件
+ * 		@param {function} [_object_cfg.fun.uncheck] 取消选中触发事件
+ * 	@param {object} _object_cfg.data 选项集合
+ * 		@param {string} _object_cfg.data.key 键
+ * 		@param {string} _object_cfg.data.val 值
+ * 		@param {int} [_object_cfg.data.select=0] 选中项
+ * 			0. 未中（默认）
+ * 			1. 选中
+ * 			2. 半选（树形控件使用）
+ * 		@param {string} [_object_cfg.data.class=&#x27;&#x27;] 自定义样式（按钮组模式下默认&#x27;btn-default&#x27;）
+ * 		@param {string} [_object_cfg.data.placement=&#x27;top&#x27;] 提示框显示方向
+ * 			1. top：上（默认）
+ * 			2. bottom：下
+ * 			3. left：左
+ * 			4. right：右
+ * 		@param {string} [_object_cfg.data.href=&#x27;javascript:;&#x27;] 链接（默认可防止页面本页滚动条置顶）
+ * @param {object} [_object_par] 调用方法传入参数
+ * @constructor
+ * @chainable
+ * @example
+ * 	var li1=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	var object_check1=$(&#x27;&lt;div&gt;&#x27;).checkUI({
+ * 		key:&#x27;check1&#x27;,
+ * 		data:[
+ * 			{key:&#x27;1&#x27;,val:&#x27;A&#x27;,select:1},
+ * 			{key:&#x27;2&#x27;,val:&#x27;B&#x27;}
+ * 		],
+ * 		of:li1
+ * 	});
+ * 
+ * 	var li2=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	var object_check2=$(&#x27;&lt;div&gt;&#x27;).checkUI({
+ * 		mode:2,
+ * 		tooltip:true,
+ * 		data:[
+ * 			{key:&#x27;1&#x27;,val:&#x27;A&#x27;,select:1},
+ * 			{key:&#x27;2&#x27;,val:&#x27;B&#x27;}
+ * 		],
+ * 		of:li2
+ * 	});
+ */
+$.fn.checkUI=function(_object_cfg,_object_par){
+	var _=this;//控件
+	//返回已选中选项值
+	if($.isEmptyObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	//根据参数，调用相应方法
+	if(!$.isPlainObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun[_object_cfg](_,_object_par);
+	}
+	//注册内部方法
+	_.fun={
+		//设置选中值
+		val:function(){
+			_.val.val(((1==_.cfg.mode)?_.a.find(&#x27;&gt;i&#x27;).filter(&#x27;.&#x27;+_.cfg.icon.active):_.a.filter(&#x27;.active&#x27;)).map(function(){return 1==_.cfg.mode?$(this).parent().attr(&#x27;key&#x27;):$(this).attr(&#x27;key&#x27;)}).get().join());//设置选中值
+		},
+		//设置排版 compose [1：横向（默认），2：纵向]
+		compose:function(){
+			if(2==_.cfg.compose){
+				_.a.addClass(&#x27;compose&#x27;);//设置纵向
+			}
+			if(_.cfg.tooltip){
+				_.a.attr(&#x27;data-toggle&#x27;,&#x27;tooltip&#x27;).tooltip();//开启提示
+			}else{
+				_.a.removeAttr(&#x27;title&#x27;).removeAttr(&#x27;data-placement&#x27;);//关闭提示
+			}
+		},
+		//设置事件
+		fun:function(){
+			_.a.click(function(){
+				var a_this=$(this),i_this=a_this.find(&#x27;&gt;i&#x27;);
+				if(1==_.cfg.mode){//对号框组
+					if(i_this.hasClass(_.cfg.icon.active)){//若当前选项已选中，则移除选中图标
+						i_this.removeClass(_.cfg.icon.active);//移除选中图标
+						_.cfg.fun.uncheck({a:a_this,cfg:_.cfg});
+					}else{
+						i_this.addClass(_.cfg.icon.active);//添加选中图标
+						_.cfg.fun.check({a:a_this,cfg:_.cfg});
+					}
+				}else{//按钮组
+					if(a_this.hasClass(&#x27;active&#x27;)){//若当前选项已选中，则移除选中样式
+						a_this.removeClass(&#x27;active&#x27;);//移除选中样式
+						_.cfg.fun.uncheck({a:a_this,cfg:_.cfg});
+					}else{
+						a_this.addClass(&#x27;active&#x27;);//添加选中样式
+						_.cfg.fun.check({a:a_this,cfg:_.cfg});
+					}
+				}
+				_.fun.val();//设置选中值
+				a_this=i_this=null;
+			});
+		},
+		//初始化控件
+		ui:function(){
+			_.controls=_.attr({key:_.cfg.key,class:&#x27;org-check &#x27;+_.cfg.class}).appendTo(_.cfg.of);//绑定控件参数及样式
+			var par={};
+			$.each(_.cfg.data,function(){//遍历选项
+				par.a=$(&#x27;&lt;a&gt;&#x27;,{class:(!(1==_.cfg.mode||0==this.select)?&#x27;active &#x27;:&#x27;&#x27;)+&#x27;btn &#x27;+this.class,title:this.val,key:this.key,&#x27;data-placement&#x27;:this.placement,href:this.href}).appendTo(_.controls);
+				if(1==_.cfg.mode){//对号框组
+					switch(this.select){
+						case 1://选中
+							par.i=_.cfg.icon.default+&#x27; &#x27;+_.cfg.icon.active;
+							break;
+						case 2://非全选中
+							par.i=_.cfg.icon.nfull;
+							break;
+						default://未选中
+							par.i=_.cfg.icon.default;
+							break;
+					}
+					par.a.append(&#x27;&lt;i class=&quot;fa fa-lg &#x27;+par.i+&#x27;&quot;&gt;&lt;/i&gt;&#x27;);//创建选项图标
+				}
+				if(&#x27;&#x27;!=this.val){//选项不为空则创建选项内容
+					par.a.append(&#x27;&lt;label&gt;&#x27;+this.val+&#x27;&lt;/label&gt;&#x27;);
+				}
+			});
+			_.val=$(&#x27;&lt;input&gt;&#x27;,{type:&#x27;hidden&#x27;,name:_.cfg.key}).appendTo(_.controls);//设置选中项存储
+			_.a=_.controls.find(&#x27;&gt;a.btn&#x27;);//声明选项集合对象
+			_.fun.val();//设置选中默认值
+			par=null;
+		},
+		//初始化设置
+		init:function(){
+			_.par={
+				key:&#x27;&#x27;,
+				of:$(&#x27;body&#x27;),
+				tooltip:false,
+				class:&#x27;&#x27;,
+				mode:1,
+				compose:1,
+				fun:{
+					check:function(){},
+					uncheck:function(){}
+				},
+				icon:{
+					default:&#x27;fa-square-o&#x27;,
+					active:&#x27;fa-check-square&#x27;,
+					nfull:&#x27;fa-check-square-o&#x27;
+				},
+				data:{
+					key:&#x27;&#x27;,
+					val:&#x27;&#x27;,
+					class:&#x27;&#x27;,
+					placement:&#x27;top&#x27;,
+					href:&#x27;javascript:;&#x27;,
+					select:0
+				}
+			};//默认参数
+			_.cfg=$.extend({},_.par,_object_cfg);//初始化参数
+			if(2==_.cfg.mode){//按钮组模式下，设置选项默认样式
+				_.par.data.class=&#x27;btn-default&#x27;;
+			}
+			//遍历选项参数
+			$.each(_object_cfg.data,function(i){
+				_.cfg.data[i]=$.extend({},_.par.data,this);
+			});
+		}
+	};
+	//注册调用方法
+	_.refun={
+		/**
+		 * 选中/取消点击事件
+		 * @method click
+		 * @param {object} _object_par 传入参数
+		 * 	@param {int} _object_par.index 选项索引
+		 * @example
+		 * 	object_check1.checkUI(&#x27;click&#x27;,{index:0});
+		 */
+		click:function(_,_object_par){
+			_.a.eq(_object_par.index).click();
+		},
+		/**
+		 * 获取选项选中状态
+		 * @method getSelect
+		 * @param {object} _object_par 传入参数
+		 * 	@param {int} _object_par.index 选项索引
+		 * @return {int} 1：选中，0：未选
+		 * @example
+		 * 	var int_active=object_check1.checkUI(&#x27;getSelect&#x27;,{index:0});
+		 */
+		getSelect:function(_,_object_par){
+			if(1==_.cfg.mode){
+				return _.a.eq(_object_par.index).find(&#x27;&gt;i&#x27;).hasClass(_.cfg.icon.active)?1:0;
+			}else{
+				return _.a.eq(_object_par.index).hasClass(&#x27;active&#x27;)?1:0;
+			}
+		},
+		/**
+		 * 获取选中项键集合
+		 * @method val
+		 * @return {object} 键集合
+		 * @example
+		 * 	var string_val1=object_check1.checkUI(&#x27;val&#x27;);
+		 * 	//or
+		 * 	var string_val2=object_check1.checkUI();
+		 */
+		val:function(){
+			return _.val.val();
+		}
+	};
+	_.fun.init();//初始化设置
+	_.fun.ui();//初始化控件
+	_.fun.compose();//设置排版
+	_.fun.fun();//设置事件
+	return _.controls;//返回当前控件
+};
+/**
+ * &lt;h3&gt;Radio&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2014-10-29&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2014-10-31&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ *	&lt;script&gt;
+ *	$(function(){
+ *		$(&quot;div#method_radioUI\&gt;div.example\&gt;h4&quot;).after(
+ *			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-radio&quot;:&quot;radio1&quot;})
+ *			).append(&quot;&lt;br&gt;&quot;).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-radio&quot;:&quot;radio2&quot;})
+ *			).append(&quot;&lt;br&gt;&quot;).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-radio&quot;:&quot;radio3&quot;,&quot;style&quot;:&quot;width:100px&quot;})
+ *			)
+ *		);
+ *		$(&quot;&lt;div&gt;&quot;).radioUI({
+ * 			key:&quot;radio1&quot;,
+ * 			data:[
+ * 				{key:&quot;1&quot;,val:&quot;A&quot;,select:1},
+ * 				{key:&quot;2&quot;,val:&quot;B&quot;}
+ * 			],
+ * 			of:$(&quot;div[data-radio=\&quot;radio1\&quot;]&quot;)
+ * 		});
+ *		$(&quot;&lt;div&gt;&quot;).radioUI({
+ * 			mode:2,
+ *			tooltip:true,
+ * 			data:[
+ * 				{key:&quot;1&quot;,val:&quot;A&quot;,select:1},
+ * 				{key:&quot;2&quot;,val:&quot;B&quot;}
+ * 			],
+ * 			of:$(&quot;div[data-radio=\&quot;radio2\&quot;]&quot;)
+ * 		});
+ *		$(&quot;&lt;div&gt;&quot;).radioUI({
+ * 			mode:3,
+ * 			icon:{
+ * 				default:&quot;&quot;,
+ * 				hover:&quot;fa-child&quot;,
+ * 				active:&quot;&quot;
+ * 			},
+ * 			data:[
+ * 				{key:&quot;1&quot;,val:&quot;男&quot;,icon:&quot;fa-male&quot;,select:1,class:&quot;btn-info&quot;},
+ * 				{key:&quot;2&quot;,val:&quot;女&quot;,icon:&quot;fa-female&quot;,class:&quot;btn-danger&quot;}
+ * 			],
+ * 			of:$(&quot;div[data-radio=\&quot;radio3\&quot;]&quot;)
+ * 		});
+ *	});
+ *	&lt;/script&gt;
+ * @class radioUI
+ * @since 1.1.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {string} [_object_cfg.key=&#x27;&#x27;] 控件名称
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {boolean} [_object_cfg.tooltip=false] 提示框
+ *		1. true：显示
+ *		2. false：不显示（默认）
+ * 	@param {string} [_object_cfg.class=&#x27;&#x27;] 自定义样式
+ * 	@param {int} [_object_cfg.mode=1] 显示模式
+ *		1. 对号框组（默认）
+ *		2. 按钮组
+ *		3. 滑块组
+ * 	@param {int} [_object_cfg.compose=1] 排版模式
+ *		1. 横向（默认）
+ *		2. 纵向
+ * 	@param {object} [_object_cfg.icon] 图标样式
+ * 		@param {string} [_object_cfg.icon.default=&#x27;fa-circle-o&#x27;] 默认图标
+ * 		@param {string} [_object_cfg.icon.hover=&#x27;fa-circle&#x27;] 鼠标浮动图标
+ * 		@param {string} [_object_cfg.icon.active=&#x27;fa-dot-circle-o&#x27;] 选中图标
+ * 	@param {object} [_object_cfg.fun] 绑定事件
+ * 		@param {function} [_object_cfg.fun.check] 选中触发事件
+ * 	@param {object} _object_cfg.data 选项集合
+ * 		@param {string} _object_cfg.data.key 键
+ * 		@param {string} _object_cfg.data.val 值
+ * 		@param {int} [_object_cfg.data.select=0] 选中项
+ * 			0. 未中（默认）
+ * 			1. 选中
+ * 		@param {string} [_object_cfg.data.class=&#x27;&#x27;] 自定义样式（按钮组模式下默认&#x27;btn-default&#x27;）
+ * 		@param {string} [_object_cfg.data.placement=&#x27;top&#x27;] 提示框显示方向
+ * 			1. top：上（默认）
+ * 			2. bottom：下
+ * 			3. left：左
+ * 			4. right：右
+ * 		@param {string} [_object_cfg.data.href=&#x27;javascript:;&#x27;] 链接（默认可防止页面本页滚动条置顶）
+ * @constructor
+ * @chainable
+ * @example
+ * 	var li1=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	var object_radio1=$(&#x27;&lt;div&gt;&#x27;).radioUI({
+ * 		key:&#x27;radio1&#x27;,
+ * 		data:[
+ * 			{key:&#x27;1&#x27;,val:&#x27;A&#x27;,select:1},
+ * 			{key:&#x27;2&#x27;,val:&#x27;B&#x27;}
+ * 		],
+ * 		of:li1
+ * 	});
+ * 
+ * 	var li2=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	var object_radio2=$(&#x27;&lt;div&gt;&#x27;).radioUI({
+ * 		mode:2,
+ * 		tooltip:true,
+ * 		data:[
+ * 			{key:&#x27;1&#x27;,val:&#x27;A&#x27;,select:1},
+ * 			{key:&#x27;2&#x27;,val:&#x27;B&#x27;}
+ * 		],
+ * 		of:li2
+ * 	});
+ * 
+ * 	var li3=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	var object_radio3=$(&#x27;&lt;div&gt;&#x27;).radioUI({
+ * 		mode:3,
+ * 		icon:{
+ * 			default:&#x27;&#x27;,
+ * 			hover:&#x27;fa-child&#x27;,
+ * 			active:&#x27;&#x27;
+ * 		},
+ * 		data:[
+ * 			{key:&#x27;1&#x27;,val:&#x27;男&#x27;,icon:&#x27;fa-male&#x27;,select:1,class:&#x27;btn-info&#x27;},
+ * 			{key:&#x27;2&#x27;,val:&#x27;女&#x27;,icon:&#x27;fa-female&#x27;,class:&#x27;btn-danger&#x27;}
+ * 		],
+ * 		of:li3
+ * 	});
+ */
+$.fn.radioUI=function(_object_cfg){
+	var _=this;//控件
+	//返回已选中选项值
+	if($.isEmptyObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	//根据参数，调用相应方法
+	if(!$.isPlainObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun[_object_cfg]();
+	}
+	//注册内部方法
+	_.fun={
+		//设置选中值
+		val:function(){
+			_.val.val(((1==_.cfg.mode)?_.a.find(&#x27;&gt;i&#x27;).filter(&#x27;.&#x27;+_.cfg.icon.active):_.a.filter(&#x27;.active&#x27;)).map(function(){return 1==_.cfg.mode?$(this).parent().attr(&#x27;key&#x27;):$(this).attr(&#x27;key&#x27;)}).get().join());//设置选中值
+		},
+		//设置排版 compose [1：横向（默认），2：纵向]
+		compose:function(){
+			if(2==_.cfg.compose){
+				_.a.addClass(&#x27;compose&#x27;);//设置纵向
+			}
+			if(_.cfg.tooltip){
+				_.a.attr(&#x27;data-toggle&#x27;,&#x27;tooltip&#x27;).tooltip();//开启提示
+			}else{
+				_.a.removeAttr(&#x27;title&#x27;).removeAttr(&#x27;data-placement&#x27;);//关闭提示
+			}
+		},
+		//设置事件
+		fun:function(){
+			_.turn = false;
+			_.a.click(function(){
+				var a_this=$(this),i_this=a_this.find(&#x27;&gt;i&#x27;);
+				switch(_.cfg.mode){
+					case 1://对号框组
+						if(!i_this.hasClass(_.cfg.icon.active)){//若当前选项未选中，则添加选中图标
+							i_this.addClass(_.cfg.icon.active);//添加选中图标
+							a_this.siblings(&#x27;a&#x27;).find(&#x27;&gt;i&#x27;).removeClass(_.cfg.icon.active);//移除其他选项选中图标
+							_.fun.val();//设置选中值
+							_.cfg.fun.check({a:a_this,cfg:_.cfg});
+						}
+						break;
+					case 2://按钮组
+						if(!a_this.hasClass(&#x27;active&#x27;)){//若当前选项未选中，则添加选中样式
+							a_this.addClass(&#x27;active&#x27;).siblings(&#x27;a&#x27;).removeClass(&#x27;active&#x27;);//添加选中样式，移除其他选项选中样式
+							_.fun.val();//设置选中值
+							_.cfg.fun.check({a:a_this,cfg:_.cfg});
+						}
+						break;
+					case 3://滑块组
+						if(a_this.hasClass(&#x27;active&#x27;)){//若当前选项已选中，则移除选中样式
+							if(_.turn){return false;}
+							_.turn = true;
+							if(0==a_this.index()){//选中项为第一项，则移除选中样式，为第二项添加选中样式
+								a_this.animate({&#x27;margin-left&#x27;:&#x27;-50%&#x27;},function(){
+									$(this).siblings(&#x27;div&#x27;).addClass(&#x27;left&#x27;).removeClass(&#x27;right&#x27;);
+									_.turn = false;
+									_.cfg.fun.check({a:$(this),cfg:_.cfg});
+								}).removeClass(&#x27;active&#x27;).siblings(&#x27;a&#x27;).addClass(&#x27;active&#x27;);
+							}else{//选中项为第二项，则移除选中样式，为第一项添加选中样式
+								a_this.removeClass(&#x27;active&#x27;).siblings(&#x27;a&#x27;).animate({&#x27;margin-left&#x27;:&#x27;0&#x27;},function(){
+									$(this).siblings(&#x27;div&#x27;).addClass(&#x27;right&#x27;).removeClass(&#x27;left&#x27;);
+									_.turn = false;
+									_.cfg.fun.check({a:$(this),cfg:_.cfg});
+								}).addClass(&#x27;active&#x27;);
+							}
+							_.fun.val();//设置选中值
+						}
+						break;
+					default:break;
+				}
+				a_this=i_this=null;
+			});
+			if(3==_.cfg.mode){
+				_.controls.hover(function(){//设定鼠标hover事件用以切换图标
+					$(this).find(&#x27;&gt;a.active&gt;i&#x27;).addClass(_.cfg.icon.hover);
+				},function(){
+					$(this).find(&#x27;&gt;a.active&gt;i&#x27;).removeClass(_.cfg.icon.hover);
+				});
+				_.a.last().find(&#x27;&gt;i&#x27;).addClass(_.cfg.icon.hover);//为第二项添加样式
+				_.a.siblings(&#x27;div&#x27;).click(function(){//滑块组模式，添加遮挡按钮事件
+					if(_.turn){return false;}
+					var div_this=$(this),a_this=$(this).siblings(&#x27;a.active&#x27;);
+					_.turn = true;
+					if(0==a_this.index()){//选中项为第一项，则移除选中样式，为第二项添加选中样式
+						a_this.animate({&#x27;margin-left&#x27;:&#x27;-50%&#x27;},function(){
+							$(this).siblings(&#x27;div&#x27;).addClass(&#x27;left&#x27;).removeClass(&#x27;right&#x27;);
+							_.turn = false;
+							_.cfg.fun.check({a:$(this),cfg:_.cfg});
+						}).removeClass(&#x27;active&#x27;).siblings(&#x27;a&#x27;).addClass(&#x27;active&#x27;);
+					}else{//选中项为第二项，则移除选中样式，为第一项添加选中样式
+						a_this.removeClass(&#x27;active&#x27;).siblings(&#x27;a&#x27;).animate({&#x27;margin-left&#x27;:&#x27;0&#x27;},function(){
+							$(this).siblings(&#x27;div&#x27;).addClass(&#x27;right&#x27;).removeClass(&#x27;left&#x27;);
+							_.turn = false;
+							_.cfg.fun.check({a:$(this),cfg:_.cfg});
+						}).addClass(&#x27;active&#x27;);
+					}
+					_.fun.val();//设置选中值
+					div_this=a_this=null;
+				});
+			}else{
+				_.a.hover(function(){//设定鼠标hover事件用以切换图标
+					$(this).find(&#x27;&gt;i&#x27;).addClass(_.cfg.icon.hover);
+				},function(){
+					$(this).find(&#x27;&gt;i&#x27;).removeClass(_.cfg.icon.hover);
+				});
+			}
+		},
+		//初始化控件
+		ui:function(){
+			_.controls=_.attr({key:_.cfg.key,class:&#x27;org-radio &#x27;+_.cfg.class}).appendTo(_.cfg.of);//绑定控件参数及样式
+			if(3==_.cfg.mode){//滑块组
+				var div=null;
+				$.each(_.cfg.data,function(i){//遍历选项
+					var a=$(&#x27;&lt;a&gt;&#x27;,{class:&#x27;btn &#x27;+this.class,title:this.val,key:this.key,&#x27;data-placement&#x27;:this.placement,href:this.href}).append(&#x27;&lt;i class=&quot;fa &#x27;+(&#x27;&#x27;==_.cfg.icon.default?this.icon:_.cfg.icon.default)+&#x27; fa-lg&quot;&gt;&lt;/i&gt;&#x27;+(&#x27;&#x27;==this.val?&#x27;&#x27;:(&#x27;&lt;label&gt;&#x27;+this.val+&#x27;&lt;/label&gt;&#x27;))).appendTo(_.controls);
+					if(0==i){//添加遮挡层
+						div=$(&#x27;&lt;div&gt;&#x27;,{class:&#x27;btn btn-default&#x27;,html:&#x27;&amp;nbsp;&#x27;}).appendTo(_.controls);
+					}
+					if(1==this.select){//当前节点为选中项，设置遮挡层放置位置
+						div.addClass(0==i?&#x27;right&#x27;:&#x27;left&#x27;);
+						if(0!=i){
+							_.controls.find(&#x27;&gt;a:eq(0)&#x27;).css(&#x27;margin-left&#x27;,&#x27;-50%&#x27;);
+						}
+						a.addClass(&#x27;active&#x27;);
+					}
+				});
+			}else{//非滑块组
+				$.each(_.cfg.data,function(){//遍历选项
+					$(&#x27;&lt;a&gt;&#x27;,{class:(!(1==_.cfg.mode||0==this.select)?&#x27;active &#x27;:&#x27;&#x27;)+&#x27;btn &#x27;+this.class,title:this.val,key:this.key,&#x27;data-placement&#x27;:this.placement,href:this.href}).append((1==_.cfg.mode?&#x27;&lt;i class=&quot;fa &#x27;+_.cfg.icon.default+&#x27; fa-lg&#x27;+(0==this.select?&#x27;&#x27;:&#x27; &#x27;+_.cfg.icon.active)+&#x27;&quot;&gt;&lt;/i&gt;&#x27;:&#x27;&#x27;)+(&#x27;&#x27;==this.val?&#x27;&#x27;:(&#x27;&lt;label&gt;&#x27;+this.val+&#x27;&lt;/label&gt;&#x27;))).appendTo(_.controls);
+				});
+			}
+			_.val=$(&#x27;&lt;input&gt;&#x27;,{type:&#x27;hidden&#x27;,name:_.cfg.key}).appendTo(_.controls);//设置选中项存储
+			_.a=_.controls.find(&#x27;&gt;a.btn&#x27;);//声明选项集合对象
+			_.fun.val();//设置选中默认值
+		},
+		//初始化设置
+		init:function(){
+			_.par={
+				key:&#x27;&#x27;,
+				of:$(&#x27;body&#x27;),
+				tooltip:false,
+				class:&#x27;&#x27;,
+				mode:1,
+				compose:1,
+				fun:{
+					check:function(){}
+				},
+				icon:{
+					default:&#x27;fa-circle-o&#x27;,
+					active:&#x27;fa-dot-circle-o&#x27;,
+					hover:&#x27;fa-circle&#x27;
+				},
+				data:{
+					key:&#x27;&#x27;,
+					val:&#x27;&#x27;,
+					class:&#x27;&#x27;,
+					icon:&#x27;&#x27;,
+					placement:&#x27;top&#x27;,
+					href:&#x27;javascript:;&#x27;,
+					select:0
+				}
+			};//默认参数
+			_.cfg=$.extend({},_.par,_object_cfg);//初始化参数
+			if(2==_.cfg.mode||3==_.cfg.mode){//按钮组模式下，设置选项默认样式
+				_.par.data.class=&#x27;btn-default&#x27;;
+			}
+			if(3==_.cfg.mode){//滑块组模式下，设置选项默认样式
+				_.cfg.class+=&#x27; switch&#x27;;
+			}
+			//遍历选项参数
+			$.each(_object_cfg.data,function(i){
+				_.cfg.data[i]=$.extend({},_.par.data,this);
+			});
+		}
+	};
+	//注册调用方法
+	_.refun={
+		/**
+		 * 获取选中项键
+		 * @method val
+		 * @return {string} 选中项键
+		 * @example
+		 * 	var string_val1=object_radio1.radioUI(&#x27;val&#x27;);
+		 * 	//or
+		 * 	var string_val2=object_radio1.radioUI();
+		 */
+		val:function(){
+			return _.val.val();
+		}
+	};
+	_.fun.init();//初始化设置
+	_.fun.ui();//初始化控件
+	_.fun.compose();//设置排版
+	_.fun.fun();//设置事件
+	return _.controls;//返回当前控件
+};
+/**
+ * &lt;h3&gt;Select&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2014-11-25&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2014-11-26&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ *	&lt;script&gt;
+ *	$(function(){
+ *		$(&quot;div#method_selectUI\&gt;div.example\&gt;h4&quot;).after(
+ *			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-select&quot;:&quot;select1&quot;,&quot;style&quot;:&quot;width:120px&quot;})
+ *			)
+ *		);
+ *		$(&quot;&lt;div&gt;&quot;).selectUI({
+ * 			key:&quot;select1&quot;,
+ * 			data:[
+ * 				{key:&quot;1&quot;,val:&quot;A&quot;,select:1},
+ * 				{key:&quot;2&quot;,val:&quot;B&quot;}
+ * 			],
+ * 			of:$(&quot;div[data-select=\&quot;select1\&quot;]&quot;)
+ * 		});
+ *	});
+ *	&lt;/script&gt;
+ * @class selectUI
+ * @since 1.0.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {string} [_object_cfg.key=&#x27;&#x27;] 控件名称
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {boolean} [_object_cfg.tooltip=false] 提示框
+ *		1. true：显示
+ *		2. false：不显示（默认）
+ * 	@param {string} [_object_cfg.class=&#x27;&#x27;] 自定义样式
+ * 	@param {object} _object_cfg.data 选项集合
+ * 		@param {string} _object_cfg.data.key 键
+ * 		@param {string} _object_cfg.data.val 值
+ * 		@param {int} [_object_cfg.data.select=0] 选中项
+ * 			0. 未中（默认）
+ * 			1. 选中
+ * 		@param {string} [_object_cfg.data.class=&#x27;&#x27;] 自定义样式（按钮组模式下默认&#x27;btn-default&#x27;）
+ * 		@param {string} [_object_cfg.data.href=&#x27;javascript:;&#x27;] 链接（默认可防止页面本页滚动条置顶）
+ * @constructor
+ * @chainable
+ * @example
+ * 	var li1=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	var object_select1=$(&#x27;&lt;div&gt;&#x27;).selectUI({
+ * 		key:&#x27;select1&#x27;,
+ * 		data:[
+ * 			{key:&#x27;1&#x27;,val:&#x27;A&#x27;,select:1},
+ * 			{key:&#x27;2&#x27;,val:&#x27;B&#x27;}
+ * 		],
+ * 		of:li1
+ * 	});
+ */
+$.fn.selectUI=function(_object_cfg){
+	var _=this;//控件
+	//返回已选中选项值
+	if($.isEmptyObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	//根据参数，调用相应方法
+	if(!$.isPlainObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun[_object_cfg]();
+	}
+	//注册内部方法
+	_.fun={
+		//初始化设置
+		init:function(){
+			_.par={
+				key:&#x27;&#x27;,
+				default:{
+					key:&#x27;&#x27;,
+					val:&#x27;&#x27;
+				},
+				of:$(&#x27;body&#x27;),
+				tooltip:false,//预留
+				class:&#x27;&#x27;,
+				fun:{
+					&#x27;change&#x27;:function(){}
+				},//预留
+				data:{
+					key:&#x27;&#x27;,
+					val:&#x27;&#x27;,
+					class:&#x27;&#x27;,
+					placement:&#x27;top&#x27;,
+					href:&#x27;javascript:;&#x27;,
+					select:0,
+					icon:&#x27;&#x27;
+				}
+			};//默认参数
+			_.cfg=$.extend({},_.par,_object_cfg);//初始化参数
+			_.now=$.now();//当前时间
+			//遍历选项参数
+			$.each(_object_cfg.data,function(i){
+				_.cfg.data[i]=$.extend({},_.par.data,this);
+			});
+		},
+		//初始化控件
+		ui:function(){
+			_.controls=_.attr({key:_.cfg.key,class:&#x27;org-select dropdown &#x27;+_.cfg.class}).appendTo(_.cfg.of);//绑定控件参数及样式
+			
+			_.lable=$(&#x27;&lt;label&gt;&#x27;,{key:_.cfg.default.key,html:_.cfg.default.val});//设置默认显示
+			_.a=$(&#x27;&lt;a&gt;&#x27;,{id:_.cfg.key+&#x27;_&#x27;+_.now,class:&#x27;btn btn-default&#x27;,&#x27;data-toggle&#x27;:&#x27;dropdown&#x27;}).append(
+				_.lable
+			).append(
+				&#x27;&lt;i class=&quot;fa fa-caret-down&quot;&gt;&lt;/i&gt;&#x27;
+			).appendTo(_.controls);//默认显示按钮
+			_.ul=$(&#x27;&lt;ul&gt;&#x27;,{class:&#x27;dropdown-menu&#x27;,&#x27;aria-labelledby&#x27;:_.cfg.key+&#x27;_&#x27;+_.now}).appendTo(_.controls);//选项列表
+			
+			var par={};
+			$.each(_.cfg.data,function(){//遍历选项
+				if(1==this.select){//默认选中
+					_.lable.attr(&#x27;key&#x27;,this.key).html(this.val);
+				}
+				par.li=$(&#x27;&lt;li&gt;&#x27;,{key:this.key}).appendTo(_.ul);
+				par.a=$(&#x27;&lt;a&gt;&#x27;,{href:&#x27;javascript:void(0)&#x27;}).appendTo(par.li);
+				if(&#x27;&#x27;!=this.icon){//选项图标
+					$(&#x27;&lt;i&gt;&#x27;,{class:this.icon}).appendTo(par.a);
+				}
+				$(&#x27;&lt;label&gt;&#x27;,{html:this.val}).appendTo(par.a);//选项内容
+				_.fun.select(par.a);//绑定选项事件
+			});
+			par.val={key:_.lable.attr(&#x27;key&#x27;),val:_.lable.text()};//当前选中项信息集合
+			//_.val=$(&#x27;&lt;input&gt;&#x27;,{type:&#x27;hidden&#x27;,name:_.cfg.key}).val(JSON.stringify(par.val)).appendTo(_.controls).data(&#x27;val&#x27;,par.val);//设置选中项存储
+			_.val=$(&#x27;&lt;input&gt;&#x27;,{type:&#x27;hidden&#x27;,name:_.cfg.key}).val(par.val.key).appendTo(_.controls).data(&#x27;val&#x27;,par.val.key);//设置选中项存储
+			par=null;
+		},
+		//选项事件
+		select:function(_a_this){
+			_a_this.click(function(){//选项单机事件
+				_.lable.attr(&#x27;key&#x27;,$(this).parent().attr(&#x27;key&#x27;)).html($(this).text());//设定当前项为选中项
+				var object_li={key:_.lable.attr(&#x27;key&#x27;),val:_.lable.text()};//当前项信息集合
+				//_.val.val(JSON.stringify(object_li)).data(&#x27;val&#x27;,object_li);
+				_.val.val(object_li.key).data(&#x27;val&#x27;,object_li.key);//设置选中项存储
+				/*选中后回调*/
+				if($.isFunction(_.cfg.fun.change)){
+					/*回调选中后方法*/
+					_.cfg.fun.change({
+						key:object_li.key,
+						val:object_li.val
+					});
+				}
+				object_li=null;
+			});
+		}
+	};
+	//注册调用方法
+	_.refun={
+		/**
+		 * 获取选中项键
+		 * @method val
+		 * @return {string} 选中项键
+		 * @example
+		 * 	var string_val1=object_select1.selectUI(&#x27;val&#x27;);
+		 * 	//or
+		 * 	var string_val2=object_select1.selectUI();
+		 */
+		val:function(){
+			return _.val.data(&#x27;val&#x27;);
+		}
+	};
+	_.fun.init();//初始化设置
+	_.fun.ui();//初始化控件
+	return _.controls;//返回当前控件
+};
+/**
+ * &lt;h3&gt;Tree&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2014-11-04&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2015-01-05&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ *	&lt;script&gt;
+ *	$(function(){
+ *		$(&quot;div#method_treeUI\&gt;div.example\&gt;h4&quot;).after(
+ *			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-tree&quot;:&quot;tree1&quot;})
+ *			)
+ *		);
+ *		$(&quot;&lt;ul&gt;&quot;).treeUI({
+ * 			key:&quot;tree1&quot;,
+ * 			data:[
+ * 				{key:&quot;1&quot;,val:&quot;AAA&quot;,badge:&quot;3&quot;,child:[
+ * 					{key:&quot;1-1&quot;,val:&quot;CCC&quot;},
+ * 					{key:&quot;1-2&quot;,val:&quot;DDD&quot;,child:[
+ * 						{key:&quot;1-2-1&quot;,val:&quot;FFF&quot;},
+ * 						{key:&quot;1-2-2&quot;,val:&quot;GGG&quot;}
+ * 					]},
+ * 					{key:&quot;1-3&quot;,val:&quot;EEE&quot;}
+ * 				]},
+ * 				{key:&quot;2&quot;,val:&quot;BBB&quot;,select:2,child:[
+ * 					{key:&quot;2-1&quot;,val:&quot;HHH&quot;},
+ * 					{key:&quot;2-2&quot;,val:&quot;III&quot;,select:1},
+ * 					{key:&quot;2-3&quot;,val:&quot;JJJ&quot;,select:1,badge:&quot;2&quot;,child:[
+ * 						{key:&quot;2-2-1&quot;,val:&quot;KKK&quot;,select:1,icon:&quot;fa-gamepad&quot;},
+ * 						{key:&quot;2-2-2&quot;,val:&quot;LLL&quot;,select:1}
+ * 					]}
+ * 				]}
+ * 			],
+ * 			of:$(&quot;div[data-tree=\&quot;tree1\&quot;]&quot;)
+ * 		});
+ *	});
+ *	&lt;/script&gt;
+ * @class treeUI
+ * @since 1.1.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {string} [_object_cfg.key=&#x27;&#x27;] 控件名称
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {string} [_object_cfg.class=&#x27;&#x27;] 自定义样式
+ * 	@param {boolean} [_object_cfg.tooltip=false] 提示框
+ * 		1. true：显示
+ * 		2. false：不显示（默认）
+ * 	@param {boolean} [_object_cfg.check=false] 复选框
+ * 		1. true：显示
+ * 		2. false：不显示（默认）
+ * 	@param {boolean} [_object_cfg.click=true] 文本点击
+ * 		1. true：可以点击
+ * 		2. false：不可点击
+ * 	@param {boolean} [_object_cfg.badge=true] 子集统计
+ * 		1. true：显示
+ * 		2. false：不显示（默认）
+ * 	@param {boolean} [_object_cfg.edit=false] 节点编辑
+ * 		1. true：显示
+ * 		2. false：不显示（默认）
+ * 	@param {int} [_object_cfg.open=0] 节点展开
+ * 		0. 闭合（默认）
+ * 		1. 展开
+ * 	@param {object} [_object_cfg.ajax] 异步请求设置
+ * 		@param {string} [_object_cfg.ajax.url=&#x27;&#x27;] 请求链接地址
+ * 		@param {string} [_object_cfg.ajax.id=&#x27;0&#x27;] 请求根节点编号
+ * 		@param {boolean} [_object_cfg.ajax.async=false] 异步请求
+ * 			1. true：使用
+ * 			2. false：不使用ajax（默认）
+ * 		@param {boolean} [_object_cfg.ajax.type=1] 异步请求类型
+ * 			1. 加载所有根节点下的节点
+ * 			2. 点击节点逐级加载节点
+ * 	@param {object} [_object_cfg.file] 图标集合
+ * 		@param {object} [_object_cfg.file.folder] 文件夹图标集合
+ * 			@param {string} [_object_cfg.file.folder.close=&#x27;fa-folder-o&#x27;] 文件夹关闭图标
+ * 			@param {string} [_object_cfg.file.folder.open=&#x27;fa-folder-open-o&#x27;] 文件夹打开图标
+ * 		@param {object} [_object_cfg.file.file] 异步请求
+ * 			@param {string} [_object_cfg.file.file.document=&#x27;fa-file-o&#x27;] 文件图标
+ * 	@param {object} [_object_cfg.fun] 绑定事件
+ * 		@param {function} [_object_cfg.fun.inputBlur] 编辑框焦点丢失事件
+ * 		@param {function} [_object_cfg.fun.nodeClick] 点击节点事件
+ * 		@param {function} [_object_cfg.fun.loadEndCall] 控件初始化加载完毕事件
+ * 		@param {function} [_object_cfg.fun.nodeRemove] 删除节点事件
+ * 	@param {object} _object_cfg.data 选项集合
+ * 		@param {string} _object_cfg.data.key=&#x27;&#x27; 键
+ * 		@param {string} _object_cfg.data.val=&#x27;&#x27; 值
+ * 		@param {string} [_object_cfg.data.badge=&#x27;&#x27;] 统计子集值
+ * 		@param {int} [_object_cfg.data.type=2] 节点类型
+ * 			1. 文件夹
+ * 			2. 文件（默认）
+ * 		@param {boolean} [_object_cfg.data.edit=true] 节点编辑
+ * 			1. true：显示（默认）
+ * 			2. false：不显示
+ * 		@param {object} [_object_cfg.data.par={}] 传入参数
+ * 		@param {int} [_object_cfg.data.open=0] 节点编辑
+ * 			0. 闭合
+ * 			1. 展开（默认）
+ * 		@param {string} [_object_cfg.data.class=&#x27;&#x27;] 自定义样式
+ * 		@param {string} [_object_cfg.data.placement=&#x27;top&#x27;] 提示框显示方向
+ * 			1. top：上（默认）
+ * 			2. bottom：下
+ * 			3. left：左
+ * 			4. right：右
+ * 		@param {string} [_object_cfg.data.href=&#x27;javascript:;&#x27;] 链接（默认可防止页面本页滚动条置顶）
+ * 		@param {string} [_object_cfg.data.icon=&#x27;&#x27;] 自定义图标
+ * 		@param {int} [_object_cfg.data.select=0] 选中项
+ * 			0. 未中（默认）
+ * 			1. 选中
+ * @constructor
+ * @chainable
+ * @example
+ * 	var li1=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	var object_tree1=$(&#x27;&lt;ul&gt;&#x27;).treeUI({
+ * 		key:&#x27;tree1&#x27;,
+ * 		data:[
+ * 			{key:&#x27;1&#x27;,val:&#x27;AAA&#x27;,badge:&#x27;2&#x27;,child:[
+ * 				{key:&#x27;1-1&#x27;,val:&#x27;CCC&#x27;},
+ * 				{key:&#x27;1-2&#x27;,val:&#x27;DDD&#x27;,child:[
+ * 					{key:&#x27;1-2-1&#x27;,val:&#x27;FFF&#x27;},
+ * 					{key:&#x27;1-2-2&#x27;,val:&#x27;GGG&#x27;}
+ * 				]},
+ * 				{key:&#x27;1-3&#x27;,val:&#x27;EEE&#x27;}
+ * 			]},
+ * 			{key:&#x27;2&#x27;,val:&#x27;BBB&#x27;,select:2,child:[
+ * 				{key:&#x27;2-1&#x27;,val:&#x27;HHH&#x27;},
+ * 				{key:&#x27;2-2&#x27;,val:&#x27;III&#x27;,select:1},
+ * 				{key:&#x27;2-3&#x27;,val:&#x27;JJJ&#x27;,select:1,child:[
+ * 					{key:&#x27;2-2-1&#x27;,val:&#x27;KKK&#x27;,select:1,badge:&#x27;2&#x27;,icon:&#x27;fa-gamepad&#x27;},
+ * 					{key:&#x27;2-2-2&#x27;,val:&#x27;LLL&#x27;,select:1}
+ * 				]}
+ * 			]}
+ * 		],
+ * 		of:li1
+ * 	});
+ *	//or
+ * 	var li2=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	$(&#x27;&lt;ul&gt;&#x27;).treeUI({
+ * 		key:&#x27;tree2&#x27;,
+ * 		ajax:{
+ * 			url:&#x27;test/data&#x27;,
+ * 			async:true,
+ * 			id:&#x27;0&#x27;,
+ * 			type:2
+ * 		},fun:{
+ * 			loadEndCall:function(_object_data){
+ * 				//console.log(_object_data.this);// treeUI 控件对象，ajax后方可返回此对象
+ * 			}
+ * 		},
+ * 		of:li2
+ * 	});
+ */
+$.fn.treeUI=function(_object_cfg){
+	var _=this;//控件
+	//返回已选中选项值
+	if($.isEmptyObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	//根据参数，调用相应方法
+	if(!$.isPlainObject(_object_cfg)){
+		//_=_.prevObject;//本行代码正常使用控件时需开启，注释仅为api文档使用模式
+		return _.refun[_object_cfg]();
+	}
+	//注册内部方法
+	_.fun={
+		//设置checkbox选中集合缓存
+		setCheckVal:function(_str_key,_object_this){
+			var object_check=_.checkVal.data(&#x27;val&#x27;);
+			object_check[_str_key]=_object_this;
+			_.checkVal.val(JSON.stringify(object_check)).data(&#x27;val&#x27;,object_check);
+			_str_key=_object_this=object_check=null;
+		},
+		//设置节点变更集合缓存
+		setChangeVal:function(_str_key,_object_this){
+			var object_change=_.changeVal.data(&#x27;val&#x27;);
+			object_change[_str_key]=_object_this;
+			_.changeVal.val(JSON.stringify(object_change)).data(&#x27;val&#x27;,object_change);
+			_str_key=_object_this=object_change=null;
+		},
+		//加载数据
+		data:function(_fun,_a_this){
+			if(_.cfg.ajax.async){//异步数据
+				pubFun.ajax({
+					url:_.cfg.ajax.url,
+					data:{
+						id:_.cfg.ajax.id,
+						type:_.cfg.ajax.type
+					},suc:function(_data){//请求成功
+						if(&#x27;suc&#x27;==_data.msg){
+							_.cfg.data=[];
+							//遍历节点参数
+							$.each(_data.data,function(i){
+								_.cfg.data[i]=$.extend({},_.par.data,this);
+								_.fun.child(this,_.cfg.data[i]);
+							});
+							//回调方法
+							_fun();
+						}else{
+							console.log(&#x27;suc-err:  &#x27;,_data);
+							if(_a_this){//节点加载失败则设置当前节点不可用
+								_a_this.attr(&#x27;disabled&#x27;,&#x27;disabled&#x27;).find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-plus&#x27;).addClass(&#x27;fa-ban text-danger&#x27;);
+							}
+						}
+					},bes:function(){//请求返回前
+						if(_a_this){//节点请求设置loading显示
+							_a_this.find(&#x27;&gt;i&#x27;).addClass(&#x27;fa-spinner fa-spin&#x27;);
+						}else{//初始化请求设置loading显示
+							_.append(&#x27;&lt;div&gt;&lt;span&gt;&lt;i class=&quot;fa fa-spinner fa-spin fa-3x&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&#x27;);
+						}
+					},cpl:function(){//请求返回后
+						if(_a_this){//节点请求设置loading移除
+							_a_this.find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-spinner fa-spin&#x27;);
+						}else{//初始化请求设置loading隐藏
+							_.controls.find(&#x27;&gt;div&#x27;).hide();
+						}
+					},err:function(_data){//请求失败
+						console.log(&#x27;err:  &#x27;,_data);
+					}
+				});
+			}else{//本地数据
+				//遍历节点参数
+				$.each(_.cfg.data,function(i){
+					_.cfg.data[i]=$.extend({},_.par.data,this);
+					_.fun.child(this,_.cfg.data[i]);
+				});
+				//回调方法
+				_fun();
+			}
+		},
+		//设置事件
+		fun:function(_li){
+			_li.find(&#x27;&gt;a:eq(0):not(:empty)&#x27;).click(_.fun.fold);//节点折叠按钮事件
+			_li.find(&#x27;&gt;a:eq(2)&#x27;).dblclick(function(){//节点双击折叠事件
+				_.fun.fold($(this).siblings(&#x27;a:first&#x27;));
+			});
+			_li.find(&#x27;&gt;a:eq(2)&#x27;).click(function(){//节点单击事件
+				if(!_.cfg.click){//设置节点文本可否点击
+					return false;
+				}
+				var a_this=$(this);
+				if(a_this.hasClass(&#x27;bg-info&#x27;)){//取消选中当前节点
+					a_this.removeClass(&#x27;bg-info&#x27;).find(&#x27;&gt;div.btn-group&#x27;).hide(&#x27;fast&#x27;);
+					_.val.val(&#x27;&#x27;).removeData(&#x27;val&#x27;);
+				}else{//选中当前节点移除其他节点选中状态
+					_.controls.find(&#x27;li&#x27;).find(&#x27;&gt;a:eq(2)&#x27;).removeClass(&#x27;bg-info&#x27;).find(&#x27;&gt;div.btn-group&#x27;).hide(&#x27;fast&#x27;);
+					a_this.addClass(&#x27;bg-info&#x27;).find(&#x27;&gt;div.btn-group&#x27;).show(&#x27;fast&#x27;);
+					var li_this=a_this.closest(&#x27;li&#x27;),li_parent=li_this.parent().parent(),object_result={key:li_this.attr(&#x27;key&#x27;),val:li_this.attr(&#x27;title&#x27;),parentKey:li_parent.attr(&#x27;key&#x27;),parentVal:li_parent.attr(&#x27;title&#x27;),type:0==li_this.find(&#x27;&gt;a:eq(2)&gt;i[class*=&quot;fa-folder-&quot;]&#x27;).length?2:1};
+					_.val.val(JSON.stringify(object_result)).data(&#x27;val&#x27;,object_result);
+					//选中节点回调
+					if($.isFunction(_.cfg.fun.nodeClick)){
+						//回调选中节点方法
+						_.cfg.fun.nodeClick(object_result);
+					}
+					object_result=li_parent=li_this=null;
+				}
+				a_this=null;
+			}).find(&#x27;&gt;div.btn-group&gt;button:eq(0)&#x27;).click(function(e){//编辑当前节点
+				var label_this=$(this).parent().prev();
+				_.fun.input(label_this).appendTo(label_this.empty()).select();
+				label_this=null;
+				e.stopPropagation();
+			}).next().click(function(e){//创建子级
+				var li_this=$(this).closest(&#x27;li&#x27;),ul_this=li_this.find(&#x27;&gt;ul&#x27;),a_this=li_this.find(&#x27;&gt;a:eq(0)&#x27;);
+				if(0==ul_this.length){
+					ul_this=$(&#x27;&lt;ul&gt;&#x27;).appendTo(li_this);
+					_.fun.node([$.extend({},_.par.data,{val:&#x27;&#x27;,type:2})],ul_this);
+					a_this.attr({class:&#x27;btn&#x27;,href:&#x27;javascript:;&#x27;}).html(&#x27;&lt;i class=&quot;fa fa-plus fa-lg&quot;&gt;&lt;/i&gt;&#x27;).click(_.fun.fold).siblings(&#x27;a:last&#x27;).find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-file-o&#x27;).addClass(&#x27;fa-folder-o&#x27;);
+					li_this.attr(&#x27;change&#x27;,1);
+				}else{
+					_.fun.node([$.extend({},_.par.data,{val:&#x27;&#x27;,type:2})],ul_this);
+					li_this.attr(&#x27;change&#x27;,0);
+				}
+				var label_child=ul_this.find(&#x27;&gt;li:last&gt;a:last&gt;label&#x27;);
+				_.fun.open({a:a_this,ul:ul_this});
+				_.fun.input(label_child).appendTo(label_child).select();				
+				e.stopPropagation();
+			}).next().click(function(e){//删除本级及子级节点
+				var li_this=$(this).closest(&#x27;li&#x27;);
+				//焦点消失回调
+				if($.isFunction(_.cfg.fun.nodeRemove)){
+					//回调焦点消失方法
+					_.cfg.fun.nodeRemove({
+						this:li_this,
+						key:li_this.attr(&#x27;key&#x27;)
+					});
+				}
+				li_this=null;
+				e.stopPropagation();
+			});
+		},
+		//编辑框
+		input:function(_label_this){
+			return $(&#x27;&lt;input&gt;&#x27;,{type:&#x27;text&#x27;,class:&#x27;form-control input-sm&#x27;,value:_label_this.text(),placeholder:_label_this.text(),dblclick:function(e){
+				e.stopPropagation();
+			},click:function(e){
+				e.stopPropagation();
+			},blur:function(){//丢失焦点
+				var par={
+					str_val:$.trim($(this).val()),//输入内容
+					label_this:$(this).parent(),//父级标签
+					str_ph:$(this).attr(&#x27;placeholder&#x27;)//上次数据
+				};
+				par.str_original=par.label_this.attr(&#x27;v&#x27;);//初始数据
+				//移除错误状态
+				if(par.label_this.hasClass(&#x27;has-error&#x27;)){
+					par.label_this.removeClass(&#x27;has-error&#x27;);
+				}
+				if(0==par.str_val.length){//本次未输入
+					if(par.str_ph==par.str_original){//上次数据和初始数据一致
+						if(0==par.str_original.length){//初始数据为空
+							par.label_this.addClass(&#x27;has-error&#x27;);
+						}else{//恢复节点内容为初始化数据
+							_label_this.html(par.str_original).closest(&#x27;li&#x27;).attr(&#x27;title&#x27;,par.str_original);
+						}
+					}else{//恢复节点内容为上次数据
+						_label_this.html(&#x27;&lt;i class=&quot;fa fa-tag text-danger&quot;&gt;&lt;/i&gt;&#x27;+par.str_ph).closest(&#x27;li&#x27;).attr(&#x27;title&#x27;,par.str_ph);
+					}
+				}else{//本次输入
+					if(par.str_val==par.str_original){//本次输入和初始化数据一致，则节点状态不变
+						_label_this.html(par.str_val).closest(&#x27;li&#x27;).attr(&#x27;title&#x27;,par.str_val);
+					}else{//节点内容设置为本次输入，并增加变动状态
+						_label_this.html(&#x27;&lt;i class=&quot;fa fa-tag text-danger&quot;&gt;&lt;/i&gt;&#x27;+par.str_val).closest(&#x27;li&#x27;).attr(&#x27;title&#x27;,par.str_val);
+					}
+				}
+				//如果本次输入、上次数据、初始化数据均为空，则提示错误并跳出结束本方法
+				if(par.label_this.hasClass(&#x27;has-error&#x27;)){
+					return false;
+				}
+				par.li_this=par.label_this.closest(&#x27;li&#x27;);//当前节点对象
+				if(0==_label_this.find(&#x27;&gt;i.fa-tag&#x27;).length){//本次操作未变数据
+					var object_change=_.changeVal.data(&#x27;val&#x27;);
+					if(object_change[par.li_this.attr(&#x27;key&#x27;)]){//判断变更数据缓存中是否含有上次数据，如存在则剔除
+						delete object_change[par.li_this.attr(&#x27;key&#x27;)];
+						_.changeVal.val(JSON.stringify(object_change)).data(&#x27;val&#x27;,object_change);
+					}
+					object_change=null;
+					return false;
+				}
+
+				par.li_parent=par.li_this.parent().parent();//当前节点父级节点
+				par.li_prev=par.li_this.prev();//当前节点的前一个节点
+				if(&#x27;&#x27;==par.li_this.attr(&#x27;key&#x27;)){//当前节点编号不存在，则视为新创建节点并按照规则创建其编号
+					par.li_this.attr(&#x27;key&#x27;,par.li_parent.attr(&#x27;key&#x27;)+(0==par.li_prev.length?&#x27;-x1&#x27;:(&#x27;-x&#x27;+(parseInt(par.li_prev.attr(&#x27;key&#x27;).split(&#x27;x&#x27;)[1])+1))));//若前一节点存在则将前节点编号+1赋予当前节点，若前一节点不存在则默认1赋予当前节点
+				}
+
+				par.vals=_.fun.getVal({li:par.li_this,object:{}});
+				par.vals.val.key=par.li_this.attr(&#x27;key&#x27;);
+				_.fun.setChangeVal(par.vals.val.key,par.vals.val);
+				
+				if($.isFunction(_.cfg.fun.inputBlur)){//焦点消失回调
+					//设置暴漏方法
+					par.label_this.removeTag=_.refun.removeTag;//删除内容变更标记
+					par.label_this.openLoading=_.refun.openLoading;//打开正在加载显示层
+					par.label_this.closeLoading=_.refun.closeLoading;//隐藏正在加载显示层
+					par.label_this.setKey=_.refun.setKey;//设置节点key值
+					par.label_this.setDefault=_.refun.setDefault;//设置默认值
+					par.label_this.cleanChangeVal=_.refun.removeChangeVal;//清空所有变更值集合
+					//回调焦点消失方法
+					_.cfg.fun.inputBlur({
+						this:par.label_this,
+						type:0==par.li_parent.find(&#x27;&gt;a:eq(2)&gt;i[class*=&quot;fa-folder-&quot;]&#x27;).length?2:1,
+						val:par.str_val,
+						key:par.li_this.attr(&#x27;key&#x27;),
+						parent:par.li_parent,
+						parentKey:par.li_parent.attr(&#x27;key&#x27;),
+						parentVal:par.li_parent.attr(&#x27;title&#x27;)
+					});
+				}
+				par=null;
+			}});
+		},
+		//节点展开、闭合
+		fold:function(_a_this){
+			var a_this=_a_this.type?$(this):_a_this,//当前节点
+				ul_child=a_this.siblings(&#x27;ul&#x27;);//当前节点子集
+			if(ul_child.is(&#x27;:hidden&#x27;)){//子集隐藏时
+				if(2==_.cfg.ajax.type&amp;&amp;_.cfg.ajax.async){//ajax并且使用模式2进行异步加载节点
+					if(1!=a_this.attr(&#x27;state&#x27;)){//初次加载本节点数据
+						_.cfg.ajax.id=a_this.parent().attr(&#x27;key&#x27;);//设置加载节点编号
+						_.fun.data(function(){//装载数据
+							_.fun.node(_.cfg.data,ul_child.empty());//绑定子节点数据
+							_.fun.open({a:a_this,ul:ul_child});//展开节点
+						},a_this.attr(&#x27;state&#x27;,1));
+					}else{
+						_.fun.open({a:a_this,ul:ul_child});//展开节点
+					}
+				}else{
+					_.fun.open({a:a_this,ul:ul_child});//展开节点
+				}
+			}else{//子集显示时
+				if(2==_.cfg.ajax.type&amp;&amp;_.cfg.ajax.async){//ajax并且使用模式2进行异步加载节点
+					if(1!=a_this.attr(&#x27;state&#x27;)){//未加载本节点数据
+						if(0==ul_child.find(&#x27;i[class*=&quot;fa-tag&quot;]&#x27;).length&amp;&amp;0==ul_child.find(&#x27;label[class*=&quot;has-error&quot;]&#x27;).length){//未存在新节点或变更节点
+							_.fun.close({a:a_this,ul:ul_child});//闭合节点
+						}
+					}else{
+						_.fun.close({a:a_this,ul:ul_child});//闭合节点
+					}
+				}else{
+					_.fun.close({a:a_this,ul:ul_child});//闭合节点
+				}
+			}
+		},
+		//展开节点
+		open:function(_object_this){
+			_object_this.a.find(&#x27;&gt;i&#x27;).addClass(&#x27;fa-minus&#x27;);//设置展开减号图标
+			_object_this.a.siblings(&#x27;a:last&#x27;).find(&#x27;&gt;i&#x27;).addClass(&#x27;fa-folder-open-o&#x27;);//设置展开文件夹图标
+			_object_this.ul.show();//显示子集所有节点
+		},
+		//闭合节点
+		close:function(_object_this){
+			_object_this.a.find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-minus&#x27;);//移除减号图标
+			_object_this.a.siblings(&#x27;a:last&#x27;).find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-folder-open-o&#x27;);//移除展开文件夹图标
+			_object_this.ul.hide();//隐藏子集所有节点
+		},
+		//checkbox选中
+		check:function(_object_this){
+			var par={
+				li_this:_object_this.a.closest(&#x27;li&#x27;),//当前节点
+				bool_all:true//标识同级是否已选中（true：未选中，false：选中）
+			};
+			var fun={
+				//遍历父级选中状态
+				parent:function(_li_this){
+					par.ul_this=_li_this.parent();//当前节点父级对象
+					par.i_icon=par.ul_this.siblings(&#x27;a&#x27;).eq(1).find(&#x27;&gt;div.org-check i&#x27;);//当前节点父级图标对象
+					if(!par.i_icon.hasClass(_object_this.cfg.icon.active)){//当前节点父级未选中
+						if(par.bool_all){//同级节点不含选中项
+							par.i_icon.addClass(_object_this.cfg.icon.active);//设置父级节点为全选中图标
+						}else{//同级节点含有选中项
+							par.i_icon.removeClass(_object_this.cfg.icon.default).addClass(_object_this.cfg.icon.nfull);//设置父级节点为非全选中图标
+						}
+					}
+					if(!par.ul_this.hasClass(&#x27;org-tree&#x27;)){//递归父级节点直到根节点为止
+						fun.sibling(par.ul_this.parent());//遍历父级节点的同级节点选中状态
+						fun.parent(par.ul_this.parent());//遍历父级的父级节点选中状态
+					}
+				},
+				//遍历同级选中状态
+				sibling:function(_li_this){
+					_li_this.siblings(&#x27;li&#x27;).each(function(){//遍历同级节点
+						if(!$(this).find(&#x27;&gt;a&gt;div.org-check i&#x27;).hasClass(_object_this.cfg.icon.active)){//当前节点未被选中
+							par.bool_all=false;
+							return false;
+						}
+					});
+				},
+				//遍历子集选中状态
+				child:function(_li_this){
+					_li_this.find(&#x27;ul&gt;li&#x27;).each(function(){//遍历子集节点
+						$(this).find(&#x27;&gt;a:eq(1)&gt;div.org-check i&#x27;).removeClass(_object_this.cfg.icon.nfull).addClass(_object_this.cfg.icon.active);//设置子节点全部为全选中图标
+					});
+				}
+			};
+			fun.sibling(par.li_this);//遍历同级选中状态
+			fun.child(par.li_this);//遍历节点参数
+			fun.parent(par.li_this);//遍历父级选中状态
+			_.fun.setCheck();//重置缓存check选中项
+			//选中回调
+			if($.isFunction(_.cfg.fun.check)){
+				//回调选中方法
+				_.cfg.fun.check();
+			}
+			par=fun=null;
+		},
+		//checkbox取消选中
+		uncheck:function(_object_this){
+			var par={
+				li_this:_object_this.a.closest(&#x27;li&#x27;),//当前节点
+				bool_all:true//标识同级是否已选中（true：未选中，false：选中）
+			};
+			var fun={
+				//遍历父级选中状态
+				parent:function(_li_this){
+					par.ul_this=_li_this.parent();//当前节点父级对象
+					par.i_icon=par.ul_this.siblings(&#x27;a&#x27;).eq(1).find(&#x27;&gt;div.org-check i&#x27;);//当前节点父级图标对象
+					if(par.i_icon.hasClass(_object_this.cfg.icon.active)){//当前节点父级选中
+						if(par.bool_all){//同级节点不含选中项
+							par.i_icon.removeClass(_object_this.cfg.icon.active).addClass(_object_this.cfg.icon.default);//设置父级节点为默认图标
+						}else{//同级节点含有选中项
+							par.i_icon.removeClass(_object_this.cfg.icon.default).removeClass(_object_this.cfg.icon.active).addClass(_object_this.cfg.icon.nfull);//设置父级节点为非全选中图标
+						}
+					}
+					if(par.i_icon.hasClass(_object_this.cfg.icon.nfull)){//父级节点为非全选中图标
+						if(par.bool_all){//同级节点不含选中项
+							par.i_icon.removeClass(_object_this.cfg.icon.nfull).addClass(_object_this.cfg.icon.default);//设置父级节点为默认图标
+						}
+					}
+					if(!par.ul_this.hasClass(&#x27;org-tree&#x27;)){//递归父级节点直到根节点为止
+						fun.sibling(par.ul_this.parent());//遍历父级节点的同级节点选中状态
+						fun.parent(par.ul_this.parent());//遍历父级的父级节点选中状态
+					}
+				},
+				//遍历同级选中状态
+				sibling:function(_li_this){
+					_li_this.siblings(&#x27;li&#x27;).each(function(){//遍历同级节点
+						if($(this).find(&#x27;&gt;a&gt;div.org-check i&#x27;).hasClass(_object_this.cfg.icon.active)){//当前节点被选中
+							par.bool_all=false;
+							return false;
+						}
+					});
+				},
+				//遍历子集选中状态
+				child:function(_li_this){
+					_li_this.find(&#x27;ul&gt;li&#x27;).each(function(){//遍历子集节点
+						$(this).find(&#x27;&gt;a:eq(1)&gt;div.org-check i&#x27;).removeClass(_object_this.cfg.icon.active).removeClass(_object_this.cfg.icon.nfull).addClass(_object_this.cfg.icon.default);//设置子节点全部为默认图标
+					});
+				},
+				//恢复当前节点默认图标
+				self:function(_li_this){
+					_li_this.find(&#x27;&gt;a:eq(1)&gt;div.org-check i&#x27;).removeClass(_object_this.cfg.icon.nfull).addClass(_object_this.cfg.icon.default);
+				}
+			};
+			fun.self(par.li_this);//恢复当前节点默认图标
+			fun.sibling(par.li_this);//遍历同级选中状态
+			fun.child(par.li_this);//遍历子集选中状态
+			fun.parent(par.li_this);//遍历父级选中状态
+			//重置缓存check选中项
+			_.fun.setCheck();		
+			//选中回调
+			if($.isFunction(_.cfg.fun.uncheck)){
+				//回调选中方法
+				_.cfg.fun.uncheck();
+			}
+			par=fun=null;
+		},
+		//遍历节点
+		node:function(_object_data,_object_of){
+			$.each(_object_data,function(){//遍历选项
+				//节点
+				var par={
+					select:&#x27;&#x27;,
+					li:$(&#x27;&lt;li&gt;&#x27;,{class:this.class,key:this.key,title:$.isPlainObject(this.val)?&#x27;&#x27;:this.val,&#x27;data-toggle&#x27;:&#x27;tooltip&#x27;,&#x27;data-placement&#x27;:this.placement}),
+					folder:&#x27;&lt;a class=&quot;btn&quot; href=&quot;javascript:;&quot;&gt;&lt;i class=&quot;fa fa-plus &#x27;+(1==this.open?&#x27;fa-minus&#x27;:&#x27;&#x27;)+&#x27; fa-lg&quot;&gt;&lt;/i&gt;&lt;/a&gt;&#x27;,
+					file:&#x27;&lt;a class=&quot;nobox&quot;&gt;&lt;/a&gt;&#x27;,
+					icon:&#x27;&#x27;
+				};
+
+				par.li.appendTo(_object_of).data(&#x27;par&#x27;,this.par);//缓存传入参数
+
+				//折叠按钮
+				if(1==this.type||this.child){//文件夹或是含有子集
+					if(2==_.cfg.ajax.type&amp;&amp;_.cfg.ajax.async){//异步请求并且是一层节点加载请求模式
+						if(this.child){//含子集
+							par.li.append(par.file);//无折叠按钮
+						}else{//不含子集
+							par.li.append(par.folder);//折叠按钮
+						}
+					}else{//本地数据
+						if(this.child){//含子集
+							par.li.append(par.folder);//折叠按钮
+						}else{//不含子集
+							par.li.append(par.file);//无折叠按钮
+						}
+					}
+				}else{
+					par.li.append(par.file);//无折叠按钮
+				}
+				
+				//图标，文本，操作组
+				if(&#x27;&#x27;==this.icon){
+					if(1==this.type||this.child){//指定文件夹或含有子集
+						par.icon=_.cfg.file.folder.close;//文件夹图标
+					}else{
+						par.icon=_.cfg.file.file.document;//文件图标
+					}
+				}else{
+					par.icon=this.icon;//自定义图标
+				}
+				par.li.append(
+					&#x27;&lt;a&gt;&lt;/a&gt;&#x27;//复选
+				).append(
+					$(&#x27;&lt;a&gt;&#x27;,{class:&#x27;btn&#x27;,href:this.href}).append(
+						&#x27;&lt;i class=&quot;fa &#x27;+par.icon+&#x27; fa-lg&quot;&gt;&lt;/i&gt;&#x27;//图标
+					).append(
+						&#x27;&lt;label v=&quot;&#x27;+this.val+&#x27;&quot;&gt;&#x27;+this.val+&#x27;&lt;/label&gt;&#x27;//内容
+					).append(
+						_.cfg.edit?(this.edit?&#x27;&lt;div class=&quot;btn-group&quot;&gt;&lt;button class=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;i class=&quot;fa fa-pencil-square-o fa-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;button class=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;i class=&quot;fa fa-code-fork fa-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;button class=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;i class=&quot;fa fa-trash-o fa-fw&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;&#x27;:&#x27;&#x27;):&#x27;&#x27;//编辑按钮组
+					)
+				);
+				
+				//子集统计
+				if(&#x27;&#x27;!=this.badge){
+					par.li.append(&#x27;&lt;span class=&quot;badge&quot;&gt;&#x27;+this.badge+&#x27;&lt;/span&gt;&#x27;);
+				}
+
+				//复选
+				if(_.cfg.check){
+					$(&#x27;&lt;div&gt;&#x27;).checkUI({
+						fun:{
+							check:_.fun.check,
+							uncheck:_.fun.uncheck
+						},
+						data:[{select:this.select,icon:&#x27;fa-check-square-o&#x27;}],
+						of:par.li.find(&#x27;&gt;a:eq(1)&#x27;)
+					});
+				}
+				
+				//子集节点
+				if(1==this.type||this.child){
+					if(2==_.cfg.ajax.type&amp;&amp;_.cfg.ajax.async){
+						$(&#x27;&lt;ul&gt;&#x27;,{&#x27;style&#x27;:(1==this.open?&#x27;&#x27;:&#x27;display:none&#x27;)}).appendTo(par.li);
+					}else{
+						if(this.child){//含有子集
+							_.fun.node(this.child,$(&#x27;&lt;ul&gt;&#x27;,{&#x27;style&#x27;:(1==this.open?&#x27;&#x27;:&#x27;display:none&#x27;)}).appendTo(par.li));//遍历所有子集
+						}
+					}
+				}
+				_.fun.fun(par.li);//设置事件
+				
+				var fun={
+					//展开节点事件
+					open:function(_li_this){
+						par.parentUL=_li_this.parent();//父级对象
+						if(!par.parentUL.hasClass(&#x27;org-tree&#x27;)&amp;&amp;par.parentUL.is(&#x27;:hidden&#x27;)){//非根节点和父级节点未显示
+							_.fun.fold(_li_this.find(&#x27;&gt;a:first&#x27;));//展开当前节点
+							_.fun.fold(par.parentUL.siblings(&#x27;a:first&#x27;));//展开父级节点
+							this.open(par.parentUL.parent());//展开父级节点
+						}
+					}
+				};
+				
+				if(!(2==_.cfg.ajax.type&amp;&amp;_.cfg.ajax.async)){//本地数据
+					if(1==this.select&amp;&amp;!_.cfg.check){//设置选中当前节点
+						par.li.find(&#x27;&gt;a:eq(2)&#x27;).click();
+					}
+					if(1==this.open){//设置展开当前节点并展开其父级一直到根节点
+						fun.open(par.li);
+					}
+				}
+				
+				if(0!=this.select&amp;&amp;_.cfg.check){//当前节点全选或半选
+					par=_.fun.getVal({li:par.li,object:{}});//当前获取节点信息
+					par.val.key=this.key;
+					_.fun.setCheckVal(this.key,par.val);//设置checkbox选中集合缓存
+				}
+				par=fun=null;
+			});
+		},
+		//初始化控件
+		ui:function(){
+			_.controls=_.attr({key:_.cfg.key,class:&#x27;org-tree &#x27;+_.cfg.class}).appendTo(_.cfg.of);//绑定控件参数及样式
+			_.val=$(&#x27;&lt;input&gt;&#x27;,{type:&#x27;hidden&#x27;,name:_.cfg.key+&#x27;_val&#x27;}).appendTo(_.controls).data(&#x27;val&#x27;,{});//获取选中值
+			_.changeVal=$(&#x27;&lt;input&gt;&#x27;,{type:&#x27;hidden&#x27;,name:_.cfg.key+&#x27;_changeVal&#x27;}).appendTo(_.controls).data(&#x27;val&#x27;,{});//获取所有变更值集合
+			if(_.cfg.check){
+				_.checkVal=$(&#x27;&lt;input&gt;&#x27;,{type:&#x27;hidden&#x27;,name:_.cfg.key+&#x27;_checkVal&#x27;}).appendTo(_.controls).data(&#x27;val&#x27;,{});//获取所有CheckBox选中值集合
+			}
+			_.fun.node(_.cfg.data,_.controls);//遍历节点
+
+			//提示
+			if(_.cfg.tooltip){
+				_.controls.find(&#x27;li&#x27;).attr(&#x27;data-toggle&#x27;,&#x27;tooltip&#x27;).tooltip();//开启提示
+			}else{
+				_.controls.find(&#x27;li&#x27;).removeAttr(&#x27;title&#x27;).removeAttr(&#x27;data-placement&#x27;);//关闭提示
+			}
+		},
+		//初始化设置
+		init:function(){
+			_.par={
+				key:&#x27;&#x27;,
+				of:&#x27;body&#x27;,
+				class:&#x27;&#x27;,
+				tooltip:false,
+				check:true,
+				badge:true,
+				click:true,
+				edit:false,
+				open:0,
+				ajax:{
+					url:&#x27;&#x27;,
+					async:false,
+					id:&#x27;0&#x27;,
+					type:1
+				},file:{
+					//switch:true,
+					folder:{
+						close:&#x27;fa-folder-o&#x27;,
+						open:&#x27;fa-folder-open-o&#x27;
+					},
+					file:{
+						document:&#x27;fa-file-o&#x27;
+					}
+				},fun:{
+					inputBlur:null,
+					nodeClick:null,
+					loadEndCall:null,
+					nodeRemove:null,
+					check:null,
+					uncheck:null
+				},data:{
+					key:&#x27;&#x27;,
+					val:&#x27;&#x27;,
+					badge:&#x27;&#x27;,
+					type:2,
+					edit:true,
+					par:{},
+					open:0,
+					class:&#x27;&#x27;,
+					placement:&#x27;top&#x27;,
+					href:&#x27;javascript:;&#x27;,
+					icon:&#x27;&#x27;,
+					select:0
+				}
+			};//默认参数
+			_.cfg=$.extend({},_.par,_object_cfg);//初始化参数
+		},
+		//获取节点参数
+		child:function(_object_data,_object_cfgData){
+			if(_object_data.child){
+				$.each(_object_data.child,function(i){
+					_object_cfgData.child[i]=$.extend({},_.par.data,this);
+					_.fun.child(this,_object_cfgData.child[i]);
+				});
+			}
+		},
+		//获取节点选中类型
+		select:function(_li_this){
+			var i_check=_li_this.find(&#x27;&gt;a:eq(1)&gt;div.org-check i&#x27;);//当前节点checkbox图标
+			if(i_check.hasClass(&#x27;fa-check-square&#x27;)){//全选
+				return 1;
+			}else if(i_check.hasClass(&#x27;fa-check-square-o&#x27;)){//半选
+				return 2;
+			}else{//未选
+				return 0;
+			}
+		},
+		//获取节点信息
+		getVal:function(_object_par){
+			_object_par.a=_object_par.li.find(&#x27;&gt;a:eq(2)&#x27;);//当前节点内容按钮
+			_object_par.val={
+				par:_object_par.li.data(&#x27;par&#x27;),//当前节点传入参数
+				val:_object_par.a.find(&#x27;&gt;label&#x27;).text(),//当前节点内容
+				type:0==_object_par.a.find(&#x27;&gt;i[class*=&quot;fa-folder-&quot;]&#x27;).length?2:1//当前节点类型
+			};
+			if(_.cfg.check){
+				_object_par.val.select=_.fun.select(_object_par.li);//当前节点选中类型
+			}
+			if(_object_par.li.parent().is(&#x27;ul.org-tree&#x27;)){//父级为根节点
+				_object_par.val.parentKey=_.cfg.ajax.id;//设置父级编号
+			}else{//父级不为根节点
+				_object_par.parent=_object_par.li.parent().parent();//父级节点对象
+				_object_par.val.parentKey=_object_par.parent.attr(&#x27;key&#x27;);//父节点编号
+				_object_par.val.parentVal=_object_par.parent.attr(&#x27;title&#x27;);//父节点内容
+				if(_.cfg.check){
+					_object_par.val.parentSelect=_.fun.select(_object_par.parent);//父节点选中类型
+				}
+			}
+			return _object_par;
+		},
+		//设置所有CheckBox选中值
+		setCheck:function(){
+			var par={
+				active:_.controls.find(&#x27;li&gt;a:nth-child(2)&gt;div.org-check i.fa-check-square&#x27;),//子集选中集合
+				nfull:_.controls.find(&#x27;li&gt;a:nth-child(2)&gt;div.org-check i.fa-check-square-o&#x27;),//半选选中集合
+				object:{}//缓存选中集合
+			},fun={
+				//遍历选中节点
+				each:function(){
+					par.li=$(this).closest(&#x27;li&#x27;);
+					par=_.fun.getVal(par);
+					par.object[par.li.attr(&#x27;key&#x27;)]=par.val;
+				}
+			};
+			if(0==par.active.length&amp;&amp;0==par.nfull.length){
+				_.checkVal.val(&#x27;&#x27;).data(&#x27;val&#x27;,{});//清空选中集合缓存
+			}else{
+				par.active.each(fun.each);//遍历全选节点
+				par.nfull.each(fun.each);//遍历半选节点
+				_.checkVal.val(JSON.stringify(par.object)).data(&#x27;val&#x27;,par.object);//设置所有选中节点信息集合
+			}
+			par=fun=null;
+		}
+	};
+	//注册调用方法
+	_.refun={
+		/**
+		 * 获取选中节点信息
+		 * @method val
+		 * @return {object} 选中节点信息
+		 * @example
+		 * 	var string_val1=object_tree1.treeUI(&#x27;val&#x27;);
+		 * 	//or
+		 * 	var string_val2=object_tree1.treeUI();
+		 */
+		val:function(){
+			return _.val.data(&#x27;val&#x27;);
+		},
+		/**
+		 * 获取所有节点集合
+		 * @method allVal
+		 * @return {object} 节点集合
+		 * @example
+		 * 	var object_val=object_tree1.treeUI(&#x27;allVal&#x27;);
+		 */
+		allVal:function(){
+			var par={
+				object:{}
+			};
+			_.controls.find(&#x27;li&#x27;).each(function(){
+				par.li=$(this);
+				par=_.fun.getVal(par);
+				par.object[par.li.attr(&#x27;key&#x27;)]=par.val;
+			});
+			return par.object;
+		},
+		/**
+		 * 获取所有CheckBox选中值集合
+		 * @method checkVal
+		 * @return {object} CheckBox选中值集合
+		 * @example
+		 * 	var object_val=object_tree1.treeUI(&#x27;checkVal&#x27;);
+		 */
+		checkVal:function(){
+			return _.checkVal.data(&#x27;val&#x27;);
+		},
+		/**
+		 * 获取所有变更节点集合
+		 * @method changeVal
+		 * @return {object} 所有变更节点集合
+		 * @example
+		 * 	var object_val=object_tree1.treeUI(&#x27;changeVal&#x27;);
+		 */
+		changeVal:function(){
+			return _.changeVal.data(&#x27;val&#x27;);
+		},
+		/**
+		 * 删除变更标记 
+		 * @method removeTag
+		 * @chainable
+		 * @return {jquery object} 当前节点
+		 * @example
+		 * 	_object_data.this.removeTag();
+		 */
+		removeTag:function(){
+			this.find(&#x27;&gt;i.fa-tag&#x27;).remove();
+			return this;
+		},
+		/**
+		 * 打开正在加载显示层
+		 * @method openLoading
+		 * @chainable
+		 * @return {jquery object} 当前节点
+		 * @example
+		 *	_object_data.this.openLoading();
+		 */
+		openLoading:function(){
+			_.controls.find(&#x27;&gt;div&#x27;).show();
+			return this;
+		},
+		/**
+		 * 关闭正在加载显示层
+		 * @method closeLoading
+		 * @chainable
+		 * @return {jquery object} 当前节点
+		 * @example
+		 *	_object_data.this.closeLoading();
+		 */
+		closeLoading:function(){
+			_.controls.find(&#x27;&gt;div&#x27;).hide();
+			return this;
+		},
+		/**
+		 * 设置节点key值
+		 * @method setKey
+		 * @chainable
+		 * @param {string} _str_key 传入参数
+		 * @return {jquery object} 当前节点
+		 * @example
+		 *	_object_data.this.setKey(&#x27;10001&#x27;);
+		 */
+		setKey:function(_str_key){
+			this.closest(&#x27;li&#x27;).attr(&#x27;key&#x27;,_str_key);
+			return this;
+		},
+		/**
+		 * 设置默认值
+		 * @method setDefault
+		 * @chainable
+		 * @return {jquery object} 当前节点
+		 * @example
+		 *	_object_data.this.setDefault();
+		 */
+		setDefault:function(){
+			return this.attr(&#x27;v&#x27;,this.text());
+		},
+		/**
+		 * 清空所有变更值集合
+		 * @method removeChangeVal
+		 * @example
+		 *	object_tree1.treeUI(&#x27;removeChangeVal&#x27;);
+		 */
+		removeChangeVal:function(){
+			_.changeVal.val(&#x27;&#x27;).data(&#x27;val&#x27;,{});
+		}
+	};
+	_.fun.init();//初始化设置
+	_.fun.data(function(){//装载数据
+		_.fun.ui();//初始化控件		
+		if($.isFunction(_.cfg.fun.loadEndCall)){//加载数据后调用回调方法
+			_.cfg.fun.loadEndCall({this:_.controls});
+		}
+	});
+	return _.controls;//返回当前控件
+};
+/**
+ * &lt;h3&gt;Alert&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2014-12-05&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2014-12-05&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ *	&lt;script&gt;
+ *	$(function(){
+ * 		var fun={
+ * 			pubClick:function(){$(this).closest(&quot;.org-alert&quot;).remove()}
+ * 		};
+ *		$(&quot;div#method_alertUI\&gt;div.example\&gt;h4&quot;).after(
+ *			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-alert&quot;:&quot;alert1&quot;})
+ *			)
+ *		);
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-success&quot;,&quot;style&quot;:&quot;margin-right:10px&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).alertUI({
+ * 				title:&quot;成功&quot;,
+ * 				body:&quot;删除成功！&quot;,
+ * 				mode:1,
+ * 				btns:[
+ * 					{val:&quot;确定&quot;,icon:&quot;fa-check&quot;,class:&quot;btn btn-success&quot;,click:fun.pubClick},
+ * 					{val:&quot;取消&quot;,icon:&quot;fa-ban&quot;,click:fun.pubClick}
+ * 				]
+ * 			});
+ * 		}}).html(&quot;success&quot;).appendTo($(&quot;div[data-alert=\&quot;alert1\&quot;]&quot;));
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-info&quot;,&quot;style&quot;:&quot;margin-right:10px&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).alertUI({
+ * 				title:&quot;提示&quot;,
+ * 				body:&quot;提示信息！&quot;,
+ * 				mode:2,
+ * 				btns:[
+ * 					{val:&quot;确定&quot;,icon:&quot;fa-check&quot;,class:&quot;btn-info&quot;,click:fun.pubClick},
+ * 					{val:&quot;取消&quot;,icon:&quot;fa-ban&quot;,click:fun.pubClick}
+ * 				]
+ * 			});
+ * 		}}).html(&quot;info&quot;).appendTo($(&quot;div[data-alert=\&quot;alert1\&quot;]&quot;));
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-warning&quot;,&quot;style&quot;:&quot;margin-right:10px&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).alertUI({
+ * 				title:&quot;警告&quot;,
+ * 				body:&quot;警告信息！&quot;,
+ * 				mode:3,
+ * 				btns:[
+ * 					{val:&quot;确定&quot;,icon:&quot;fa-check&quot;,class:&quot;btn-warning&quot;,click:fun.pubClick},
+ * 					{val:&quot;取消&quot;,icon:&quot;fa-ban&quot;,click:fun.pubClick}
+ * 				]
+ * 			});
+ * 		}}).html(&quot;warning&quot;).appendTo($(&quot;div[data-alert=\&quot;alert1\&quot;]&quot;));
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-danger&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).alertUI({
+ * 				title:&quot;删除&quot;,
+ * 				body:&quot;确定删除选中数据？&quot;,
+ * 				btns:[
+ * 					{val:&quot;删除&quot;,icon:&quot;fa-trash&quot;,class:&quot;btn-danger&quot;,click:fun.pubClick},
+ * 					{val:&quot;取消&quot;,icon:&quot;fa-ban&quot;,click:fun.pubClick}
+ * 				]
+ * 			});
+ * 		}}).html(&quot;danger&quot;).appendTo($(&quot;div[data-alert=\&quot;alert1\&quot;]&quot;));
+ *	});
+ *	&lt;/script&gt;
+ * @class alertUI
+ * @since 1.0.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {string} [_object_cfg.key=&#x27;&#x27;] 控件名称
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {string} [_object_cfg.class=&#x27;&#x27;] 自定义样式
+ * 	@param {string} [_object_cfg.mode=0] 显示主题
+ * 		0. 红色（默认）
+ * 		1. 绿色
+ * 		2. 蓝色
+ * 		3. 黄色
+ * 	@param {string} [_object_cfg.title=&#x27;&#x27;] 提示标题
+ * 	@param {string} [_object_cfg.body=&#x27;&#x27;] 提示内容
+ * 	@param {object} [_object_cfg.btns] 按钮组
+ * 		@param {string} [_object_cfg.btns.icon=&#x27;&#x27;] 图标
+ * 		@param {string} [_object_cfg.btns.iconAlign=&#x27;&#x27;] 图标显示方向
+ * 			1. left：居左（默认）
+ * 			2. right：居右
+ * 		@param {string} [_object_cfg.btns.val=&#x27;&#x27;] 文本
+ * 		@param {string} [_object_cfg.btns.class=&#x27;&#x27;] 自定义样式
+ * 		@param {function} [_object_cfg.btns.click] 绑定单击事件
+ * @constructor
+ * @chainable
+ * @example
+ * 	var alert1=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	$(&#x27;&lt;a&gt;&#x27;,{&#x27;href&#x27;:&#x27;javascript:;&#x27;,&#x27;html&#x27;,&#x27;删除&#x27;}).click(function(){
+ * 		$(&#x27;&lt;div&gt;&#x27;).alertUI({
+ * 			title:&#x27;删除&#x27;,
+ * 			body:&#x27;确定删除选中数据？&#x27;,
+ * 			btns:[
+ * 				{val:&#x27;删除&#x27;,icon:&#x27;fa-trash&#x27;,class:&#x27;btn-danger&#x27;,click:function(){
+ * 					alert(&#x27;删除！&#x27;);
+ * 					$(this).closest(&#x27;.org-alert&#x27;).remove();
+ * 				}},
+ * 				{val:&#x27;取消&#x27;,icon:&#x27;fa-ban&#x27;,click:function(){
+ * 					alert(&#x27;取消！&#x27;);
+ * 					$(this).closest(&#x27;.org-alert&#x27;).remove();
+ * 				}}
+ * 			]
+ * 		});
+ * 	}).appendTo(alert1);
+ */
+$.fn.alertUI=function(_object_cfg){
+	var _=this;//控件
+	//返回已选中选项值
+	if($.isEmptyObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	//根据参数，调用相应方法
+	if(!$.isPlainObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun[_object_cfg](_object_par);
+	}
+	_.fun={
+		//初始化设置
+		init:function(){
+			_.par={
+				key:&#x27;&#x27;,
+				of:$(&#x27;body&#x27;),
+				&#x27;class&#x27;:&#x27;&#x27;,
+				mode:0,
+				body:&#x27;&#x27;,
+				title:&#x27;&#x27;,
+				fun:{},//预留
+				btns:{
+					iconAlign:&#x27;&#x27;,
+					icon:&#x27;&#x27;,
+					val:&#x27;&#x27;,
+					&#x27;class&#x27;:&#x27;&#x27;,
+					click:function(){}
+				}
+			};//默认参数
+			_.cfg=$.extend(true,{},_.par,_object_cfg);//初始化参数
+			//遍历按钮参数
+			if(_object_cfg.btns){
+				$.each(_object_cfg.btns,function(i){
+					_.cfg.btns[i]=$.extend({},_.par.btns,this);
+				});
+			}
+		},
+		//初始化控件
+		ui:function(){
+			//绑定控件参数及样式
+			_.controls=_.attr({key:_.cfg.key,&#x27;class&#x27;:&#x27;org-alert &#x27;+_.cfg[&#x27;class&#x27;]}).css({&#x27;top&#x27;:$(&#x27;body&#x27;).scrollTop(),&#x27;height&#x27;:$(&#x27;body&#x27;).height()+&#x27;px&#x27;}).appendTo(_.cfg.of);
+			_.alert=$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:_.fun.addClass()}).appendTo(_.controls);//控件
+			$(&#x27;&lt;a class=&quot;close&quot;&gt;&lt;i class=&quot;fa fa-close&quot;&gt;&lt;/i&gt;&lt;/a&gt;&#x27;).appendTo(_.alert).click(function(){
+				_.controls.remove();
+			});//关闭按钮
+			$(&#x27;&lt;h4&gt;&#x27;,{html:_.cfg.title}).appendTo(_.alert);//标题
+			$(&#x27;&lt;p&gt;&#x27;,{html:_.cfg.body}).appendTo(_.alert);//内容
+			
+			_.btns=$(&#x27;&lt;p&gt;&#x27;,{&#x27;class&#x27;:&#x27;text-right&#x27;}).appendTo(_.alert);//按钮组
+			
+			var par={};
+			$.each(_.cfg.btns,function(){//循环生成按钮
+				par.a=$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn btn-default &#x27;+this[&#x27;class&#x27;],click:this.click}).append(
+					this.val
+				).appendTo(_.btns);//按钮对象
+				if(this.icon){
+					par.i=&#x27;&lt;i class=&quot;fa &#x27;+this.icon+&#x27;&quot;&gt;&lt;/i&gt;&#x27;;
+					switch(this.iconAlign){
+						case &#x27;right&#x27;://居右
+							par.a.append(par.i);
+							break;
+						default://居左
+							par.a.prepend(par.i);
+							break;
+					}
+				}
+			});
+			par=null;
+			try{_.controls.alert();}catch(e){}
+			$(window).resize(_.fun.scrollResize).scroll(_.fun.scrollResize);
+		},
+		//添加主题
+		addClass:function(){
+			var string_class=&#x27;alert alert-&#x27;;
+			switch(_.cfg.mode){
+				case 1://绿色
+					string_class+=&#x27;success&#x27;;
+					break;
+				case 2://蓝色
+					string_class+=&#x27;info&#x27;;
+					break;
+				case 3://黄色
+					string_class+=&#x27;warning&#x27;;
+					break;
+				default://红色
+					string_class+=&#x27;danger&#x27;;
+					break;
+			}
+			return string_class+&#x27; fade in&#x27;;
+		},
+		//根据窗体滚动
+		scrollResize:function(){
+			_.controls.css({&#x27;top&#x27;:$(&#x27;body&#x27;).scrollTop(),&#x27;height&#x27;:$(&#x27;body&#x27;).height()+&#x27;px&#x27;});
+		}
+	};
+	_.refun={};
+	_.fun.init();//初始化设置
+	_.fun.ui();//初始化控件
+	return _.controls;//返回当前控件
+};
+/**
+ * &lt;h3&gt;Grid&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2014-11-26&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2014-01-04&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ *	&lt;script&gt;
+ *	$(function(){
+ *		$(&quot;div#method_gridUI\&gt;div.example\&gt;h4&quot;).after(
+ *			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-grid&quot;:&quot;grid1&quot;,&quot;style&quot;:&quot;height:400px&quot;})
+ *			)
+ *		);
+ *		var div_grid=$(&quot;&lt;div&gt;&quot;).gridUI({
+ * 			key:&quot;grid1&quot;,
+ * 			btns:[
+ * 				{val:&quot;添加&quot;,icon:&quot;fa-credit-card&quot;,click:function(){
+ * 					var article_add = div_grid.gridUI(&quot;getAside&quot;,{class:&quot;add&quot;});
+ * 					//判断添加页面是否存在，如存在则清空
+ * 					if(1==article_add.length){
+ * 						article_add.remove();
+ * 					}
+ * 					//注册添加页面
+ * 					article_add = $(&quot;&lt;article&gt;&quot;);
+ * 					div_grid.gridUI(&quot;setAside&quot;,{class:&quot;add&quot;,div:article_add});
+ * 					pubFun.load({url:&quot;http:\/\/www.baidu.com&quot;,suc:function(_data){
+ * 						article_add.html(_data);
+ * 						article_add.find(&quot;a&quot;).not(&quot;[href]&quot;).attr(&quot;href&quot;,&quot;javascript:;&quot;);
+ * 					}});
+ * 				}},
+ * 				{val:&quot;修改&quot;,icon:&quot;fa-edit&quot;,click:function(){
+ * 					var a_selectList = div_grid.gridUI(&quot;val&quot;);
+ * 					//判断选中数据条数
+ * 					if(1!=a_selectList.split(&quot;,&quot;).length||&quot;&quot;==a_selectList.split(&quot;,&quot;)[0]){
+ * 						$(&quot;&lt;div&gt;&quot;).msgUI({msg:&quot;请选择一条数据进行修改操作！&quot;,mode:2});
+ * 						return false;
+ * 					}
+ * 					var article_edit = div_grid.gridUI(&quot;getAside&quot;,{class:&quot;edit&quot;});
+ * 					//判断修改页面是否存在，如存在则清空
+ * 					if(1==article_edit.length){
+ * 						article_edit.remove();
+ * 					}
+ * 					//注册修改页面
+ * 					div_grid.gridUI(&quot;setAside&quot;,{
+ * 						class:&quot;mod&quot;,
+ * 						div:$(&quot;&lt;div&gt;&quot;,{html:&quot;test&quot;})
+ * 					});
+ * 				}},
+ * 				{val:&quot;删除&quot;,icon:&quot;fa-trash-o&quot;,click:function(){
+ * 					var a_selectList = div_grid.gridUI(&quot;val&quot;);
+ * 					//判断选中数据条数
+ * 					if(&quot;&quot;==a_selectList.split(&quot;,&quot;)[0]){
+ * 						$(&quot;&lt;div&gt;&quot;).msgUI({msg:&quot;请至少选择一条数据进行删除操作！&quot;,mode:2});
+ * 						return false;
+ * 					}
+ * 					$(&quot;&lt;div&gt;&quot;).alertUI({
+ * 						winClass:&quot;alert-danger&quot;,
+ * 						title:&quot;删除&quot;,
+ * 						body:&quot;确定删除选中数据？&quot;,
+ * 						btns:[
+ * 							{val:&quot;删除&quot;,icon:&quot;fa-trash&quot;,class:&quot;btn-danger&quot;,click:function(){
+ * 								alert(div_grid.gridUI(&quot;val&quot;));
+ * 								div_grid.gridUI(&quot;removeTrash&quot;);
+ * 								$(this).closest(&quot;.org-alert&quot;).remove();
+ * 							}},
+ * 							{val:&quot;取消&quot;,icon:&quot;fa-ban&quot;,click:function(){
+ * 								$(this).closest(&quot;.org-alert&quot;).remove();
+ * 							}},
+ * 						]
+ * 					});
+ * 				}},
+ * 				{key:&quot;_select&quot;,val:&quot;选中&quot;,icon:&quot;fa-shopping-cart&quot;,click:function(){
+ * 					div_grid.gridUI(&quot;getAside&quot;,{class:&quot;_select&quot;});
+ * 				}}
+ * 			],
+ * 			head:[
+ * 				{val:&quot;编号&quot;,field:&quot;id&quot;,type:&quot;1&quot;},
+ * 				{val:&quot;文件名称&quot;,field:&quot;name&quot;,width:&quot;100px&quot;},
+ * 				{val:&quot;文件类型&quot;,field:&quot;type&quot;},
+ * 				{val:&quot;文件路径&quot;,field:&quot;path&quot;,width:&quot;100px&quot;},
+ * 				{val:&quot;修改时间&quot;,field:&quot;mtime&quot;,type:&quot;3&quot;,width:&quot;100px&quot;},
+ * 				{val:&quot;创建时间&quot;,field:&quot;ctime&quot;,type:&quot;3&quot;}
+ * 			],
+ * 			data:[
+ * 				[
+ * 					{field:&quot;id&quot;,val:&quot;1&quot;},
+ * 					{field:&quot;name&quot;,val:&quot;aaa&quot;},
+ * 					{field:&quot;type&quot;,val:&quot;jpg&quot;},
+ * 					{field:&quot;path&quot;,val:&quot;c:/ddd&quot;},
+ * 					{field:&quot;mtime&quot;,val:&quot;2014-11-27 17:55&quot;},
+ * 					{field:&quot;mtime&quot;,val:&quot;2014-11-26 17:50&quot;}
+ * 				],
+ * 				[
+ * 					{field:&quot;id&quot;,val:&quot;2&quot;},
+ * 					{field:&quot;name&quot;,val:&quot;bbb&quot;},
+ * 					{field:&quot;type&quot;,val:&quot;png&quot;},
+ * 					{field:&quot;path&quot;,val:&quot;c:/ddd&quot;},
+ * 					{field:&quot;mtime&quot;,val:&quot;2014-11-27 17:55&quot;},
+ * 					{field:&quot;mtime&quot;,val:&quot;2014-11-26 17:50&quot;}
+ * 				]
+ * 			],
+ * 			fun:{
+ * 				search:function(_object_search){
+ * 					$(&quot;&lt;div&gt;&quot;).msgUI({msg:_object_search.val(),mode:3});
+ * 					return true;
+ * 				}
+ * 			},
+ * 			of:$(&quot;div[data-grid=\&quot;grid1\&quot;]&quot;)
+ * 		});
+ *	});
+ *	&lt;/script&gt;
+ * @class gridUI
+ * @since 1.0.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {string} [_object_cfg.key=&#x27;&#x27;] 控件名称
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {string} [_object_cfg.class=&#x27;&#x27;] 自定义样式
+ * 	@param {boolean} [_object_cfg.bordered=false] 表格边框
+ * 	@param {boolean} [_object_cfg.striped=true] 条纹状表格
+ * 	@param {boolean} [_object_cfg.hover=true] 鼠标悬停
+ * 	@param {boolean} [_object_cfg.scrollHover=true] 鼠标悬停滚动条
+ * 	@param {boolean} [_object_cfg.pagination=true] 分页
+ * 	@param {boolean} [_object_cfg.search=false] 搜索
+ * 	@param {boolean} [_object_cfg.condensed=false] 紧缩表格
+ * 	@param {object} [_object_cfg.fun] 绑定事件
+ * 		@param {function} [_object_cfg.fun.search] 查询提交前回掉方法
+ * 		@param {function} [_object_cfg.fun.close] 关闭侧边栏回调方法
+ * 		@param {function} [_object_cfg.fun.filter] 查询过滤回调方法
+ * 	@param {object} [_object_cfg.ajax] 异步请求
+ * 		@param {string} [_object_cfg.ajax.url=&#x27;&#x27;] 请求地址
+ * 		@param {object} [_object_cfg.ajax.data] 请求参数
+ * 			@param {int} [_object_cfg.ajax.data.page=1] 当前页数
+ * 			@param {int} [_object_cfg.ajax.data.count=15] 每页数据行
+ * 			@param {string} [_object_cfg.ajax.data.mark=&#x27;id&#x27;] 选中项标识列
+ * 	@param {object} [_object_cfg.btns] 按钮组
+ * 		@param {string} [_object_cfg.btns.icon=&#x27;&#x27;] 按钮图标
+ * 		@param {string} [_object_cfg.btns.iconAlign=&#x27;&#x27;] 图标显示方向
+ * 			1. left：居左（默认）
+ * 			2. right：居右
+ * 		@param {string} [_object_cfg.btns.val=&#x27;&#x27;] 文本
+ * 		@param {string} [_object_cfg.btns.class=&#x27;&#x27;] 自定义样式
+ * 		@param {function} [_object_cfg.btns.click] 绑定单击事件
+ * 	@param {object} _object_cfg.head 表头
+ * 		@param {string} _object_cfg.head.val 列名
+ * 		@param {string} _object_cfg.head.field 绑定字段
+ * 		@param {string} [_object_cfg.head.type=&#x27;2&#x27;] 列类型
+ * 			1. &quot;1&quot;：数字
+ * 			2. &quot;2&quot;：字符串（默认）
+ * 			3. &quot;3&quot;：时间
+ * 		@param {string} [_object_cfg.head.width] 列宽（设定后，内容超出设定宽度会自动缩略，并鼠标在其格悬停时浮动显示完整内容）
+ * 		@param {string} [_object_cfg.head.placement=&#x27;top&#x27;] 提示显示方向
+ * 			1. top：上（默认）
+ * 			2. bottom：下
+ * 			3. left：左
+ * 			4. right：右
+ * 		@param {int} [_object_cfg.head.get=0] 本列定制标识
+ * 			0. 不定制（默认）
+ * 			1. 定制
+ * 		@param {string} [_object_cfg.head.class=&#x27;&#x27;] 自定义样式
+ * 		@param {boolean} [_object_cfg.head.tooltip=true] 列提示
+ * 			0. false：不显示
+ * 			1. true：显示（默认）
+ * 	@param {object} [_object_cfg.data] 本地数据
+ * 		@param {string} [_object_cfg.data.field] 绑定字段
+ * 		@param {string} [_object_cfg.data.val] 内容
+ * @param {object} [_object_par] 调用方法传入参数
+ * @constructor
+ * @chainable
+ * @example
+ * 	var grid1=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	var div_grid=$(&#x27;&lt;div&gt;&#x27;).gridUI({
+ * 		key:&#x27;grid1&#x27;,
+ * 		btns:[
+ * 			{val:&#x27;添加&#x27;,icon:&#x27;fa-credit-card&#x27;,click:function(){
+ * 				var article_add = div_grid.gridUI(&#x27;getAside&#x27;,{class:&#x27;add&#x27;});
+ * 				//判断添加页面是否存在，如存在则清空
+ * 				if(1==article_add.length){
+ * 					article_add.remove();
+ * 				}
+ * 				//注册添加页面
+ * 				article_add = $(&#x27;&lt;article&gt;&#x27;);
+ * 				div_grid.gridUI(&#x27;setAside&#x27;,{class:&#x27;add&#x27;,div:article_add});
+ * 					pubFun.load({url:&#x27;http://www.baidu.com&#x27;,suc:function(_data){
+ * 					article_add.html(_data);
+ * 					article_add.find(&#x27;a&#x27;).not(&#x27;[href]&#x27;).attr(&#x27;href&#x27;,&#x27;javascript:;&#x27;);
+ * 				}});
+ * 			}},
+ * 			{val:&#x27;修改&#x27;,icon:&#x27;fa-edit&#x27;,click:function(){
+ * 				var a_selectList = div_grid.gridUI(&#x27;val&#x27;);
+ * 				//判断选中数据条数
+ * 				if(1!=a_selectList.split(&#x27;,&#x27;).length||&#x27;&#x27;==a_selectList.split(&#x27;,&#x27;)[0]){
+ * 					$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:&#x27;请选择一条数据进行修改操作！&#x27;,mode:2});
+ * 					return false;
+ * 				}
+ * 				var article_edit = div_grid.gridUI(&#x27;getAside&#x27;,{class:&#x27;edit&#x27;});
+ * 				//判断修改页面是否存在，如存在则清空
+ * 				if(1==article_edit.length){
+ * 					article_edit.remove();
+ * 				}
+ * 				//注册修改页面
+ * 				div_grid.gridUI(&#x27;setAside&#x27;,{
+ * 					class:&#x27;mod&#x27;,
+ * 					div:$(&#x27;&lt;div&gt;&#x27;,{html:&#x27;test&#x27;})
+ * 				});
+ * 			}},
+ * 			{val:&#x27;删除&#x27;,icon:&#x27;fa-trash-o&#x27;,click:function(){
+ * 				var a_selectList = div_grid.gridUI(&#x27;val&#x27;);
+ * 				//判断选中数据条数
+ * 				if(&quot;&quot;==a_selectList.split(&#x27;,&#x27;)[0]){
+ * 					$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:&#x27;请至少选择一条数据进行删除操作！&#x27;,mode:2});
+ * 					return false;
+ * 				}
+ * 				$(&#x27;&lt;div&gt;&#x27;).alertUI({
+ * 					winClass:&#x27;alert-danger&#x27;,
+ * 					title:&#x27;删除&#x27;,
+ * 					body:&#x27;确定删除选中数据？&#x27;,
+ * 					btns:[
+ * 						{val:&#x27;删除&#x27;,icon:&#x27;fa-trash&#x27;,class:&#x27;btn-danger&#x27;,click:function(){
+ * 							alert(div_grid.gridUI(&#x27;val&#x27;));
+ * 							div_grid.gridUI(&#x27;removeTrash&#x27;);
+ * 							$(this).closest(&#x27;.org-alert&#x27;).remove();
+ * 						}},
+ * 						{val:&#x27;取消&#x27;,icon:&#x27;fa-ban&#x27;,click:function(){
+ * 							$(this).closest(&#x27;.org-alert&#x27;).remove();
+ * 						}},
+ * 					]
+ * 				});
+ * 			}},
+ * 			{key:&#x27;_select&#x27;,val:&#x27;选中&#x27;,icon:&#x27;fa-shopping-cart&#x27;,click:function(){
+ * 				div_grid.gridUI(&#x27;getAside&#x27;,{class:&#x27;_select&#x27;});
+ * 			}}
+ * 		],
+ * 		head:[
+ * 			{val:&quot;编号&quot;,field:&quot;id&quot;,type:&quot;1&quot;},
+ * 			{val:&quot;文件名称&quot;,field:&quot;name&quot;,width:&quot;100px&quot;},
+ * 			{val:&quot;文件类型&quot;,field:&quot;type&quot;},
+ * 			{val:&quot;文件路径&quot;,field:&quot;path&quot;,width:&quot;100px&quot;},
+ * 			{val:&quot;修改时间&quot;,field:&quot;mtime&quot;,type:&quot;3&quot;,width:&quot;100px&quot;},
+ * 			{val:&quot;创建时间&quot;,field:&quot;ctime&quot;,type:&quot;3&quot;}
+ * 		],
+ * 		data:[
+ * 			[
+ * 				{field:&quot;id&quot;,val:&quot;1&quot;},
+ * 				{field:&quot;name&quot;,val:&quot;aaa&quot;},
+ * 				{field:&quot;type&quot;,val:&quot;jpg&quot;},
+ * 				{field:&quot;path&quot;,val:&quot;c:/ddd&quot;},
+ * 				{field:&quot;mtime&quot;,val:&quot;2014-11-27 17:55&quot;},
+ * 				{field:&quot;mtime&quot;,val:&quot;2014-11-26 17:50&quot;}
+ * 			],[
+ * 				{field:&quot;id&quot;,val:&quot;2&quot;},
+ * 				{field:&quot;name&quot;,val:&quot;bbb&quot;},
+ * 				{field:&quot;type&quot;,val:&quot;png&quot;},
+ * 				{field:&quot;path&quot;,val:&quot;c:/ddd&quot;},
+ * 				{field:&quot;mtime&quot;,val:&quot;2014-11-27 17:55&quot;},
+ * 				{field:&quot;mtime&quot;,val:&quot;2014-11-26 17:50&quot;}
+ * 			]
+ * 		],
+ * 		fun:{
+ * 			search:function(_object_search){
+ * 				$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:_object_search.val(),mode:3});
+ * 				return true;
+ * 			}
+ * 		},
+ * 		of:grid1
+ * 	});
+ */
+$.fn.gridUI=function(_object_cfg,_object_par){
+	var _=this;//控件
+	//返回已选中选项值
+	if(!_object_cfg){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	//根据参数，调用相应方法
+	if(!$.isPlainObject(_object_cfg)){
+		//_=_.prevObject;//本行代码正常使用控件时需开启，注释仅为api文档使用模式
+		return _.refun[_object_cfg](_object_par);
+	}
+	//注册内部方法
+	_.fun={
+		//初始化设置
+		init:function(){
+			_.par={
+				key:&#x27;&#x27;,
+				of:$(&#x27;body&#x27;),
+				tooltip:false,
+				&#x27;class&#x27;:&#x27;&#x27;,
+				bordered:false,
+				striped:true,
+				hover:true,
+				scrollHover:true,
+				pagination:true,
+				search:true,
+				condensed:false,
+				fun:{
+					search:null,
+					close:null,
+					filter:null
+				},
+				ajax:{
+					url:&#x27;&#x27;,
+					data:{
+						page:1,
+						count:15,
+						mark:&#x27;id&#x27;
+					}
+				},
+				btns:{
+					iconAlign:&#x27;left&#x27;,
+					icon:&#x27;&#x27;,
+					val:&#x27;&#x27;,
+					key:&#x27;&#x27;
+				},
+				head:{
+					field:&#x27;&#x27;,
+					val:&#x27;&#x27;,
+					&#x27;class&#x27;:&#x27;&#x27;,
+					width:&#x27;&#x27;,
+					type:&#x27;2&#x27;,
+					get:0,
+					placement:&#x27;top&#x27;,
+					tooltip:false
+				},
+				data:{
+					field:&#x27;&#x27;,
+					val:&#x27;&#x27;
+				}
+			};//默认参数
+			_.cfg=$.extend(true,{},_.par,_object_cfg);//初始化参数
+			//遍历按钮参数
+			$.each(_object_cfg.btns,function(i){
+				_.cfg.btns[i]=$.extend({},_.par.btns,this);
+			});
+			//遍历表头参数
+			$.each(_object_cfg.head,function(i){
+				_.cfg.head[i]=$.extend({},_.par.head,this);
+			});
+			//遍历列参数
+			if(_object_cfg.data){
+				$.each(_object_cfg.data,function(a){
+					_.cfg.data[a]={};
+					$.each(this,function(b){
+						_.cfg.data[a][b]=$.extend({},_.par.data,this);
+					});
+				});
+			}
+		},
+		//初始化控件
+		ui:function(){
+			//绑定控件参数及样式
+			_.controls=_.attr({key:_.cfg.key,&#x27;class&#x27;:&#x27;org-grid panel panel-default &#x27;+_.cfg[&#x27;class&#x27;]}).appendTo(_.cfg.of);
+			//功能菜单
+			_.nav=$(&#x27;&lt;nav&gt;&#x27;,{&#x27;class&#x27;:&#x27;panel-heading container-fluid&#x27;}).appendTo(_.controls);
+			//内容
+			_.section=$(&#x27;&lt;section&gt;&#x27;,{&#x27;class&#x27;:&#x27;panel-body&#x27;}).appendTo(_.controls);
+			if(_.cfg.pagination){
+				//状态栏
+				_.footer=$(&#x27;&lt;footer&gt;&#x27;,{&#x27;class&#x27;:&#x27;panel-footer&#x27;}).appendTo(_.controls);
+			}else{
+				_.controls.addClass(&#x27;no-footer&#x27;);
+			}
+			//按钮-功能菜单
+			_.btns=$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn-group pull-left&#x27;}).appendTo(_.nav);
+			
+			var par={};
+			//遍历按钮
+			$.each(_.cfg.btns,function(){
+				par.a=$(&#x27;&lt;a&gt;&#x27;,{key:this.key,&#x27;class&#x27;:&#x27;btn btn-default&#x27;,html:&#x27;&lt;label&gt;&#x27;+this.val+&#x27;&lt;/label&gt;&#x27;,click:this.click}).appendTo(_.btns);
+				if(&#x27;&#x27;!=this.icon){
+					switch(this.iconAlign){ 
+						case &#x27;right&#x27;://居右
+							par.a.append(&#x27;&lt;i class=&quot;fa &#x27;+this.icon+&#x27;&quot;&gt;&lt;/i&gt;&#x27;);
+							break;
+						default://居左
+							par.a.prepend(&#x27;&lt;i class=&quot;fa &#x27;+this.icon+&#x27;&quot;&gt;&lt;/i&gt;&#x27;);
+							break;
+					}
+				}
+			});
+			//如果是选中按钮,则加入开启选中列事件
+			_.btns.find(&#x27;&gt;a[key=&quot;_select&quot;]&#x27;).click(function(){
+				_.aside_select.show();
+				_.aside.show();
+			});
+			
+			//搜索-功能菜单
+			if(_.cfg.search){
+				_.search=$(&#x27;&lt;div class=&quot;input-group col-xs-2 pull-right&quot;&gt;&lt;input type=&quot;search&quot; class=&quot;form-control input-sm&quot; placeholder=&quot;请输入查询条件！&quot;&gt;&lt;div class=&quot;input-group-btn&quot;&gt;&lt;a class=&quot;btn btn-default&quot;&gt;&lt;i class=&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a class=&quot;btn btn-default&quot;&gt;&lt;i class=&quot;fa fa-filter&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&#x27;).appendTo(_.nav);
+				_.search.find(&#x27;input&#x27;).keyup(function(e){
+					if(13==e.keyCode){//Enter事件
+						_.fun.search();
+					}
+				}).click(function(){
+					_.btns.fadeOut(&#x27;slow&#x27;,function(){
+						_.search.addClass(&#x27;max&#x27;).find(&#x27;input&#x27;).animate({width:&#x27;100%&#x27;},&#x27;slow&#x27;);
+					});
+				}).blur(function(){
+					$(this).animate({width:&#x27;110px&#x27;},&#x27;slow&#x27;,function(){
+						_.search.removeClass(&#x27;max&#x27;);
+						_.btns.fadeIn(&#x27;slow&#x27;);
+					});
+				});
+                _.search.find(&#x27;a&gt;i.fa-search&#x27;).parent().click(function(){
+                    _.fun.search();
+                });
+                _.search.find(&#x27;a&gt;i.fa-filter&#x27;).parent().click(function(){
+					_.fun.filter();
+                });
+			}
+			//主内容-内容
+			_.article=$(&#x27;&lt;article&gt;&#x27;,{&#x27;class&#x27;:_.cfg.scrollHover?&#x27;scrollHover&#x27;:&#x27;&#x27;}).appendTo(_.section);
+			//数据表格-主内容-内容
+			_.table=$(&#x27;&lt;table&gt;&#x27;,{&#x27;class&#x27;:&#x27;table&#x27;}).appendTo(_.article);
+			//表格边框
+			if(_.cfg.bordered){
+				_.table.addClass(&#x27;table-bordered&#x27;);
+			}
+			//斑马条纹
+			if(_.cfg.striped){
+				_.table.addClass(&#x27;table-striped&#x27;);
+			}
+			//鼠标悬停
+			if(_.cfg.hover){
+				_.table.addClass(&#x27;table-hover&#x27;);
+			}
+			//紧缩表格
+			if(_.cfg.condensed){
+				_.table.addClass(&#x27;table-condensed&#x27;);
+			}
+
+			_.thead=$(&#x27;&lt;thead&gt;&#x27;,{html:&#x27;&lt;tr&gt;&#x27;}).appendTo(_.table);
+			_.tbody=$(&#x27;&lt;tbody&gt;&#x27;).appendTo(_.table);
+			//遍历表头
+			$.each(_.cfg.head,function(i){
+				par.th=$(&#x27;&lt;th&gt;&#x27;,{html:this.val}).appendTo(_.thead.find(&#x27;tr&#x27;));
+				if(&#x27;&#x27;!=this.width){
+					par.th.css(&#x27;width&#x27;,this.width);
+				}
+			});
+			par=null;
+			
+			_.fun.dataMode();//加载数据
+			_.fun.aside();//侧边栏-主内容-内容
+
+			_.controls.find(&#x27;a&#x27;).not(&#x27;[href]&#x27;).attr(&#x27;href&#x27;,&#x27;javascript:;&#x27;);
+
+			//body滚动条
+			_.article.scroll(function(){
+				if(&#x27;static&#x27;==_.thead_clone.css(&#x27;position&#x27;)){
+					return false;
+				}
+				if(_.article.scrollTop()&gt;5){
+					_.thead_clone.show().css(&#x27;left&#x27;,-_.article.scrollLeft());
+					_.thead.css(&#x27;opacity&#x27;,0);
+				}else{
+					_.thead_clone.hide();
+					_.thead.css(&#x27;opacity&#x27;,1).find(&#x27;th&#x27;).css(&#x27;padding-bottom&#x27;,&#x27;8px&#x27;);
+				}
+			});
+			//窗体发生变化
+			$(window).resize(function(){
+				_.thead.find(&#x27;th&#x27;).each(function(i){
+					_.thead_clone.find(&#x27;th:eq(&#x27;+i+&#x27;)&#x27;).width($(this).width());
+				});
+			});
+		},
+		//查询
+		search:function(){
+			if($.isFunction(_.cfg.fun.search)){
+				if(!_.cfg.fun.search(_.search.find(&#x27;input&#x27;))){//根据回调方法返回判断是否进行查询
+					return false;
+				}
+			}
+			_.cfg.ajax.data.search=$.trim(_.search.find(&#x27;input&#x27;).val());//设置查询内容
+			_.cfg.ajax.data.page=1;//设定查询后默认显示页
+			_.fun.dataMode();//查询并加载数据
+		},
+		//过滤
+		filter:function(){
+			if($.isFunction(_.cfg.fun.filter)){
+				_.cfg.fun.filter();
+			}
+		},
+		//数据加载模式
+		dataMode:function(){
+			if(&#x27;&#x27;!=_.cfg.ajax.url){//ajax加载
+				pubFun.ajax({
+					url:_.cfg.ajax.url,
+					data:_.cfg.ajax.data,
+					suc:function(_data){//成功
+						if(&#x27;suc&#x27;==_data.msg){
+							_.cfg.data=_data.data.data;
+							_.sum=_data.data.sum;
+							_.tbody.find(&#x27;td&#x27;).tooltip(&#x27;destroy&#x27;);
+							_.tbody.empty();
+							_.fun.data();
+							_.fun.head();
+							_.fun.page();
+						}else{
+							console.log(&#x27;suc-err:  &#x27;,_data);
+							$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:&#x27;加载数据失败！&#x27;});
+						}
+					},bes:function(){//请求前
+						
+					},cpl:function(){//请求返回
+						
+					},err:function(_data){//请求失败
+						console.log(&#x27;err:  &#x27;,_data);
+						$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:&#x27;加载数据失败！&#x27;});
+					}
+				});
+			}else{//本地加载
+				_.tbody.find(&#x27;td&#x27;).tooltip(&#x27;destroy&#x27;);
+				_.tbody.empty();
+				_.fun.data();
+				_.fun.head();
+				//分页-状态栏
+				_.sum=parseInt(_.cfg.data.length/_.cfg.ajax.data.count)+(0==_.cfg.data.length%_.cfg.ajax.data.count?0:1);
+				_.fun.page();
+			}
+		},
+		//表头浮动
+		head:function(){
+			if(_.thead_clone){//移除以前浮动表头
+				_.thead_clone.remove();
+			}
+			_.thead_clone=_.thead.clone().hide();//添加浮动表头
+			//遍历浮动表头
+			_.thead.find(&#x27;th&#x27;).each(function(i){
+				_.thead_clone.find(&#x27;th:eq(&#x27;+i+&#x27;)&#x27;).width($(this).outerWidth());
+			});
+			_.thead_clone.appendTo(_.table);
+			if(_.article.scrollTop()&gt;5){//设置表头浮动
+				_.thead_clone.show().css(&#x27;left&#x27;,-_.article.scrollLeft());
+				_.thead.css(&#x27;opacity&#x27;,0);
+			}
+		},
+		//加载数据
+		data:function(){
+			var par={};
+			$.each(_.cfg.data,function(i){
+				if(1==_.cfg.ajax.data.page){//判断当前页数
+					if(i&gt;=_.cfg.ajax.data.page*_.cfg.ajax.data.count){return false}//遍历第1页数据
+				}else{
+					if(i&gt;=_.cfg.ajax.data.page*_.cfg.ajax.data.count||i&lt;(_.cfg.ajax.data.page-1)*_.cfg.ajax.data.count){return true}//遍历当前页数据
+				}
+				par.datas=this;//设置数据
+				par.customize={};//定制数据集合
+				par.row=$(&#x27;&lt;tr&gt;&#x27;,{key:par.key}).appendTo(_.tbody);
+				//根据表头遍历数据
+				$.each(_.cfg.head,function(){//遍历表头
+					for(var i in par.datas){//遍历数据
+						if(this.field==par.datas[i].field){//数据与表头一致
+							par.data=par.datas[i];
+							break;
+						}
+					}
+					if(_.cfg.ajax.data.mark==this.field){//判断标识列
+						par.row.attr(&#x27;key&#x27;,par.data.val);
+						if(!(undefined==_.div_select||0==_.div_select.find(&#x27;&gt;a[key=&quot;&#x27;+par.data.val+&#x27;&quot;]&#x27;).length)){
+							par.row.addClass(&#x27;info&#x27;);
+						}
+					}
+					if(1==this.get){//判断本列是否定制
+						par.customize[this.field]=par.data.val;
+					}
+					par.td=$(&#x27;&lt;td&gt;&#x27;,{html:par.data.val}).appendTo(par.row);//绑定表格内容
+					if(&#x27;&#x27;!=this.width){//判断是否设置列宽
+						par.td.html(&#x27;&lt;div style=&quot;width:&#x27;+this.width+&#x27;&quot;&gt;&#x27;+par.td.html()+&#x27;&lt;/div&gt;&#x27;);
+					}
+					if(this.tooltip){//为当前格绑定完整内容提示
+						par.td.attr({&#x27;data-toggle&#x27;:&#x27;tooltip&#x27;,&#x27;data-container&#x27;:&#x27;body&#x27;,&#x27;title&#x27;:par.data.val}).tooltip();
+					}
+				});
+				par.row.click(function(){//设定表格数据行点击事件
+					var tr_this=$(this),//当前行对象
+						str_key=tr_this.attr(&#x27;key&#x27;);//当前行标识
+					if(tr_this.hasClass(&#x27;info&#x27;)){//选中
+						tr_this.removeClass(&#x27;info&#x27;);//移除选中样式
+						_.div_select.find(&#x27;&gt;a[key=&quot;&#x27;+str_key+&#x27;&quot;]&#x27;).remove();//从选中列表移除
+						if(!(0!=_.div_select.find(&#x27;&gt;a&#x27;).length||1!=_.a_select.find(&#x27;&gt;i.fa-unlock&#x27;).length)){//判断全选按钮状态
+							_.a_select.find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-unlock&#x27;).next().html(&#x27;全选&#x27;);
+						}
+					}else{//未选中
+						tr_this.addClass(&#x27;info&#x27;);//添加选中样式
+						$(&#x27;&lt;a&gt;&#x27;,{key:str_key,href:&#x27;javascript:;&#x27;,&#x27;class&#x27;:&#x27;list-group-item&#x27;}).appendTo(_.div_select).append(//添加当前选中列表
+							$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn pull-left&#x27;,html:&#x27;&lt;i class=&quot;fa fa-lock&quot;&gt;&lt;/i&gt;&#x27;}).click(function(){//选项锁按钮
+								var i_this=$(this).find(&#x27;&gt;i&#x27;);
+								if(i_this.hasClass(&#x27;fa-unlock&#x27;)){//反选
+									i_this.removeClass(&#x27;fa-unlock&#x27;);
+									if(0==_.div_select.find(&#x27;&gt;a&gt;a&gt;i.fa-unlock&#x27;).length){
+										_.a_select.find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-unlock&#x27;).next().html(&#x27;全选&#x27;);
+									}
+								}else{//全选
+									i_this.addClass(&#x27;fa-unlock&#x27;);
+									if(1==_.div_select.find(&#x27;&gt;a&gt;a&gt;i.fa-unlock&#x27;).length){
+										_.a_select.find(&#x27;&gt;i&#x27;).addClass(&#x27;fa-unlock&#x27;).next().html(&#x27;反选&#x27;);
+									}
+								}
+								i_this=null;
+							})
+						).append(//选项标识列内容
+							&#x27;&lt;label&gt;&#x27;+str_key+&#x27;&lt;/label&gt;&#x27;
+						).append(//取消按钮
+							$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn pull-right&#x27;,html:&#x27;&lt;i class=&quot;fa fa-ban&quot;&gt;&lt;/i&gt;&#x27;}).click(function(){
+								_.tbody.find(&#x27;&gt;tr[key=&quot;&#x27;+$(this).parent().attr(&#x27;key&#x27;)+&#x27;&quot;]&#x27;).removeClass(&#x27;info&#x27;);//移除选中样式
+								if(!(0!=$(this).parent().siblings().length||1!=_.a_select.find(&#x27;&gt;i.fa-unlock&#x27;).length)){//判断全选按钮状态
+									_.a_select.find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-unlock&#x27;).next().html(&#x27;全选&#x27;);
+								}
+								$(this).parent().remove();//从选中列表移除
+							})
+						).data(&#x27;par&#x27;,tr_this.data(&#x27;par&#x27;));//保存定制数据集合到本列
+					}
+					tr_this=str_key=null;
+				}).data(&#x27;par&#x27;,par.customize);//保存定制数据集合
+			});
+			par=null;
+		},
+		//添加侧边栏
+		aside:function(){
+			_.aside=$(&#x27;&lt;aside&gt;&#x27;).appendTo(_.section);
+			_.div_select=$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:&#x27;list-group&#x27;});//选中列侧边栏对象
+			_.a_select=$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn btn-default pull-right&#x27;,html:&#x27;&lt;i class=&quot;fa fa-lock&quot;&gt;&lt;/i&gt;&lt;label&gt;全选&lt;/label&gt;&#x27;}).click(function(){//全选按钮
+				if(0!=_.div_select.find(&#x27;&gt;a&#x27;).length){//判断是否存在选中项
+					var i_this=$(this).find(&#x27;&gt;i&#x27;);
+					if(i_this.hasClass(&#x27;fa-unlock&#x27;)){//反选
+						i_this.removeClass(&#x27;fa-unlock&#x27;).next().html(&#x27;全选&#x27;);
+						_.div_select.find(&#x27;&gt;a&gt;a&gt;i.fa-unlock&#x27;).removeClass(&#x27;fa-unlock&#x27;);
+					}else{//全选
+						i_this.addClass(&#x27;fa-unlock&#x27;).next().html(&#x27;反选&#x27;);
+						_.div_select.find(&#x27;&gt;a&gt;a&gt;i.fa-lock:not([class*=&quot;fa-unlock&quot;])&#x27;).addClass(&#x27;fa-unlock&#x27;);
+					}
+					i_this=null;
+				}
+			});
+			_.aside_select=_.refun.setAside({
+				&#x27;class&#x27;:&#x27;_select&#x27;,
+				div:_.div_select,
+				display:false
+			}).hide();//绑定选中列侧边栏
+			_.aside_select.find(&#x27;&gt;nav&gt;div&#x27;).append(
+				$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn btn-default pull-right&#x27;,href:&#x27;javascript:;&#x27;,html:&#x27;&lt;i class=&quot;fa fa-trash&quot;&gt;&lt;/i&gt;&lt;label&gt;清空&lt;/label&gt;&#x27;}).click(function(){//清空选中列按钮
+					_.div_select.empty();
+					_.tbody.find(&#x27;&gt;tr.info&#x27;).removeClass(&#x27;info&#x27;);
+					if(1==_.a_select.find(&#x27;&gt;i.fa-unlock&#x27;).length){
+						_.a_select.find(&#x27;&gt;i&#x27;).removeClass(&#x27;fa-unlock&#x27;).next().html(&#x27;全选&#x27;);
+					}
+				})
+			).append(_.a_select);
+
+			_.aside.hide();
+		},
+		//加载页数
+		page:function(){
+			if(!_.cfg.pagination){return;}//判断是否显示分页
+			if(0==_.footer.children().length){//初次添加分页组件
+				_.input_go=$(&#x27;&lt;input&gt;&#x27;,{type:&#x27;text&#x27;,placeholder:&#x27;Go&#x27;,&#x27;class&#x27;:&#x27;form-control input-sm&#x27;}).keyup(function(e){//go文本框键盘弹起事件
+					if(13==e.keyCode){//Enter事件
+						$(this).siblings(&#x27;div&#x27;).find(&#x27;&gt;a&#x27;).click();//调用转到按钮点击事件
+					}
+				});
+				$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:&#x27;input-group pull-left&#x27;}).append(//添加go文本框
+					_.input_go
+				).append(
+					&#x27;&lt;span class=&quot;input-group-addon&quot;&gt;/ &#x27;+_.sum+&#x27;&lt;/span&gt;&#x27;//添加总页数
+				).append(
+					$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:&#x27;input-group-btn&#x27;}).append(//添加转到按钮
+						$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn btn-default&#x27;,html:&#x27;&lt;i class=&quot;fa fa-reply-all&quot;&gt;&lt;/i&gt;&lt;label&gt;转到&lt;/label&gt;&#x27;}).click(function(){
+							var par={val:$.trim(_.input_go.val())};
+							if(0&gt;=par.val.length){return}//不可为空
+							if(!/^[0-9]*$/g.test(par.val)){_.input_go.select();return;}//不可输入非数字字符
+							par.intVal=parseInt(par.val);
+							if(0&gt;=par.intVal||par.intVal&gt;_.sum){_.input_go.select();return;}//不可小于0且不可大于总页数
+							
+							_.cfg.ajax.data.page=par.intVal;//设定页面
+							_.fun.dataMode();//加载数据
+							par=null;
+						})
+					)
+				).appendTo(_.footer);
+				
+				$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn-group&#x27;}).append(//首页
+					$(&#x27;&lt;a&gt;&#x27;,{html:&#x27;&lt;i class=&quot;fa fa-angle-double-left&quot;&gt;&lt;/i&gt;&lt;label&gt;首页&lt;/label&gt;&#x27;,&#x27;class&#x27;:&#x27;btn btn-default&#x27;,disabled:&#x27;disabled&#x27;}).click(function(){
+						_.cfg.ajax.data.page=1;
+						_.fun.dataMode();
+					})
+				).append(//上一页
+					$(&#x27;&lt;a&gt;&#x27;,{html:&#x27;&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;&lt;label&gt;上一页&lt;/label&gt;&#x27;,&#x27;class&#x27;:&#x27;btn btn-default&#x27;,disabled:&#x27;disabled&#x27;}).click(function(){
+						_.cfg.ajax.data.page--;
+						_.fun.dataMode();
+					})
+				).append(//下一页
+					$(&#x27;&lt;a&gt;&#x27;,{html:&#x27;&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&lt;label&gt;下一页&lt;/label&gt;&#x27;,&#x27;class&#x27;:&#x27;btn btn-default&#x27;}).click(function(){
+						_.cfg.ajax.data.page++;
+						_.fun.dataMode();
+					})
+				).append(//末页
+					$(&#x27;&lt;a&gt;&#x27;,{html:&#x27;&lt;i class=&quot;fa fa-angle-double-right&quot;&gt;&lt;/i&gt;&lt;label&gt;末页&lt;/label&gt;&#x27;,&#x27;class&#x27;:&#x27;btn btn-default&#x27;}).click(function(){
+						_.cfg.ajax.data.page=_.sum;
+						_.fun.dataMode();
+					})
+				).appendTo(_.footer);
+				
+				_.footer.find(&#x27;a&#x27;).not(&#x27;[href]&#x27;).attr(&#x27;href&#x27;,&#x27;javascript:;&#x27;);
+				
+				if(1==_.sum){//判断总页数，如只有一页，则禁止所有分页组件事件
+					_.footer.find(&#x27;&gt;div.btn-group&gt;a:gt(1)&#x27;).attr(&#x27;disabled&#x27;,&#x27;disabled&#x27;);
+				}
+			}else{
+				_.input_go.val(_.cfg.ajax.data.page);//设定当前页数
+				_.input_go.next().html(&#x27;/ &#x27;+_.sum);//设定总页数
+				_.footer.find(&#x27;&gt;div.btn-group&gt;a&#x27;).removeAttr(&#x27;disabled&#x27;);//解除分页组件禁止的事件
+				if(1==_.cfg.ajax.data.page){//如当前为第一页，则禁止首页、上一页事件
+					_.footer.find(&#x27;&gt;div.btn-group&gt;a:lt(2)&#x27;).attr(&#x27;disabled&#x27;,&#x27;disabled&#x27;);
+				}
+				if(_.cfg.ajax.data.page==_.sum){//如当前为最后一页，则禁止下一页、末页事件
+					_.footer.find(&#x27;&gt;div.btn-group&gt;a:gt(1)&#x27;).attr(&#x27;disabled&#x27;,&#x27;disabled&#x27;);
+				}
+			}
+		}
+	};
+	//注册调用方法
+	_.refun={
+		/**
+		 * 刷新数据列表
+		 * @method refresh
+		 * @example
+		 * 	grid1.gridUI(&#x27;refresh&#x27;);
+		 */
+		refresh:function(){
+			_.fun.dataMode();
+		},
+		/**
+		 * 关闭侧边栏
+		 * @method refresh
+		 * @example
+		 * 	grid1.gridUI(&#x27;closeAside&#x27;);
+		 */
+		closeAside:function(){
+			_.controls.removeClass(&#x27;org-grid-aside&#x27;);//移除自适应标识
+			_.aside.hide().find(&#x27;&gt;div&#x27;).hide();
+		},
+		/**
+		 * 获取选中数据集合
+		 * @method getAllVal
+		 * @return {jquery object} 选中数据对象集合
+		 * @example
+		 * 	grid1.gridUI(&#x27;getAllVal&#x27;);
+		 */
+		getAllVal:function(){
+			return _.aside.find(&#x27;&gt;div._select div.list-group&gt;a&#x27;);
+		},
+		/**
+		 * 获取侧边栏
+		 * @method getAside
+		 * @param {object} _object_par 传入参数
+		 * 	@param {string} _object_par.class 侧边栏Class名称
+		 * @return {jquery object} 侧边栏对象
+		 * @example
+		 * 	grid1.gridUI(&#x27;getAside&#x27;,{class:&#x27;_select&#x27;});
+		 */
+		getAside:function(_object_par){
+			_object_par._div= _.aside.find(&#x27;&gt;div.&#x27;+_object_par[&#x27;class&#x27;]);
+			_object_par._div.siblings().hide();
+			if(!_.controls.hasClass(&#x27;org-grid-aside&#x27;)){
+				_.controls.addClass(&#x27;org-grid-aside&#x27;);
+			}
+			return _object_par._div;
+		},
+		/**
+		 * 添加侧边栏
+		 * @method setAside
+		 * @param {object} _object_par 传入参数
+		 * 	@param {string} _object_par.class 侧边栏Class名称
+		 * 	@param {string} [_object_par.url] 加载页面链接地址
+		 * 	@param {string|object} [_object_par.div] 加载html字符串或jquery对象
+		 * 	@param {function} [_object_par.fun] 加载页面后回掉方法
+		 * 	@param {boolean} [_object_par.display] 侧边栏默认是否显示
+		 * 		1. true： 显示（默认）
+		 * 		2. false: 隐藏
+		 * @return {jquery object} 加载侧边栏内嵌html后返回侧边栏对象
+		 * @example
+		 * 	grid1.gridUI(&#x27;setAside&#x27;,{class:&#x27;add1&#x27;,url:&#x27;http://www.google.com&#x27;});
+		 * 	//or
+		 * 	grid1.gridUI(&#x27;setAside&#x27;,{class:&#x27;add2&#x27;,url:&#x27;http://www.google.com&#x27;,fun:function(_object_aside){
+		 * 		console.log(_object_aside);//侧边栏对象
+		 * 	}});
+		 * 	//or
+		 * 	grid1.gridUI(&#x27;setAside&#x27;,{class:&#x27;add3&#x27;,div:&#x27;&lt;div&gt;test&lt;/div&gt;&#x27;});
+		 * 	//or
+		 * 	grid1.gridUI(&#x27;setAside&#x27;,{class:&#x27;add4&#x27;,div:$(&#x27;&lt;div&gt;&#x27;,{html:&#x27;test&#x27;})});
+		 * 	//or
+		 * 	var object_aside_add5 = grid1.gridUI(&#x27;setAside&#x27;,{class:&#x27;add5&#x27;,div:$(&#x27;&lt;div&gt;&#x27;,{html:&#x27;test&#x27;})});
+		 * 	console.log(object_aside_add5);//侧边栏对象
+		 */
+		setAside:function(_object_par){
+			if(_.aside.is(&#x27;:hidden&#x27;)){//判断侧边栏容器是否隐藏
+				_.aside.show();//显示侧边栏容器
+			}
+			_.aside.find(&#x27;&gt;div&#x27;).hide();//隐藏所有侧边栏
+			_object_par._div=_.aside.find(&#x27;&gt;div.&#x27;+_object_par[&#x27;class&#x27;]);//获取要添加的侧边栏
+			if(1==_object_par._div.length){//判断要添加的侧
+				if(!_.controls.hasClass(&#x27;org-grid-aside&#x27;)){
+					_.controls.addClass(&#x27;org-grid-aside&#x27;);
+				}
+				return _object_par._div.show();
+			}
+			//生成侧边栏
+			_object_par._div=$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:&#x27;panel panel-default &#x27;+_object_par[&#x27;class&#x27;]}).appendTo(_.aside).append(
+				$(&#x27;&lt;nav&gt;&#x27;,{&#x27;class&#x27;:&#x27;panel-heading container-fluid&#x27;}).append(
+					$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn-group&#x27;}).append(
+						$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn btn-default&#x27;,href:&#x27;javascript:;&#x27;,html:&#x27;&lt;i class=&quot;fa fa-close&quot;&gt;&lt;/i&gt;&lt;label&gt;关闭&lt;/label&gt;&#x27;}).click(function(){
+							if($.isFunction(_.cfg.fun.close)){//判断是否含有回调函数
+								_.cfg.fun.close($(this).closest(&#x27;.panel&#x27;));
+							}else{
+								_.controls.removeClass(&#x27;org-grid-aside&#x27;);//移除自适应标识
+								_.aside.hide().find(&#x27;&gt;div&#x27;).hide();
+							}
+						})
+					)
+				)
+			).append(
+				$(&#x27;&lt;section&gt;&#x27;,{&#x27;class&#x27;:&#x27;panel-body&#x27;})
+			);
+			if(undefined==_object_par.display||true==_object_par.display){//如果不存在或已经显示则添加自适应标识
+				_.controls.addClass(&#x27;org-grid-aside&#x27;);
+			}
+			_object_par._div.show();//显示侧边栏
+			if(_object_par.url){//加载侧边栏内嵌页面
+				pubFun.load({url:_object_par.url,suc:function(_data){
+					_object_par._div.find(&#x27;&gt;section&#x27;).html(_data).find(&#x27;a&#x27;).not(&#x27;[href]&#x27;).attr(&#x27;href&#x27;,&#x27;javascript:;&#x27;);
+					_object_par.fun(_object_par._div);
+				}});
+			}else{//加载侧边栏内嵌html
+				_object_par._div.find(&#x27;&gt;section&#x27;).html(_object_par.div);
+				return _object_par._div;
+			}
+		},
+		/**
+		 * 移除选中并锁定的数据列
+		 * @method removeTrash
+		 * @example
+		 * 	grid1.gridUI(&#x27;removeTrash&#x27;);
+		 */
+		removeTrash:function(){
+			_.div_select.find(&#x27;&gt;a&gt;a&gt;i.fa-lock:not([class*=&quot;fa-unlock&quot;])&#x27;).each(function(){
+				_.tbody.find(&#x27;&gt;tr[key=&quot;&#x27;+$(this).closest(&#x27;.list-group-item&#x27;).attr(&#x27;key&#x27;)+&#x27;&quot;]&#x27;).removeClass(&#x27;info&#x27;);
+			}).closest(&#x27;.list-group-item&#x27;).remove();
+		},
+		/**
+		 * 获取选中项键集合
+		 * @method val
+		 * @return {jquery object} 选中项键集合
+		 * @example
+		 * 	var a_selectList = grid1.gridUI(&#x27;val&#x27;);
+		 * 	if(1!=a_selectList.split(&#x27;,&#x27;).length||&#x27;&#x27;==a_selectList.split(&#x27;,&#x27;)[0]){//判断选中数据条数并且是一条数据
+		 * 		alert(&#x27;请选择一条数据进行操作！&#x27;);
+		 * 	}
+		 * 	//or
+		 * 	if(&#x27;&#x27;==a_selectList.split(&#x27;,&#x27;)[0]){//判断选中数据条数
+		 * 		alert(&#x27;请至少选择一条数据进行操作！&#x27;);
+		 * 	}
+		 */
+		val:function(){
+			return _.div_select.find(&#x27;&gt;a&gt;a&gt;i.fa-lock:not([class*=&quot;fa-unlock&quot;])&#x27;).map(function(){return $(this).closest(&#x27;.list-group-item&#x27;).attr(&#x27;key&#x27;)}).get().join();
+		},
+		/**
+		 * 获取选中项的定制数据集合
+		 * @method getCustomizeVal
+		 * @return {jquery object} 选中项键集合
+		 * @example
+		 * 	var a_customizeList = grid1.gridUI(&#x27;getCustomizeVal&#x27;);
+		 * 	console.log(a_customizeList);//选中项定制数据键集合
+		 */
+		getCustomizeVal:function(){
+			return _.div_select.find(&#x27;&gt;a&gt;a&gt;i.fa-lock:not([class*=&quot;fa-unlock&quot;])&#x27;).map(function(){
+				return JSON.stringify($(this).closest(&#x27;.list-group-item&#x27;).data(&#x27;par&#x27;));
+			}).get().join();
+		}
+	};
+	_.fun.init();/*初始化设置*/
+	_.fun.ui();/*初始化控件*/
+	_.controls.data(&#x27;this&#x27;,_.controls);//缓存当前控件对象
+	return _.controls;/*返回当前控件*/
+};
+/**
+ * &lt;h3&gt;Msg&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2014-02-28&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2014-12-10&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ * 	&lt;script&gt;
+ *	$(function(){
+ *		$(&quot;div#method_msgUI\&gt;div.example\&gt;h4&quot;).after(
+ *			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ *				$(&quot;&lt;div&gt;&quot;,{&quot;data-msg&quot;:&quot;msg1&quot;})
+ *			)
+ *		);
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-success&quot;,&quot;style&quot;:&quot;margin-right:10px&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).msgUI({msg:&quot;操作成功！&quot;,mode:1});
+ * 		}}).html(&quot;success&quot;).appendTo($(&quot;div[data-msg=\&quot;msg1\&quot;]&quot;));
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-info&quot;,&quot;style&quot;:&quot;margin-right:10px&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).msgUI({msg:&quot;此项不可为空！&quot;,mode:2});
+ * 		}}).html(&quot;info&quot;).appendTo($(&quot;div[data-msg=\&quot;msg1\&quot;]&quot;));
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-warning&quot;,&quot;style&quot;:&quot;margin-right:10px&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).msgUI({msg:&quot;非法操作！&quot;,mode:3,time:3000});
+ * 		}}).html(&quot;warning&quot;).appendTo($(&quot;div[data-msg=\&quot;msg1\&quot;]&quot;));
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-danger&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).msgUI({msg:&quot;操作失败！&quot;});
+ * 		}}).html(&quot;danger&quot;).appendTo($(&quot;div[data-msg=\&quot;msg1\&quot;]&quot;));
+ *	});
+ * 	&lt;/script&gt;
+ * @class msgUI
+ * @since 1.1.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {int} [_object_cfg.mode=0] 显示样式
+ * 		0. 红色（默认）
+ * 		1. 绿色
+ * 		2. 蓝色
+ * 		3. 橙色
+ * 	@param {string} [_object_cfg.msg=&#x27;&#x27;] 提示信息
+ * 	@param {int} [_object_cfg.width=300] 显示宽度
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {jquery object} [_object_cfg.parent=$(window)] 依附容器
+ * 	@param {boolean} [_object_cfg.close=ture] 自动关闭
+ * 		1. true 自动关闭（默认）
+ * 		2. false 不自动关闭
+ * 	@param {int} [_object_cfg.time=5000] 显示时间，配合自动关闭
+ * @constructor
+ * @chainable
+ * @example 
+ * 	$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:&#x27;操作成功！&#x27;,mode:1});
+ * 	//or
+ * 	$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:&#x27;此项不可为空！&#x27;,mode:2,close:false});
+ * 	//or
+ * 	$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:&#x27;非法操作！&#x27;,mode:3,time:3000});
+ * 	//or
+ * 	$(&#x27;&lt;div&gt;&#x27;).msgUI({msg:&#x27;操作失败！&#x27;});
+ */
+$.fn.msgUI=function(_object_cfg,_object_par){
+	var _=this;//控件
+	//返回已选中选项值
+	if($.isEmptyObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	//根据参数，调用相应方法
+	if(!$.isPlainObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun[_object_cfg](_object_par);
+	}
+	//注册内部方法
+	_.fun={
+		//初始化设置
+		init:function(){
+			_.par={
+				mode:0,
+				msg:&#x27;&#x27;,
+				width:300,
+				of:$(&#x27;body&#x27;),
+				parent:$(window),
+				close:true,
+				time:5000
+			};//默认参数
+			_.cfg=$.extend({},_.par,_object_cfg);//初始化参数
+		},
+		//初始化控件
+		ui:function(){
+			//绑定控件参数及样式
+			_.controls=_.attr({key:_.cfg.key,&#x27;class&#x27;:_.fun.addClass(_.cfg.mode)}).appendTo(_.cfg.of).append(
+				$(&#x27;&lt;buuton&gt;&#x27;,{type:&#x27;button&#x27;,&#x27;class&#x27;:&#x27;close&#x27;,&#x27;data-dismiss&#x27;:&#x27;alert&#x27;,html:&#x27;×&#x27;}).click(function(){
+					if(null!=_._c){clearTimeout(_._c);_._c=null}
+				})
+			).append(&#x27;&lt;h7&gt;&#x27;+_.cfg.msg+&#x27;&lt;/h7&gt;&#x27;).width(_.cfg.width).slideDown(&#x27;slow&#x27;,_.fun.slideDown);
+			_.fun.setPosition();//设定初始位置
+			$(window).scroll(_.fun.setPosition).resize(_.fun.setPosition);//根据窗体及滚动条移动
+		},
+		//添加样式
+		addClass:function(){
+			var string_class=&#x27;alert alert-&#x27;;
+			switch(_.cfg.mode){
+				case 1://绿色
+					string_class+=&#x27;success&#x27;;
+					break;
+				case 2://蓝色
+					string_class+=&#x27;info&#x27;;
+					break;
+				case 3://橙色
+					string_class+=&#x27;warning&#x27;;
+					break;
+				default://红色（默认）
+					string_class+=&#x27;danger&#x27;;
+					break;
+			}
+			return string_class+&#x27; fade in org-msg&#x27;;
+		},
+		//定位
+		setPosition:function(){
+			_.controls.css({&#x27;left&#x27;:(_.cfg.parent.width()-_.cfg.width)/2,&#x27;top&#x27;:_.cfg.parent.scrollTop()});
+		},
+		//滑动显示
+		slideDown:function(){
+			if(_.cfg.close){//判断是否自动关闭
+				_._c=setTimeout(function(){
+					_._c=null;
+					_.controls.slideUp(&#x27;slow&#x27;,function(){$(this).remove()});//滑动关闭
+				},_.cfg.time);//根据设定时间自动关闭
+			}
+		}
+	};
+	_.refun={};
+	_.fun.init();//初始化设置
+	_.fun.ui();//初始化控件
+	return _.controls;//返回当前控件
+};
+/**
+ * &lt;h3&gt;Dialog&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2015-01-30&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2015-01-30&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ * 	&lt;script&gt;
+ * 	$(function(){
+ * 		$(&quot;div#method_dialogUI\&gt;div.example\&gt;h4&quot;).after(
+ * 			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ * 				$(&quot;&lt;div&gt;&quot;,{&quot;data-dialog&quot;:&quot;dialog1&quot;})
+ * 			)
+ * 		);
+ * 		$(&quot;&lt;a&gt;&quot;,{&quot;class&quot;:&quot;btn btn-primary&quot;,&quot;click&quot;:function(){
+ * 			$(&quot;&lt;div&gt;&quot;).dialogUI({
+ * 				key:&quot;dialog1&quot;,
+ * 				title:&quot;标题&quot;,
+ * 				body:&quot;内容&quot;,
+ * 				btns:[
+ * 					{val:&quot;保存&quot;,icon:&quot;fa-save&quot;,&quot;class&quot;:&quot;btn-primary&quot;,click:function(){
+ * 						$(this).closest(&quot;.org-dialog&quot;).modal(&quot;hide&quot;);
+ * 					}},{val:&quot;取消&quot;,icon:&quot;fa-ban&quot;,click:function(){
+ * 						$(this).closest(&quot;.org-dialog&quot;).modal(&quot;hide&quot;);
+ * 					}}
+ * 				],
+ * 				of:$(&quot;body&quot;)
+ * 			});
+ * 		}}).html(&quot;对话框&quot;).appendTo($(&quot;div[data-dialog=\&quot;dialog1\&quot;]&quot;));
+ *	});
+ * 	&lt;/script&gt;
+ * @class dialogUI
+ * @since 1.0.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {string} [_object_cfg.key=&#x27;&#x27;] 控件名称
+ * 	@param {string} [_object_cfg.class=&#x27;&#x27;] 自定义样式
+ * 	@param {string|jquery object} [_object_cfg.title=&#x27;&#x27;] 标题
+ * 	@param {string|jquery object} [_object_cfg.body=&#x27;&#x27;] 内容
+ * 	@param {boolean|string} [_object_cfg.backdrop=true] 设定阴影点击是否可关闭
+ * 		1. true：可关闭（默认）
+ * 		2. &#x27;static&#x27;：不可关闭
+ * 	@param {object} [_object_cfg.btns] 按钮组
+ * 		@param {string} [_object_cfg.btns.icon=&#x27;&#x27;] 图标样式
+ * 		@param {string} [_object_cfg.btns.iconAlign=&#x27;&#x27;] 图标显示方向
+ * 			1. left：居左（默认）
+ * 			2. right：居右
+ * 		@param {string} [_object_cfg.btns.val=&#x27;&#x27;] 文本
+ * 		@param {string} [_object_cfg.btns.class=&#x27;&#x27;] 自定义样式
+ * 		@param {function} [_object_cfg.btns.click] 绑定单击事件
+ * @constructor
+ * @chainable
+ * @example 
+ * 		$(&#x27;&lt;div&gt;&#x27;).dialogUI({
+ * 			key:&#x27;dialog1&#x27;,
+ * 			title:&#x27;标题&#x27;,
+ * 			body:&#x27;内容&#x27;,
+ * 			btns:[
+ * 				{val:&#x27;保存&#x27;,icon:&#x27;fa-save&#x27;,&#x27;class&#x27;:&#x27;btn-primary&#x27;,click:function(){
+ * 					$(this).closest(&#x27;.org-dialog&#x27;).modal(&#x27;hide&#x27;);
+ * 				}},{val:&#x27;取消&#x27;,icon:&#x27;fa-ban&#x27;,click:function(){
+ * 					$(this).closest(&#x27;.org-dialog&#x27;).modal(&#x27;hide&#x27;);
+ * 				}}
+ * 			],
+ * 			of:$(&#x27;body&#x27;)
+ * 		});
+ */
+$.fn.dialogUI=function(_object_cfg,_object_par){
+	var _=this;/*控件*/
+	/*返回已选中选项值*/
+	if($.isEmptyObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	/*根据参数，调用相应方法*/
+	if(!$.isPlainObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun[_object_cfg](_object_par);
+	}
+	//注册内部方法
+	_.fun={
+		//初始化设置
+		init:function(){
+			_.par={
+				key:&#x27;&#x27;,
+				of:$(&#x27;body&#x27;),
+				&#x27;class&#x27;:&#x27;&#x27;,
+				body:&#x27;&#x27;,
+				backdrop:true,
+				title:&#x27;&amp;nbsp;&#x27;,
+				btns:{
+					iconAlign:&#x27;&#x27;,
+					icon:&#x27;&#x27;,
+					val:&#x27;&#x27;,
+					&#x27;class&#x27;:&#x27;&#x27;,
+					click:function(){}
+				}
+			};/*默认参数*/
+			_.cfg=$.extend(true,{},_.par,_object_cfg);/*初始化参数*/
+			/*遍历选项参数*/
+			if(_object_cfg.btns){
+				$.each(_object_cfg.btns,function(i){
+					_.cfg.btns[i]=$.extend({},_.par.btns,this);
+				});
+			}
+		},
+		//初始化控件
+		ui:function(){
+			/*绑定控件参数及样式*/
+			_.controls=_.attr({key:_.cfg.key,&#x27;class&#x27;:&#x27;org-dialog modal fade &#x27;+_.cfg[&#x27;class&#x27;]}).appendTo(_.cfg.of).append(&#x27;&lt;div class=&quot;modal-dialog&quot;&gt;&lt;div class=&quot;modal-content&quot;&gt;&lt;div class=&quot;modal-header&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;&lt;h4 class=&quot;modal-title&quot;&gt;&lt;/h4&gt;&lt;/div&gt;&lt;div class=&quot;modal-body&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&#x27;);
+			if(&#x27;&#x27;!=_.cfg.title){//判断是否绑定标题
+				_.title=_.controls.find(&#x27;h4.modal-title&#x27;).append(_.cfg.title);
+			}
+			if(&#x27;&#x27;!=_.cfg.body){//判断是否绑定内容
+				_.body=_.controls.find(&#x27;div.modal-body&gt;p&#x27;).append(_.cfg.body);
+			}
+			if(!(!$.isArray(_.cfg.btns)||0==_.cfg.btns.length)){//是否绑定底部按钮组
+				_.footer=$(&#x27;&lt;div class=&quot;modal-footer&quot;&gt;&lt;/div&gt;&#x27;).appendTo(_.controls.find(&#x27;div.modal-content&#x27;));
+				var par={};
+				$.each(_.cfg.btns,function(){//循环绑定按钮
+					par.a=$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn btn-default &#x27;+this[&#x27;class&#x27;],click:this.click}).append(
+						this.val
+					).appendTo(_.footer);
+					if(this.icon){//设置按钮图标
+						par.i=&#x27;&lt;i class=&quot;fa &#x27;+this.icon+&#x27;&quot;&gt;&lt;/i&gt;&#x27;;
+						switch(this.iconAlign){//设置图标显示方向
+							case &#x27;right&#x27;://右边
+								par.a.append(par.i);
+								break;
+							default://左边
+								par.a.prepend(par.i);
+								break;
+						}
+					}
+				});
+				par=null;
+			}
+			_.controls.modal({backdrop:_.cfg.backdrop});//创建对话框
+		}
+	};
+	_.refun={};
+	_.fun.init();/*初始化设置*/
+	_.fun.ui();/*初始化控件*/
+	return _.controls;/*返回当前控件*/
+};
+/**
+ * &lt;h3&gt;SelectTree&lt;/h3&gt;
+ * 	&lt;b&gt;Date:&lt;/b&gt; 2015-02-02&lt;br&gt;
+ * 	&lt;b&gt;Modify:&lt;/b&gt; 2015-03-01&lt;br&gt;
+ * 	&lt;b&gt;Pen:&lt;/b&gt; angelop007@gmail.com&lt;br&gt;
+ * 	&lt;script&gt;
+ * 	$(function(){
+ * 		$(&quot;div#method_selectTreeUI\&gt;div.example\&gt;h4&quot;).after(
+ * 			$(&quot;&lt;div&gt;&quot;,{class:&quot;example-content prettyprint&quot;}).append(
+ * 				$(&quot;&lt;div&gt;&quot;,{&quot;data-selectTree&quot;:&quot;selectTree1&quot;})
+ * 			)
+ * 		);
+ * 		$(&quot;&lt;div&gt;&quot;).selectTreeUI({
+ * 			&quot;key&quot;:&quot;selectTree&quot;,
+ * 			&quot;class&quot;:&quot;width-auto&quot;,
+ * 			tree:{
+ * 				key:&quot;tree&quot;,
+ * 				check:true,
+ * 				data:[
+ * 					{key:&quot;1&quot;,val:&quot;AAA&quot;,badge:&quot;3&quot;,child:[
+ * 						{key:&quot;1-1&quot;,val:&quot;CCC&quot;},
+ * 						{key:&quot;1-2&quot;,val:&quot;DDD&quot;,child:[
+ * 							{key:&quot;1-2-1&quot;,val:&quot;FFF&quot;},
+ * 							{key:&quot;1-2-2&quot;,val:&quot;GGG&quot;}
+ * 						]},
+ * 						{key:&quot;1-3&quot;,val:&quot;EEE&quot;}
+ * 					]},
+ * 					{key:&quot;2&quot;,val:&quot;BBB&quot;,select:2,child:[
+ * 						{key:&quot;2-1&quot;,val:&quot;HHH&quot;},
+ * 						{key:&quot;2-2&quot;,val:&quot;III&quot;,select:1},
+ * 						{key:&quot;2-3&quot;,val:&quot;JJJ&quot;,select:1,badge:&quot;2&quot;,child:[
+ * 							{key:&quot;2-2-1&quot;,val:&quot;KKK&quot;,select:1,icon:&quot;fa-gamepad&quot;},
+ * 							{key:&quot;2-2-2&quot;,val:&quot;LLL&quot;,select:1}
+ * 						]}
+ * 					]}
+ * 				]
+ * 			},
+ * 			of:$(&quot;div[data-selectTree=\&quot;selectTree1\&quot;]&quot;)
+ * 		});
+ *	});
+ * 	&lt;/script&gt;
+ * @class selectTreeUI
+ * @since 1.0.0
+ * @param {object|string} _object_cfg 控件配置参数 | 调用方法
+ * 	@param {jquery object} [_object_cfg.of=$(&#x27;body&#x27;)] 控件父级
+ * 	@param {string} [_object_cfg.key=&#x27;&#x27;] 控件名称
+ * 	@param {string} [_object_cfg.class=&#x27;&#x27;] 自定义样式
+ * 	@param {boolean} [_object_cfg.tooltip=true] 完整选定内容提示
+ * 		1. true： 显示（默认）
+ * 		2. false： 不显示
+ * 	@param {string} [_object_cfg.placement=&#x27;top&#x27;] 提示显示方向
+ * 		1. top：上（默认）
+ * 		2. bottom：下
+ * 		3. left：左
+ * 		4. right：右
+ * 	@param {object} [_object_cfg.default] 默认数据集合
+ * 		@param {string} [_object_cfg.default.key=&#x27;no&#x27;] 选项键
+ * 		@param {string} [_object_cfg.default.val=&#x27;请选择！&#x27;] 选项值
+ * 	@param {object} [_object_cfg.tree] 树节点参数（参考treeUI控件相关参数）
+ * @constructor
+ * @chainable
+ * @example
+ * 	var li1=$(&#x27;&lt;li&gt;&#x27;).appendTo($(&#x27;body&gt;ol#__logs&#x27;));
+ * 	$(&#x27;&lt;div&gt;&#x27;).selectTreeUI({
+ * 		&#x27;key&#x27;:&#x27;selectTree&#x27;,
+ * 		&#x27;class&#x27;:&#x27;width-auto&#x27;,
+ * 		tree:{
+ * 			key:&#x27;tree&#x27;,
+ * 			check:true,
+ * 			data:[
+ * 				{key:&quot;1&quot;,val:&quot;AAA&quot;,badge:&quot;3&quot;,child:[
+ * 					{key:&quot;1-1&quot;,val:&quot;CCC&quot;},
+ * 					{key:&quot;1-2&quot;,val:&quot;DDD&quot;,child:[
+ * 						{key:&quot;1-2-1&quot;,val:&quot;FFF&quot;},
+ * 						{key:&quot;1-2-2&quot;,val:&quot;GGG&quot;}
+ * 					]},
+ * 					{key:&quot;1-3&quot;,val:&quot;EEE&quot;}
+ * 				]},
+ * 				{key:&quot;2&quot;,val:&quot;BBB&quot;,select:2,child:[
+ * 					{key:&quot;2-1&quot;,val:&quot;HHH&quot;},
+ * 					{key:&quot;2-2&quot;,val:&quot;III&quot;,select:1},
+ * 					{key:&quot;2-3&quot;,val:&quot;JJJ&quot;,select:1,badge:&quot;2&quot;,child:[
+ * 						{key:&quot;2-2-1&quot;,val:&quot;KKK&quot;,select:1,icon:&quot;fa-gamepad&quot;},
+ * 						{key:&quot;2-2-2&quot;,val:&quot;LLL&quot;,select:1}
+ * 					]}
+ * 				]}
+ * 			]
+ * 		},
+ * 		of:li1
+ * 	});
+ */
+$.fn.selectTreeUI=function(_object_cfg,_object_par){
+	var _=this;//控件
+	//返回已选中选项值
+	if($.isEmptyObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun.val();
+	}
+	//根据参数，调用相应方法
+	if(!$.isPlainObject(_object_cfg)){
+		_=_.prevObject;
+		return _.refun[_object_cfg](_object_par);
+	}
+	//注册内部方法
+	_.fun={
+		//初始化设置
+		init:function(){
+			_.par={
+				key:&#x27;&#x27;,
+				&#x27;default&#x27;:{
+					key:&#x27;no&#x27;,
+					val:&#x27;请选择！&#x27;
+				},
+				of:$(&#x27;body&#x27;),
+				tooltip:true,
+				placement:&#x27;top&#x27;,
+				&#x27;class&#x27;:&#x27;&#x27;,
+				tree:{
+					check:false,
+					badge:false,
+					click:false,
+					fun:{
+						nodeClick:null
+					}
+				}
+			};//默认参数
+			_.cfg=$.extend(true,{},_.par,_object_cfg);//初始化参数
+			_.now=$.now();//当前时间
+		},
+		//初始化控件
+		ui:function(){
+			_.controls=_.attr({key:_.cfg.key,&#x27;class&#x27;:&#x27;org-selectTree &#x27;+_.cfg[&#x27;class&#x27;]}).appendTo(_.cfg.of);//绑定控件参数及样式
+			_.lable=$(&#x27;&lt;label&gt;&#x27;,{&#x27;key&#x27;:_.cfg[&#x27;default&#x27;].key,&#x27;html&#x27;:_.cfg[&#x27;default&#x27;].val});//下拉菜单显示框
+			_.a=$(&#x27;&lt;a&gt;&#x27;,{&#x27;class&#x27;:&#x27;btn btn-default&#x27;}).append(
+				&#x27;&lt;i class=&quot;fa fa-caret-down&quot;&gt;&lt;/i&gt;&#x27;
+			).append(
+				_.lable
+			).appendTo(_.controls);//下拉菜单按钮
+			if(_.cfg.tooltip){
+				_.a.attr({&#x27;title&#x27;:_.cfg[&#x27;default&#x27;].val,&#x27;data-toggle&#x27;:&#x27;tooltip&#x27;,&#x27;data-placement&#x27;:_.cfg.placement}).tooltip();//开启提示
+			}
+			
+			_.div_tree=$(&#x27;&lt;div&gt;&#x27;,{&#x27;class&#x27;:&#x27;dropdown-menu&#x27;}).appendTo(_.controls);//下拉菜单
+			_.cfg.tree.of=_.div_tree;//设置树
+			var fun={};
+			if(_.cfg.tree.fun.nodeClick){//是否设置节点点击事件
+				fun.nodeClick=_.cfg.tree.fun.nodeClick;
+				_.cfg.tree.fun.nodeClick=function(_object_par){
+					if(2!=_object_par.type){//非文件类型节点不执行本次点击节点操作
+						return false;
+					}
+					if($.isFunction(fun.nodeClick)){//选中后回调
+						fun.nodeClick($.extend({},_object_par,{&#x27;this&#x27;:_.ul_tree}));//回调选中后方法
+					}
+					_.div_tree.hide();//关闭下拉菜单
+					if(_.cfg.tooltip){//设置完整选定内容提示
+						_.a.attr({&#x27;title&#x27;:_object_par.val,&#x27;data-original-title&#x27;:_object_par.val});
+					}
+					_.lable.attr(&#x27;key&#x27;,_object_par.key).html(_object_par.val);//设置下拉树显示框选中键及内容
+				};
+			}
+			if(_.cfg.tree.check){//多选
+				fun.check=function(){//多选框选中回调方法
+					var json_checkVal=_.ul_tree.treeUI(&#x27;checkVal&#x27;);//获取所有选中值集合
+					_.lable.attr(&#x27;key&#x27;,_.cfg[&#x27;default&#x27;].key).html($.isEmptyObject(json_checkVal)?_.cfg[&#x27;default&#x27;].val:&#x27;&#x27;);//设置默认值
+					for(var d in json_checkVal){//遍历选中值集合
+						if(2==json_checkVal[d].type){//判断当前节点是否为文件类型
+							if(_.cfg[&#x27;default&#x27;].key==_.lable.attr(&#x27;key&#x27;)){//第一个设置显示选中内容
+								_.lable.attr(&#x27;key&#x27;,&#x27;&#x27;).html(json_checkVal[d].val);
+							}else{//除第一个外累加设置显示选中内容
+								_.lable.html(_.lable.text()+&#x27;,&#x27;+json_checkVal[d].val);
+							}
+						}
+					}
+					if(_.cfg.tooltip){//判断是否显示提示信息
+						if(!$.isEmptyObject(json_checkVal)){//判断是否含有选中内容
+							_.a.attr({&#x27;title&#x27;:_.lable.text(),&#x27;data-original-title&#x27;:_.lable.text()});
+						}
+					}
+					json_checkVal=null;
+				};
+				_.cfg.tree.fun.check=fun.check;//设置多选框选中回调方法
+				_.cfg.tree.fun.uncheck=fun.check;//设置多选框取消选中回调方法
+			}
+			_.ul_tree=$(&#x27;&lt;ul&gt;&#x27;).treeUI(_.cfg.tree);//生成树
+			_.fun.fun();//设置事件并设置默认选中项到显示框内
+		},
+		//设置显示、隐藏下拉菜单事件设置默认选中项到显示框内
+		fun:function(){
+			var par={checkVal:null,i:0,checkVals:&#x27;&#x27;};
+			_.a.click(function(){//显示、隐藏菜单事件
+				if(_.div_tree.is(&#x27;:hidden&#x27;)){
+					_.div_tree.show();//显示
+				}else{
+					_.div_tree.hide();//隐藏
+				}
+			});
+            if(_.cfg.tree.check){//多选
+                par.checkVal = _.ul_tree.treeUI(&#x27;checkVal&#x27;);//获取所有选中值集合
+                if(!$.isEmptyObject(par.checkVal)){
+                    $.each(par.checkVal,function(){//遍历选中值集合
+                        if(2==this.type){//判断当前节点是否为文件类型
+                           par.checkVals+=(0==par.i?&#x27;&#x27;:&#x27;,&#x27;)+this.val;//累加选中值
+                           par.i=1;//设置是否为第1次进入有效循环
+                        }
+                    });
+                    _.lable.attr(&#x27;key&#x27;,&#x27;&#x27;).html(par.checkVals);//设置显示框内容
+                    if(_.cfg.tooltip){//判断是否设置提示信息
+                        _.a.attr({&#x27;title&#x27;:par.checkVals,&#x27;data-original-title&#x27;:par.checkVals});
+                    }
+                }
+            }else{//单选
+                par.object = _.ul_tree.treeUI(&#x27;val&#x27;);//获取选中节点信息
+                if(!$.isEmptyObject(par.object.val)){
+                    _.lable.attr(&#x27;key&#x27;,par.object.key).html(par.object.val);//设置显示框内容
+                    if(_.cfg.tooltip){//判断是否设置提示信息
+                        _.a.attr({&#x27;title&#x27;:par.object.val,&#x27;data-original-title&#x27;:par.object.val});
+                    }
+                }
+            }
+            //设定页面点击事件，当点击的区域不是下拉菜单时，则关闭当前页面中打开的下拉菜单
+            $(document).on(&#x27;click&#x27;,function(e){
+                var div_select=$(e.target).closest(&#x27;.org-selectTree&#x27;),div_menuSelect;
+                if(0==div_select.length){//点击区域非下拉树
+                    div_menuSelect=$(&#x27;.org-selectTree&gt;div:nth-child(2)&#x27;);//获取所有下拉树
+                }else{//点击区域为下拉树
+                    div_menuSelect=$(&#x27;.org-selectTree[key!=&quot;&#x27;+div_select.attr(&#x27;key&#x27;)+&#x27;&quot;]&gt;div:nth-child(2)&#x27;);//获取当前下拉树
+                }
+                div_menuSelect=div_menuSelect.not(&#x27;:hidden&#x27;);//获取非隐藏菜单状态的下拉树
+                if(0==div_menuSelect.length){//判断是否含有非隐藏菜单状态的下拉树
+                    div_menuSelect=div_select=null;
+                    return true;
+                }
+                if(&#x27;1&#x27;==div_menuSelect.attr(&#x27;st&#x27;)){//判断是否正在动画中
+                    div_menuSelect=div_select=null;
+                    return true;
+                }
+                div_menuSelect.attr(&#x27;st&#x27;,&#x27;1&#x27;).stop().slideUp(function(){//设置开始动画标识，并停止上次动画，执行本次动画
+                    $(this).removeAttr(&#x27;st&#x27;)//设置动画结束标识
+                });
+                div_menuSelect=div_select=null;
+            });
+            par=null;
+		}
+	};
+	_.refun={};
+	_.fun.init();//初始化设置
+	_.fun.ui();//初始化控件
+	return _.controls;//返回当前控件
+};
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a id="gotoTop" class='well well-small' href='#'>
+    Top
+</a>
+</body>
+</html>

@@ -1,0 +1,2211 @@
+{
+    "project": {
+        "name": "ORGUI",
+        "version": "1.2.0",
+        "url": "/",
+        "logo": "assets/css/logo.png",
+        "navs": [
+            {
+                "name": "Document",
+                "url": "/"
+            }
+        ]
+    },
+    "files": {
+        "input\\function.js": {
+            "name": "input\\function.js",
+            "modules": {
+                "function": 1
+            },
+            "classes": {
+                "pubFun": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "input\\orgui.js": {
+            "name": "input\\orgui.js",
+            "modules": {
+                "UI(User Interface Controls)": 1
+            },
+            "classes": {
+                "checkUI": 1,
+                "radioUI": 1,
+                "selectUI": 1,
+                "treeUI": 1,
+                "alertUI": 1,
+                "gridUI": 1,
+                "msgUI": 1,
+                "dialogUI": 1,
+                "selectTreeUI": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "function": {
+            "name": "function",
+            "submodules": {},
+            "classes": {
+                "pubFun": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "input\\function.js",
+            "line": 1,
+            "description": "<h4><b>工具类</b></h4>\n\t<b>Date：</b> 2014-10-27<br>\n\t<b>Modify:</b> 2015-03-02<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>",
+            "since": "1.1.0",
+            "requires": [
+                "jquery-2.1.1.js"
+            ],
+            "is_constructor": 1,
+            "example": [
+                "\n\tpubFun.function([object]);"
+            ]
+        },
+        "UI(User Interface Controls)": {
+            "name": "UI(User Interface Controls)",
+            "submodules": {},
+            "classes": {
+                "checkUI": 1,
+                "radioUI": 1,
+                "selectUI": 1,
+                "treeUI": 1,
+                "alertUI": 1,
+                "gridUI": 1,
+                "msgUI": 1,
+                "dialogUI": 1,
+                "selectTreeUI": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "input\\orgui.js",
+            "line": 3017,
+            "description": "UI 控件库",
+            "requires": [
+                "<br>jquery-2.1.1.js<br>",
+                "bootstrap-3.2.css<br>",
+                "bootstrap-3.2.js<br>",
+                "font-awesome-4.2.css<br>",
+                "orgui-1.0.css"
+            ]
+        }
+    },
+    "classes": {
+        "pubFun": {
+            "name": "pubFun",
+            "shortname": "pubFun",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "function",
+            "namespace": "",
+            "file": "input\\function.js",
+            "line": 1,
+            "description": "<h4><b>工具类</b></h4>\n\t<b>Date：</b> 2014-10-27<br>\n\t<b>Modify:</b> 2015-03-02<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>"
+        },
+        "checkUI": {
+            "name": "checkUI",
+            "shortname": "checkUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 10,
+            "description": "<h3>CheckBox</h3>\n\t<b>Date:</b> 2014-10-27<br>\n\t<b>Modify:</b> 2014-11-12<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\t$(\"div#method_checkUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-check\":\"check1\"})\n\t\t\t).append(\"<br>\").append(\n\t\t\t\t$(\"<div>\",{\"data-check\":\"check2\"})\n\t\t\t)\n\t\t);\n\t\t$(\"<div>\").checkUI({\n\t\t\tkey:\"check1\",\n\t\t\tdata:[\n\t\t\t\t{key:\"1\",val:\"A\",select:1},\n\t\t\t\t{key:\"2\",val:\"B\"}\n\t\t\t],\n\t\t\tof:$(\"div[data-check=\\\"check1\\\"]\")\n\t\t});\n\t\t$(\"<div>\").checkUI({\n\t\t\tmode:2,\n\t\t\ttooltip:true,\n\t\t\tdata:[\n\t\t\t\t{key:\"1\",val:\"A\",select:1},\n\t\t\t\t{key:\"2\",val:\"B\"}\n\t\t\t],\n\t\t\tof:$(\"div[data-check=\\\"check2\\\"]\")\n\t\t});\n\t});\n\t</script>",
+            "since": "1.0.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "key",
+                            "description": "控件名称",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "tooltip",
+                            "description": "提示框\n\t\t1. true：显示\n\t\t2. false：不显示（默认）",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "class",
+                            "description": "自定义样式",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "mode",
+                            "description": "显示模式\n\t\t1. 对号框组（默认）\n\t\t2. 按钮组",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "1"
+                        },
+                        {
+                            "name": "compose",
+                            "description": "排版模式\n\t\t1. 横向（默认）\n\t\t2. 纵向",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "1"
+                        },
+                        {
+                            "name": "icon",
+                            "description": "图标样式",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "default",
+                                    "description": "默认图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-square-o'"
+                                },
+                                {
+                                    "name": "nfull",
+                                    "description": "子集不完全选中图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-check-square-o'"
+                                },
+                                {
+                                    "name": "active",
+                                    "description": "选中图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-check-square'"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "fun",
+                            "description": "绑定事件",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "check",
+                                    "description": "选中触发事件",
+                                    "type": "Function",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "uncheck",
+                                    "description": "取消选中触发事件",
+                                    "type": "Function",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "data",
+                            "description": "选项集合",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "key",
+                                    "description": "键",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "val",
+                                    "description": "值",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "select",
+                                    "description": "选中项\n\t\t\t0. 未中（默认）\n\t\t\t1. 选中\n\t\t\t2. 半选（树形控件使用）",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "0"
+                                },
+                                {
+                                    "name": "class",
+                                    "description": "自定义样式（按钮组模式下默认'btn-default'）",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "placement",
+                                    "description": "提示框显示方向\n\t\t\t1. top：上（默认）\n\t\t\t2. bottom：下\n\t\t\t3. left：左\n\t\t\t4. right：右",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'top'"
+                                },
+                                {
+                                    "name": "href",
+                                    "description": "链接（默认可防止页面本页滚动条置顶）",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'javascript:;'"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "_object_par",
+                    "description": "调用方法传入参数",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                "\n\tvar li1=$('<li>').appendTo($('body>ol#__logs'));\n\tvar object_check1=$('<div>').checkUI({\n\t\tkey:'check1',\n\t\tdata:[\n\t\t\t{key:'1',val:'A',select:1},\n\t\t\t{key:'2',val:'B'}\n\t\t],\n\t\tof:li1\n\t});\n\n\tvar li2=$('<li>').appendTo($('body>ol#__logs'));\n\tvar object_check2=$('<div>').checkUI({\n\t\tmode:2,\n\t\ttooltip:true,\n\t\tdata:[\n\t\t\t{key:'1',val:'A',select:1},\n\t\t\t{key:'2',val:'B'}\n\t\t],\n\t\tof:li2\n\t});"
+            ]
+        },
+        "radioUI": {
+            "name": "radioUI",
+            "shortname": "radioUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 272,
+            "description": "<h3>Radio</h3>\n\t<b>Date:</b> 2014-10-29<br>\n\t<b>Modify:</b> 2014-10-31<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\t$(\"div#method_radioUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-radio\":\"radio1\"})\n\t\t\t).append(\"<br>\").append(\n\t\t\t\t$(\"<div>\",{\"data-radio\":\"radio2\"})\n\t\t\t).append(\"<br>\").append(\n\t\t\t\t$(\"<div>\",{\"data-radio\":\"radio3\",\"style\":\"width:100px\"})\n\t\t\t)\n\t\t);\n\t\t$(\"<div>\").radioUI({\n\t\t\tkey:\"radio1\",\n\t\t\tdata:[\n\t\t\t\t{key:\"1\",val:\"A\",select:1},\n\t\t\t\t{key:\"2\",val:\"B\"}\n\t\t\t],\n\t\t\tof:$(\"div[data-radio=\\\"radio1\\\"]\")\n\t\t});\n\t\t$(\"<div>\").radioUI({\n\t\t\tmode:2,\n\t\t\ttooltip:true,\n\t\t\tdata:[\n\t\t\t\t{key:\"1\",val:\"A\",select:1},\n\t\t\t\t{key:\"2\",val:\"B\"}\n\t\t\t],\n\t\t\tof:$(\"div[data-radio=\\\"radio2\\\"]\")\n\t\t});\n\t\t$(\"<div>\").radioUI({\n\t\t\tmode:3,\n\t\t\ticon:{\n\t\t\t\tdefault:\"\",\n\t\t\t\thover:\"fa-child\",\n\t\t\t\tactive:\"\"\n\t\t\t},\n\t\t\tdata:[\n\t\t\t\t{key:\"1\",val:\"男\",icon:\"fa-male\",select:1,class:\"btn-info\"},\n\t\t\t\t{key:\"2\",val:\"女\",icon:\"fa-female\",class:\"btn-danger\"}\n\t\t\t],\n\t\t\tof:$(\"div[data-radio=\\\"radio3\\\"]\")\n\t\t});\n\t});\n\t</script>",
+            "since": "1.1.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "key",
+                            "description": "控件名称",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "tooltip",
+                            "description": "提示框\n\t\t1. true：显示\n\t\t2. false：不显示（默认）",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "class",
+                            "description": "自定义样式",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "mode",
+                            "description": "显示模式\n\t\t1. 对号框组（默认）\n\t\t2. 按钮组\n\t\t3. 滑块组",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "1"
+                        },
+                        {
+                            "name": "compose",
+                            "description": "排版模式\n\t\t1. 横向（默认）\n\t\t2. 纵向",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "1"
+                        },
+                        {
+                            "name": "icon",
+                            "description": "图标样式",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "default",
+                                    "description": "默认图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-circle-o'"
+                                },
+                                {
+                                    "name": "hover",
+                                    "description": "鼠标浮动图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-circle'"
+                                },
+                                {
+                                    "name": "active",
+                                    "description": "选中图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-dot-circle-o'"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "fun",
+                            "description": "绑定事件",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "check",
+                                    "description": "选中触发事件",
+                                    "type": "Function",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "data",
+                            "description": "选项集合",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "key",
+                                    "description": "键",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "val",
+                                    "description": "值",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "select",
+                                    "description": "选中项\n\t\t\t0. 未中（默认）\n\t\t\t1. 选中",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "0"
+                                },
+                                {
+                                    "name": "class",
+                                    "description": "自定义样式（按钮组模式下默认'btn-default'）",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "placement",
+                                    "description": "提示框显示方向\n\t\t\t1. top：上（默认）\n\t\t\t2. bottom：下\n\t\t\t3. left：左\n\t\t\t4. right：右",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'top'"
+                                },
+                                {
+                                    "name": "href",
+                                    "description": "链接（默认可防止页面本页滚动条置顶）",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'javascript:;'"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                "\n\tvar li1=$('<li>').appendTo($('body>ol#__logs'));\n\tvar object_radio1=$('<div>').radioUI({\n\t\tkey:'radio1',\n\t\tdata:[\n\t\t\t{key:'1',val:'A',select:1},\n\t\t\t{key:'2',val:'B'}\n\t\t],\n\t\tof:li1\n\t});\n\n\tvar li2=$('<li>').appendTo($('body>ol#__logs'));\n\tvar object_radio2=$('<div>').radioUI({\n\t\tmode:2,\n\t\ttooltip:true,\n\t\tdata:[\n\t\t\t{key:'1',val:'A',select:1},\n\t\t\t{key:'2',val:'B'}\n\t\t],\n\t\tof:li2\n\t});\n\n\tvar li3=$('<li>').appendTo($('body>ol#__logs'));\n\tvar object_radio3=$('<div>').radioUI({\n\t\tmode:3,\n\t\ticon:{\n\t\t\tdefault:'',\n\t\t\thover:'fa-child',\n\t\t\tactive:''\n\t\t},\n\t\tdata:[\n\t\t\t{key:'1',val:'男',icon:'fa-male',select:1,class:'btn-info'},\n\t\t\t{key:'2',val:'女',icon:'fa-female',class:'btn-danger'}\n\t\t],\n\t\tof:li3\n\t});"
+            ]
+        },
+        "selectUI": {
+            "name": "selectUI",
+            "shortname": "selectUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 591,
+            "description": "<h3>Select</h3>\n\t<b>Date:</b> 2014-11-25<br>\n\t<b>Modify:</b> 2014-11-26<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\t$(\"div#method_selectUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-select\":\"select1\",\"style\":\"width:120px\"})\n\t\t\t)\n\t\t);\n\t\t$(\"<div>\").selectUI({\n\t\t\tkey:\"select1\",\n\t\t\tdata:[\n\t\t\t\t{key:\"1\",val:\"A\",select:1},\n\t\t\t\t{key:\"2\",val:\"B\"}\n\t\t\t],\n\t\t\tof:$(\"div[data-select=\\\"select1\\\"]\")\n\t\t});\n\t});\n\t</script>",
+            "since": "1.0.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "key",
+                            "description": "控件名称",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "tooltip",
+                            "description": "提示框\n\t\t1. true：显示\n\t\t2. false：不显示（默认）",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "class",
+                            "description": "自定义样式",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "data",
+                            "description": "选项集合",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "key",
+                                    "description": "键",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "val",
+                                    "description": "值",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "select",
+                                    "description": "选中项\n\t\t\t0. 未中（默认）\n\t\t\t1. 选中",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "0"
+                                },
+                                {
+                                    "name": "class",
+                                    "description": "自定义样式（按钮组模式下默认'btn-default'）",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "href",
+                                    "description": "链接（默认可防止页面本页滚动条置顶）",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'javascript:;'"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                "\n\tvar li1=$('<li>').appendTo($('body>ol#__logs'));\n\tvar object_select1=$('<div>').selectUI({\n\t\tkey:'select1',\n\t\tdata:[\n\t\t\t{key:'1',val:'A',select:1},\n\t\t\t{key:'2',val:'B'}\n\t\t],\n\t\tof:li1\n\t});"
+            ]
+        },
+        "treeUI": {
+            "name": "treeUI",
+            "shortname": "treeUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 756,
+            "description": "<h3>Tree</h3>\n\t<b>Date:</b> 2014-11-04<br>\n\t<b>Modify:</b> 2015-01-05<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\t$(\"div#method_treeUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-tree\":\"tree1\"})\n\t\t\t)\n\t\t);\n\t\t$(\"<ul>\").treeUI({\n\t\t\tkey:\"tree1\",\n\t\t\tdata:[\n\t\t\t\t{key:\"1\",val:\"AAA\",badge:\"3\",child:[\n\t\t\t\t\t{key:\"1-1\",val:\"CCC\"},\n\t\t\t\t\t{key:\"1-2\",val:\"DDD\",child:[\n\t\t\t\t\t\t{key:\"1-2-1\",val:\"FFF\"},\n\t\t\t\t\t\t{key:\"1-2-2\",val:\"GGG\"}\n\t\t\t\t\t]},\n\t\t\t\t\t{key:\"1-3\",val:\"EEE\"}\n\t\t\t\t]},\n\t\t\t\t{key:\"2\",val:\"BBB\",select:2,child:[\n\t\t\t\t\t{key:\"2-1\",val:\"HHH\"},\n\t\t\t\t\t{key:\"2-2\",val:\"III\",select:1},\n\t\t\t\t\t{key:\"2-3\",val:\"JJJ\",select:1,badge:\"2\",child:[\n\t\t\t\t\t\t{key:\"2-2-1\",val:\"KKK\",select:1,icon:\"fa-gamepad\"},\n\t\t\t\t\t\t{key:\"2-2-2\",val:\"LLL\",select:1}\n\t\t\t\t\t]}\n\t\t\t\t]}\n\t\t\t],\n\t\t\tof:$(\"div[data-tree=\\\"tree1\\\"]\")\n\t\t});\n\t});\n\t</script>",
+            "since": "1.1.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "key",
+                            "description": "控件名称",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "class",
+                            "description": "自定义样式",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "tooltip",
+                            "description": "提示框\n\t\t1. true：显示\n\t\t2. false：不显示（默认）",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "check",
+                            "description": "复选框\n\t\t1. true：显示\n\t\t2. false：不显示（默认）",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "click",
+                            "description": "文本点击\n\t\t1. true：可以点击\n\t\t2. false：不可点击",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "badge",
+                            "description": "子集统计\n\t\t1. true：显示\n\t\t2. false：不显示（默认）",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "edit",
+                            "description": "节点编辑\n\t\t1. true：显示\n\t\t2. false：不显示（默认）",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "open",
+                            "description": "节点展开\n\t\t0. 闭合（默认）\n\t\t1. 展开",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "0"
+                        },
+                        {
+                            "name": "ajax",
+                            "description": "异步请求设置",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "url",
+                                    "description": "请求链接地址",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "id",
+                                    "description": "请求根节点编号",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'0'"
+                                },
+                                {
+                                    "name": "async",
+                                    "description": "异步请求\n\t\t\t1. true：使用\n\t\t\t2. false：不使用ajax（默认）",
+                                    "type": "Boolean",
+                                    "optional": true,
+                                    "optdefault": "false"
+                                },
+                                {
+                                    "name": "type",
+                                    "description": "异步请求类型\n\t\t\t1. 加载所有根节点下的节点\n\t\t\t2. 点击节点逐级加载节点",
+                                    "type": "Boolean",
+                                    "optional": true,
+                                    "optdefault": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "file",
+                            "description": "图标集合",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "folder",
+                                    "description": "文件夹图标集合",
+                                    "type": "Object",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "folder.close",
+                                    "description": "文件夹关闭图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-folder-o'"
+                                },
+                                {
+                                    "name": "folder.open",
+                                    "description": "文件夹打开图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-folder-open-o'"
+                                },
+                                {
+                                    "name": "file",
+                                    "description": "异步请求",
+                                    "type": "Object",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "file.document",
+                                    "description": "文件图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'fa-file-o'"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "fun",
+                            "description": "绑定事件",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "inputBlur",
+                                    "description": "编辑框焦点丢失事件",
+                                    "type": "Function",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "nodeClick",
+                                    "description": "点击节点事件",
+                                    "type": "Function",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "loadEndCall",
+                                    "description": "控件初始化加载完毕事件",
+                                    "type": "Function",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "nodeRemove",
+                                    "description": "删除节点事件",
+                                    "type": "Function",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "data",
+                            "description": "选项集合",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "key=''",
+                                    "description": "键",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "val=''",
+                                    "description": "值",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "badge",
+                                    "description": "统计子集值",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "type",
+                                    "description": "节点类型\n\t\t\t1. 文件夹\n\t\t\t2. 文件（默认）",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "2"
+                                },
+                                {
+                                    "name": "edit",
+                                    "description": "节点编辑\n\t\t\t1. true：显示（默认）\n\t\t\t2. false：不显示",
+                                    "type": "Boolean",
+                                    "optional": true,
+                                    "optdefault": "true"
+                                },
+                                {
+                                    "name": "par",
+                                    "description": "传入参数",
+                                    "type": "Object",
+                                    "optional": true,
+                                    "optdefault": "{}"
+                                },
+                                {
+                                    "name": "open",
+                                    "description": "节点编辑\n\t\t\t0. 闭合\n\t\t\t1. 展开（默认）",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "0"
+                                },
+                                {
+                                    "name": "class",
+                                    "description": "自定义样式",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "placement",
+                                    "description": "提示框显示方向\n\t\t\t1. top：上（默认）\n\t\t\t2. bottom：下\n\t\t\t3. left：左\n\t\t\t4. right：右",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'top'"
+                                },
+                                {
+                                    "name": "href",
+                                    "description": "链接（默认可防止页面本页滚动条置顶）",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'javascript:;'"
+                                },
+                                {
+                                    "name": "icon",
+                                    "description": "自定义图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "select",
+                                    "description": "选中项\n\t\t\t0. 未中（默认）\n\t\t\t1. 选中",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                "\n\tvar li1=$('<li>').appendTo($('body>ol#__logs'));\n\tvar object_tree1=$('<ul>').treeUI({\n\t\tkey:'tree1',\n\t\tdata:[\n\t\t\t{key:'1',val:'AAA',badge:'2',child:[\n\t\t\t\t{key:'1-1',val:'CCC'},\n\t\t\t\t{key:'1-2',val:'DDD',child:[\n\t\t\t\t\t{key:'1-2-1',val:'FFF'},\n\t\t\t\t\t{key:'1-2-2',val:'GGG'}\n\t\t\t\t]},\n\t\t\t\t{key:'1-3',val:'EEE'}\n\t\t\t]},\n\t\t\t{key:'2',val:'BBB',select:2,child:[\n\t\t\t\t{key:'2-1',val:'HHH'},\n\t\t\t\t{key:'2-2',val:'III',select:1},\n\t\t\t\t{key:'2-3',val:'JJJ',select:1,child:[\n\t\t\t\t\t{key:'2-2-1',val:'KKK',select:1,badge:'2',icon:'fa-gamepad'},\n\t\t\t\t\t{key:'2-2-2',val:'LLL',select:1}\n\t\t\t\t]}\n\t\t\t]}\n\t\t],\n\t\tof:li1\n\t});\n\t//or\n\tvar li2=$('<li>').appendTo($('body>ol#__logs'));\n\t$('<ul>').treeUI({\n\t\tkey:'tree2',\n\t\tajax:{\n\t\t\turl:'test/data',\n\t\t\tasync:true,\n\t\t\tid:'0',\n\t\t\ttype:2\n\t\t},fun:{\n\t\t\tloadEndCall:function(_object_data){\n\t\t\t\t//console.log(_object_data.this);// treeUI 控件对象，ajax后方可返回此对象\n\t\t\t}\n\t\t},\n\t\tof:li2\n\t});"
+            ]
+        },
+        "alertUI": {
+            "name": "alertUI",
+            "shortname": "alertUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 1657,
+            "description": "<h3>Alert</h3>\n\t<b>Date:</b> 2014-12-05<br>\n\t<b>Modify:</b> 2014-12-05<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\tvar fun={\n\t\t\tpubClick:function(){$(this).closest(\".org-alert\").remove()}\n\t\t};\n\t\t$(\"div#method_alertUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-alert\":\"alert1\"})\n\t\t\t)\n\t\t);\n\t\t$(\"<a>\",{\"class\":\"btn btn-success\",\"style\":\"margin-right:10px\",\"click\":function(){\n\t\t\t$(\"<div>\").alertUI({\n\t\t\t\ttitle:\"成功\",\n\t\t\t\tbody:\"删除成功！\",\n\t\t\t\tmode:1,\n\t\t\t\tbtns:[\n\t\t\t\t\t{val:\"确定\",icon:\"fa-check\",class:\"btn btn-success\",click:fun.pubClick},\n\t\t\t\t\t{val:\"取消\",icon:\"fa-ban\",click:fun.pubClick}\n\t\t\t\t]\n\t\t\t});\n\t\t}}).html(\"success\").appendTo($(\"div[data-alert=\\\"alert1\\\"]\"));\n\t\t$(\"<a>\",{\"class\":\"btn btn-info\",\"style\":\"margin-right:10px\",\"click\":function(){\n\t\t\t$(\"<div>\").alertUI({\n\t\t\t\ttitle:\"提示\",\n\t\t\t\tbody:\"提示信息！\",\n\t\t\t\tmode:2,\n\t\t\t\tbtns:[\n\t\t\t\t\t{val:\"确定\",icon:\"fa-check\",class:\"btn-info\",click:fun.pubClick},\n\t\t\t\t\t{val:\"取消\",icon:\"fa-ban\",click:fun.pubClick}\n\t\t\t\t]\n\t\t\t});\n\t\t}}).html(\"info\").appendTo($(\"div[data-alert=\\\"alert1\\\"]\"));\n\t\t$(\"<a>\",{\"class\":\"btn btn-warning\",\"style\":\"margin-right:10px\",\"click\":function(){\n\t\t\t$(\"<div>\").alertUI({\n\t\t\t\ttitle:\"警告\",\n\t\t\t\tbody:\"警告信息！\",\n\t\t\t\tmode:3,\n\t\t\t\tbtns:[\n\t\t\t\t\t{val:\"确定\",icon:\"fa-check\",class:\"btn-warning\",click:fun.pubClick},\n\t\t\t\t\t{val:\"取消\",icon:\"fa-ban\",click:fun.pubClick}\n\t\t\t\t]\n\t\t\t});\n\t\t}}).html(\"warning\").appendTo($(\"div[data-alert=\\\"alert1\\\"]\"));\n\t\t$(\"<a>\",{\"class\":\"btn btn-danger\",\"click\":function(){\n\t\t\t$(\"<div>\").alertUI({\n\t\t\t\ttitle:\"删除\",\n\t\t\t\tbody:\"确定删除选中数据？\",\n\t\t\t\tbtns:[\n\t\t\t\t\t{val:\"删除\",icon:\"fa-trash\",class:\"btn-danger\",click:fun.pubClick},\n\t\t\t\t\t{val:\"取消\",icon:\"fa-ban\",click:fun.pubClick}\n\t\t\t\t]\n\t\t\t});\n\t\t}}).html(\"danger\").appendTo($(\"div[data-alert=\\\"alert1\\\"]\"));\n\t});\n\t</script>",
+            "since": "1.0.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "key",
+                            "description": "控件名称",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "class",
+                            "description": "自定义样式",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "mode",
+                            "description": "显示主题\n\t\t0. 红色（默认）\n\t\t1. 绿色\n\t\t2. 蓝色\n\t\t3. 黄色",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "0"
+                        },
+                        {
+                            "name": "title",
+                            "description": "提示标题",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "body",
+                            "description": "提示内容",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "btns",
+                            "description": "按钮组",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "icon",
+                                    "description": "图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "iconAlign",
+                                    "description": "图标显示方向\n\t\t\t1. left：居左（默认）\n\t\t\t2. right：居右",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "val",
+                                    "description": "文本",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "class",
+                                    "description": "自定义样式",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "click",
+                                    "description": "绑定单击事件",
+                                    "type": "Function",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                "\n\tvar alert1=$('<li>').appendTo($('body>ol#__logs'));\n\t$('<a>',{'href':'javascript:;','html','删除'}).click(function(){\n\t\t$('<div>').alertUI({\n\t\t\ttitle:'删除',\n\t\t\tbody:'确定删除选中数据？',\n\t\t\tbtns:[\n\t\t\t\t{val:'删除',icon:'fa-trash',class:'btn-danger',click:function(){\n\t\t\t\t\talert('删除！');\n\t\t\t\t\t$(this).closest('.org-alert').remove();\n\t\t\t\t}},\n\t\t\t\t{val:'取消',icon:'fa-ban',click:function(){\n\t\t\t\t\talert('取消！');\n\t\t\t\t\t$(this).closest('.org-alert').remove();\n\t\t\t\t}}\n\t\t\t]\n\t\t});\n\t}).appendTo(alert1);"
+            ]
+        },
+        "gridUI": {
+            "name": "gridUI",
+            "shortname": "gridUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 1861,
+            "description": "<h3>Grid</h3>\n\t<b>Date:</b> 2014-11-26<br>\n\t<b>Modify:</b> 2014-01-04<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\t$(\"div#method_gridUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-grid\":\"grid1\",\"style\":\"height:400px\"})\n\t\t\t)\n\t\t);\n\t\tvar div_grid=$(\"<div>\").gridUI({\n\t\t\tkey:\"grid1\",\n\t\t\tbtns:[\n\t\t\t\t{val:\"添加\",icon:\"fa-credit-card\",click:function(){\n\t\t\t\t\tvar article_add = div_grid.gridUI(\"getAside\",{class:\"add\"});\n\t\t\t\t\t//判断添加页面是否存在，如存在则清空\n\t\t\t\t\tif(1==article_add.length){\n\t\t\t\t\t\tarticle_add.remove();\n\t\t\t\t\t}\n\t\t\t\t\t//注册添加页面\n\t\t\t\t\tarticle_add = $(\"<article>\");\n\t\t\t\t\tdiv_grid.gridUI(\"setAside\",{class:\"add\",div:article_add});\n\t\t\t\t\tpubFun.load({url:\"http:\\/\\/www.baidu.com\",suc:function(_data){\n\t\t\t\t\t\tarticle_add.html(_data);\n\t\t\t\t\t\tarticle_add.find(\"a\").not(\"[href]\").attr(\"href\",\"javascript:;\");\n\t\t\t\t\t}});\n\t\t\t\t}},\n\t\t\t\t{val:\"修改\",icon:\"fa-edit\",click:function(){\n\t\t\t\t\tvar a_selectList = div_grid.gridUI(\"val\");\n\t\t\t\t\t//判断选中数据条数\n\t\t\t\t\tif(1!=a_selectList.split(\",\").length||\"\"==a_selectList.split(\",\")[0]){\n\t\t\t\t\t\t$(\"<div>\").msgUI({msg:\"请选择一条数据进行修改操作！\",mode:2});\n\t\t\t\t\t\treturn false;\n\t\t\t\t\t}\n\t\t\t\t\tvar article_edit = div_grid.gridUI(\"getAside\",{class:\"edit\"});\n\t\t\t\t\t//判断修改页面是否存在，如存在则清空\n\t\t\t\t\tif(1==article_edit.length){\n\t\t\t\t\t\tarticle_edit.remove();\n\t\t\t\t\t}\n\t\t\t\t\t//注册修改页面\n\t\t\t\t\tdiv_grid.gridUI(\"setAside\",{\n\t\t\t\t\t\tclass:\"mod\",\n\t\t\t\t\t\tdiv:$(\"<div>\",{html:\"test\"})\n\t\t\t\t\t});\n\t\t\t\t}},\n\t\t\t\t{val:\"删除\",icon:\"fa-trash-o\",click:function(){\n\t\t\t\t\tvar a_selectList = div_grid.gridUI(\"val\");\n\t\t\t\t\t//判断选中数据条数\n\t\t\t\t\tif(\"\"==a_selectList.split(\",\")[0]){\n\t\t\t\t\t\t$(\"<div>\").msgUI({msg:\"请至少选择一条数据进行删除操作！\",mode:2});\n\t\t\t\t\t\treturn false;\n\t\t\t\t\t}\n\t\t\t\t\t$(\"<div>\").alertUI({\n\t\t\t\t\t\twinClass:\"alert-danger\",\n\t\t\t\t\t\ttitle:\"删除\",\n\t\t\t\t\t\tbody:\"确定删除选中数据？\",\n\t\t\t\t\t\tbtns:[\n\t\t\t\t\t\t\t{val:\"删除\",icon:\"fa-trash\",class:\"btn-danger\",click:function(){\n\t\t\t\t\t\t\t\talert(div_grid.gridUI(\"val\"));\n\t\t\t\t\t\t\t\tdiv_grid.gridUI(\"removeTrash\");\n\t\t\t\t\t\t\t\t$(this).closest(\".org-alert\").remove();\n\t\t\t\t\t\t\t}},\n\t\t\t\t\t\t\t{val:\"取消\",icon:\"fa-ban\",click:function(){\n\t\t\t\t\t\t\t\t$(this).closest(\".org-alert\").remove();\n\t\t\t\t\t\t\t}},\n\t\t\t\t\t\t]\n\t\t\t\t\t});\n\t\t\t\t}},\n\t\t\t\t{key:\"_select\",val:\"选中\",icon:\"fa-shopping-cart\",click:function(){\n\t\t\t\t\tdiv_grid.gridUI(\"getAside\",{class:\"_select\"});\n\t\t\t\t}}\n\t\t\t],\n\t\t\thead:[\n\t\t\t\t{val:\"编号\",field:\"id\",type:\"1\"},\n\t\t\t\t{val:\"文件名称\",field:\"name\",width:\"100px\"},\n\t\t\t\t{val:\"文件类型\",field:\"type\"},\n\t\t\t\t{val:\"文件路径\",field:\"path\",width:\"100px\"},\n\t\t\t\t{val:\"修改时间\",field:\"mtime\",type:\"3\",width:\"100px\"},\n\t\t\t\t{val:\"创建时间\",field:\"ctime\",type:\"3\"}\n\t\t\t],\n\t\t\tdata:[\n\t\t\t\t[\n\t\t\t\t\t{field:\"id\",val:\"1\"},\n\t\t\t\t\t{field:\"name\",val:\"aaa\"},\n\t\t\t\t\t{field:\"type\",val:\"jpg\"},\n\t\t\t\t\t{field:\"path\",val:\"c:/ddd\"},\n\t\t\t\t\t{field:\"mtime\",val:\"2014-11-27 17:55\"},\n\t\t\t\t\t{field:\"mtime\",val:\"2014-11-26 17:50\"}\n\t\t\t\t],\n\t\t\t\t[\n\t\t\t\t\t{field:\"id\",val:\"2\"},\n\t\t\t\t\t{field:\"name\",val:\"bbb\"},\n\t\t\t\t\t{field:\"type\",val:\"png\"},\n\t\t\t\t\t{field:\"path\",val:\"c:/ddd\"},\n\t\t\t\t\t{field:\"mtime\",val:\"2014-11-27 17:55\"},\n\t\t\t\t\t{field:\"mtime\",val:\"2014-11-26 17:50\"}\n\t\t\t\t]\n\t\t\t],\n\t\t\tfun:{\n\t\t\t\tsearch:function(_object_search){\n\t\t\t\t\t$(\"<div>\").msgUI({msg:_object_search.val(),mode:3});\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t},\n\t\t\tof:$(\"div[data-grid=\\\"grid1\\\"]\")\n\t\t});\n\t});\n\t</script>",
+            "since": "1.0.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "key",
+                            "description": "控件名称",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "class",
+                            "description": "自定义样式",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "bordered",
+                            "description": "表格边框",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "striped",
+                            "description": "条纹状表格",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "hover",
+                            "description": "鼠标悬停",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "scrollHover",
+                            "description": "鼠标悬停滚动条",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "pagination",
+                            "description": "分页",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "search",
+                            "description": "搜索",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "condensed",
+                            "description": "紧缩表格",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "fun",
+                            "description": "绑定事件",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "search",
+                                    "description": "查询提交前回掉方法",
+                                    "type": "Function",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "close",
+                                    "description": "关闭侧边栏回调方法",
+                                    "type": "Function",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "filter",
+                                    "description": "查询过滤回调方法",
+                                    "type": "Function",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "ajax",
+                            "description": "异步请求",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "url",
+                                    "description": "请求地址",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "data",
+                                    "description": "请求参数",
+                                    "type": "Object",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "data.page",
+                                    "description": "当前页数",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "1"
+                                },
+                                {
+                                    "name": "data.count",
+                                    "description": "每页数据行",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "15"
+                                },
+                                {
+                                    "name": "data.mark",
+                                    "description": "选中项标识列",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'id'"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "btns",
+                            "description": "按钮组",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "icon",
+                                    "description": "按钮图标",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "iconAlign",
+                                    "description": "图标显示方向\n\t\t\t1. left：居左（默认）\n\t\t\t2. right：居右",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "val",
+                                    "description": "文本",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "class",
+                                    "description": "自定义样式",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "click",
+                                    "description": "绑定单击事件",
+                                    "type": "Function",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "head",
+                            "description": "表头",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "val",
+                                    "description": "列名",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "field",
+                                    "description": "绑定字段",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "type",
+                                    "description": "列类型\n\t\t\t1. \"1\"：数字\n\t\t\t2. \"2\"：字符串（默认）\n\t\t\t3. \"3\"：时间",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'2'"
+                                },
+                                {
+                                    "name": "width",
+                                    "description": "列宽（设定后，内容超出设定宽度会自动缩略，并鼠标在其格悬停时浮动显示完整内容）",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "placement",
+                                    "description": "提示显示方向\n\t\t\t1. top：上（默认）\n\t\t\t2. bottom：下\n\t\t\t3. left：左\n\t\t\t4. right：右",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'top'"
+                                },
+                                {
+                                    "name": "get",
+                                    "description": "本列定制标识\n\t\t\t0. 不定制（默认）\n\t\t\t1. 定制",
+                                    "type": "Int",
+                                    "optional": true,
+                                    "optdefault": "0"
+                                },
+                                {
+                                    "name": "class",
+                                    "description": "自定义样式",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "tooltip",
+                                    "description": "列提示\n\t\t\t0. false：不显示\n\t\t\t1. true：显示（默认）",
+                                    "type": "Boolean",
+                                    "optional": true,
+                                    "optdefault": "true"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "data",
+                            "description": "本地数据",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "field",
+                                    "description": "绑定字段",
+                                    "type": "String",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "val",
+                                    "description": "内容",
+                                    "type": "String",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "_object_par",
+                    "description": "调用方法传入参数",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                "\n\tvar grid1=$('<li>').appendTo($('body>ol#__logs'));\n\tvar div_grid=$('<div>').gridUI({\n\t\tkey:'grid1',\n\t\tbtns:[\n\t\t\t{val:'添加',icon:'fa-credit-card',click:function(){\n\t\t\t\tvar article_add = div_grid.gridUI('getAside',{class:'add'});\n\t\t\t\t//判断添加页面是否存在，如存在则清空\n\t\t\t\tif(1==article_add.length){\n\t\t\t\t\tarticle_add.remove();\n\t\t\t\t}\n\t\t\t\t//注册添加页面\n\t\t\t\tarticle_add = $('<article>');\n\t\t\t\tdiv_grid.gridUI('setAside',{class:'add',div:article_add});\n\t\t\t\t\tpubFun.load({url:'http://www.baidu.com',suc:function(_data){\n\t\t\t\t\tarticle_add.html(_data);\n\t\t\t\t\tarticle_add.find('a').not('[href]').attr('href','javascript:;');\n\t\t\t\t}});\n\t\t\t}},\n\t\t\t{val:'修改',icon:'fa-edit',click:function(){\n\t\t\t\tvar a_selectList = div_grid.gridUI('val');\n\t\t\t\t//判断选中数据条数\n\t\t\t\tif(1!=a_selectList.split(',').length||''==a_selectList.split(',')[0]){\n\t\t\t\t\t$('<div>').msgUI({msg:'请选择一条数据进行修改操作！',mode:2});\n\t\t\t\t\treturn false;\n\t\t\t\t}\n\t\t\t\tvar article_edit = div_grid.gridUI('getAside',{class:'edit'});\n\t\t\t\t//判断修改页面是否存在，如存在则清空\n\t\t\t\tif(1==article_edit.length){\n\t\t\t\t\tarticle_edit.remove();\n\t\t\t\t}\n\t\t\t\t//注册修改页面\n\t\t\t\tdiv_grid.gridUI('setAside',{\n\t\t\t\t\tclass:'mod',\n\t\t\t\t\tdiv:$('<div>',{html:'test'})\n\t\t\t\t});\n\t\t\t}},\n\t\t\t{val:'删除',icon:'fa-trash-o',click:function(){\n\t\t\t\tvar a_selectList = div_grid.gridUI('val');\n\t\t\t\t//判断选中数据条数\n\t\t\t\tif(\"\"==a_selectList.split(',')[0]){\n\t\t\t\t\t$('<div>').msgUI({msg:'请至少选择一条数据进行删除操作！',mode:2});\n\t\t\t\t\treturn false;\n\t\t\t\t}\n\t\t\t\t$('<div>').alertUI({\n\t\t\t\t\twinClass:'alert-danger',\n\t\t\t\t\ttitle:'删除',\n\t\t\t\t\tbody:'确定删除选中数据？',\n\t\t\t\t\tbtns:[\n\t\t\t\t\t\t{val:'删除',icon:'fa-trash',class:'btn-danger',click:function(){\n\t\t\t\t\t\t\talert(div_grid.gridUI('val'));\n\t\t\t\t\t\t\tdiv_grid.gridUI('removeTrash');\n\t\t\t\t\t\t\t$(this).closest('.org-alert').remove();\n\t\t\t\t\t\t}},\n\t\t\t\t\t\t{val:'取消',icon:'fa-ban',click:function(){\n\t\t\t\t\t\t\t$(this).closest('.org-alert').remove();\n\t\t\t\t\t\t}},\n\t\t\t\t\t]\n\t\t\t\t});\n\t\t\t}},\n\t\t\t{key:'_select',val:'选中',icon:'fa-shopping-cart',click:function(){\n\t\t\t\tdiv_grid.gridUI('getAside',{class:'_select'});\n\t\t\t}}\n\t\t],\n\t\thead:[\n\t\t\t{val:\"编号\",field:\"id\",type:\"1\"},\n\t\t\t{val:\"文件名称\",field:\"name\",width:\"100px\"},\n\t\t\t{val:\"文件类型\",field:\"type\"},\n\t\t\t{val:\"文件路径\",field:\"path\",width:\"100px\"},\n\t\t\t{val:\"修改时间\",field:\"mtime\",type:\"3\",width:\"100px\"},\n\t\t\t{val:\"创建时间\",field:\"ctime\",type:\"3\"}\n\t\t],\n\t\tdata:[\n\t\t\t[\n\t\t\t\t{field:\"id\",val:\"1\"},\n\t\t\t\t{field:\"name\",val:\"aaa\"},\n\t\t\t\t{field:\"type\",val:\"jpg\"},\n\t\t\t\t{field:\"path\",val:\"c:/ddd\"},\n\t\t\t\t{field:\"mtime\",val:\"2014-11-27 17:55\"},\n\t\t\t\t{field:\"mtime\",val:\"2014-11-26 17:50\"}\n\t\t\t],[\n\t\t\t\t{field:\"id\",val:\"2\"},\n\t\t\t\t{field:\"name\",val:\"bbb\"},\n\t\t\t\t{field:\"type\",val:\"png\"},\n\t\t\t\t{field:\"path\",val:\"c:/ddd\"},\n\t\t\t\t{field:\"mtime\",val:\"2014-11-27 17:55\"},\n\t\t\t\t{field:\"mtime\",val:\"2014-11-26 17:50\"}\n\t\t\t]\n\t\t],\n\t\tfun:{\n\t\t\tsearch:function(_object_search){\n\t\t\t\t$('<div>').msgUI({msg:_object_search.val(),mode:3});\n\t\t\t\treturn true;\n\t\t\t}\n\t\t},\n\t\tof:grid1\n\t});"
+            ]
+        },
+        "msgUI": {
+            "name": "msgUI",
+            "shortname": "msgUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 2745,
+            "description": "<h3>Msg</h3>\n\t<b>Date:</b> 2014-02-28<br>\n\t<b>Modify:</b> 2014-12-10<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\t$(\"div#method_msgUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-msg\":\"msg1\"})\n\t\t\t)\n\t\t);\n\t\t$(\"<a>\",{\"class\":\"btn btn-success\",\"style\":\"margin-right:10px\",\"click\":function(){\n\t\t\t$(\"<div>\").msgUI({msg:\"操作成功！\",mode:1});\n\t\t}}).html(\"success\").appendTo($(\"div[data-msg=\\\"msg1\\\"]\"));\n\t\t$(\"<a>\",{\"class\":\"btn btn-info\",\"style\":\"margin-right:10px\",\"click\":function(){\n\t\t\t$(\"<div>\").msgUI({msg:\"此项不可为空！\",mode:2});\n\t\t}}).html(\"info\").appendTo($(\"div[data-msg=\\\"msg1\\\"]\"));\n\t\t$(\"<a>\",{\"class\":\"btn btn-warning\",\"style\":\"margin-right:10px\",\"click\":function(){\n\t\t\t$(\"<div>\").msgUI({msg:\"非法操作！\",mode:3,time:3000});\n\t\t}}).html(\"warning\").appendTo($(\"div[data-msg=\\\"msg1\\\"]\"));\n\t\t$(\"<a>\",{\"class\":\"btn btn-danger\",\"click\":function(){\n\t\t\t$(\"<div>\").msgUI({msg:\"操作失败！\"});\n\t\t}}).html(\"danger\").appendTo($(\"div[data-msg=\\\"msg1\\\"]\"));\n\t});\n\t</script>",
+            "since": "1.1.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "mode",
+                            "description": "显示样式\n\t\t0. 红色（默认）\n\t\t1. 绿色\n\t\t2. 蓝色\n\t\t3. 橙色",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "0"
+                        },
+                        {
+                            "name": "msg",
+                            "description": "提示信息",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "width",
+                            "description": "显示宽度",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "300"
+                        },
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "parent",
+                            "description": "依附容器",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$(window)"
+                        },
+                        {
+                            "name": "close",
+                            "description": "自动关闭\n\t\t1. true 自动关闭（默认）\n\t\t2. false 不自动关闭",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "ture"
+                        },
+                        {
+                            "name": "time",
+                            "description": "显示时间，配合自动关闭",
+                            "type": "Int",
+                            "optional": true,
+                            "optdefault": "5000"
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                " \n\t$('<div>').msgUI({msg:'操作成功！',mode:1});\n\t//or\n\t$('<div>').msgUI({msg:'此项不可为空！',mode:2,close:false});\n\t//or\n\t$('<div>').msgUI({msg:'非法操作！',mode:3,time:3000});\n\t//or\n\t$('<div>').msgUI({msg:'操作失败！'});"
+            ]
+        },
+        "dialogUI": {
+            "name": "dialogUI",
+            "shortname": "dialogUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 2874,
+            "description": "<h3>Dialog</h3>\n\t<b>Date:</b> 2015-01-30<br>\n\t<b>Modify:</b> 2015-01-30<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\t$(\"div#method_dialogUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-dialog\":\"dialog1\"})\n\t\t\t)\n\t\t);\n\t\t$(\"<a>\",{\"class\":\"btn btn-primary\",\"click\":function(){\n\t\t\t$(\"<div>\").dialogUI({\n\t\t\t\tkey:\"dialog1\",\n\t\t\t\ttitle:\"标题\",\n\t\t\t\tbody:\"内容\",\n\t\t\t\tbtns:[\n\t\t\t\t\t{val:\"保存\",icon:\"fa-save\",\"class\":\"btn-primary\",click:function(){\n\t\t\t\t\t\t$(this).closest(\".org-dialog\").modal(\"hide\");\n\t\t\t\t\t}},{val:\"取消\",icon:\"fa-ban\",click:function(){\n\t\t\t\t\t\t$(this).closest(\".org-dialog\").modal(\"hide\");\n\t\t\t\t\t}}\n\t\t\t\t],\n\t\t\t\tof:$(\"body\")\n\t\t\t});\n\t\t}}).html(\"对话框\").appendTo($(\"div[data-dialog=\\\"dialog1\\\"]\"));\n\t});\n\t</script>",
+            "since": "1.0.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "key",
+                            "description": "控件名称",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "class",
+                            "description": "自定义样式",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "title",
+                            "description": "标题",
+                            "type": "String|jquery object",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "body",
+                            "description": "内容",
+                            "type": "String|jquery object",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "backdrop",
+                            "description": "设定阴影点击是否可关闭\n\t\t1. true：可关闭（默认）\n\t\t2. 'static'：不可关闭",
+                            "type": "Boolean|string",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "btns",
+                            "description": "按钮组",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "icon",
+                                    "description": "图标样式",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "iconAlign",
+                                    "description": "图标显示方向\n\t\t\t1. left：居左（默认）\n\t\t\t2. right：居右",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "val",
+                                    "description": "文本",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "class",
+                                    "description": "自定义样式",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "''"
+                                },
+                                {
+                                    "name": "click",
+                                    "description": "绑定单击事件",
+                                    "type": "Function",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                " \n\t\t$('<div>').dialogUI({\n\t\t\tkey:'dialog1',\n\t\t\ttitle:'标题',\n\t\t\tbody:'内容',\n\t\t\tbtns:[\n\t\t\t\t{val:'保存',icon:'fa-save','class':'btn-primary',click:function(){\n\t\t\t\t\t$(this).closest('.org-dialog').modal('hide');\n\t\t\t\t}},{val:'取消',icon:'fa-ban',click:function(){\n\t\t\t\t\t$(this).closest('.org-dialog').modal('hide');\n\t\t\t\t}}\n\t\t\t],\n\t\t\tof:$('body')\n\t\t});"
+            ]
+        },
+        "selectTreeUI": {
+            "name": "selectTreeUI",
+            "shortname": "selectTreeUI",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI(User Interface Controls)",
+            "namespace": "",
+            "file": "input\\orgui.js",
+            "line": 3017,
+            "description": "<h3>SelectTree</h3>\n\t<b>Date:</b> 2015-02-02<br>\n\t<b>Modify:</b> 2015-03-01<br>\n\t<b>Pen:</b> angelop007@gmail.com<br>\n\t<script>\n\t$(function(){\n\t\t$(\"div#method_selectTreeUI\\>div.example\\>h4\").after(\n\t\t\t$(\"<div>\",{class:\"example-content prettyprint\"}).append(\n\t\t\t\t$(\"<div>\",{\"data-selectTree\":\"selectTree1\"})\n\t\t\t)\n\t\t);\n\t\t$(\"<div>\").selectTreeUI({\n\t\t\t\"key\":\"selectTree\",\n\t\t\t\"class\":\"width-auto\",\n\t\t\ttree:{\n\t\t\t\tkey:\"tree\",\n\t\t\t\tcheck:true,\n\t\t\t\tdata:[\n\t\t\t\t\t{key:\"1\",val:\"AAA\",badge:\"3\",child:[\n\t\t\t\t\t\t{key:\"1-1\",val:\"CCC\"},\n\t\t\t\t\t\t{key:\"1-2\",val:\"DDD\",child:[\n\t\t\t\t\t\t\t{key:\"1-2-1\",val:\"FFF\"},\n\t\t\t\t\t\t\t{key:\"1-2-2\",val:\"GGG\"}\n\t\t\t\t\t\t]},\n\t\t\t\t\t\t{key:\"1-3\",val:\"EEE\"}\n\t\t\t\t\t]},\n\t\t\t\t\t{key:\"2\",val:\"BBB\",select:2,child:[\n\t\t\t\t\t\t{key:\"2-1\",val:\"HHH\"},\n\t\t\t\t\t\t{key:\"2-2\",val:\"III\",select:1},\n\t\t\t\t\t\t{key:\"2-3\",val:\"JJJ\",select:1,badge:\"2\",child:[\n\t\t\t\t\t\t\t{key:\"2-2-1\",val:\"KKK\",select:1,icon:\"fa-gamepad\"},\n\t\t\t\t\t\t\t{key:\"2-2-2\",val:\"LLL\",select:1}\n\t\t\t\t\t\t]}\n\t\t\t\t\t]}\n\t\t\t\t]\n\t\t\t},\n\t\t\tof:$(\"div[data-selectTree=\\\"selectTree1\\\"]\")\n\t\t});\n\t});\n\t</script>",
+            "since": "1.0.0",
+            "params": [
+                {
+                    "name": "_object_cfg",
+                    "description": "控件配置参数 | 调用方法",
+                    "type": "Object|string",
+                    "props": [
+                        {
+                            "name": "of",
+                            "description": "控件父级",
+                            "type": "Jquery object",
+                            "optional": true,
+                            "optdefault": "$('body')"
+                        },
+                        {
+                            "name": "key",
+                            "description": "控件名称",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "class",
+                            "description": "自定义样式",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "''"
+                        },
+                        {
+                            "name": "tooltip",
+                            "description": "完整选定内容提示\n\t\t1. true： 显示（默认）\n\t\t2. false： 不显示",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "placement",
+                            "description": "提示显示方向\n\t\t1. top：上（默认）\n\t\t2. bottom：下\n\t\t3. left：左\n\t\t4. right：右",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "'top'"
+                        },
+                        {
+                            "name": "default",
+                            "description": "默认数据集合",
+                            "type": "Object",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "key",
+                                    "description": "选项键",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'no'"
+                                },
+                                {
+                                    "name": "val",
+                                    "description": "选项值",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "'请选择！'"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "tree",
+                            "description": "树节点参数（参考treeUI控件相关参数）",
+                            "type": "Object",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "is_constructor": 1,
+            "chainable": 1,
+            "example": [
+                "\n\tvar li1=$('<li>').appendTo($('body>ol#__logs'));\n\t$('<div>').selectTreeUI({\n\t\t'key':'selectTree',\n\t\t'class':'width-auto',\n\t\ttree:{\n\t\t\tkey:'tree',\n\t\t\tcheck:true,\n\t\t\tdata:[\n\t\t\t\t{key:\"1\",val:\"AAA\",badge:\"3\",child:[\n\t\t\t\t\t{key:\"1-1\",val:\"CCC\"},\n\t\t\t\t\t{key:\"1-2\",val:\"DDD\",child:[\n\t\t\t\t\t\t{key:\"1-2-1\",val:\"FFF\"},\n\t\t\t\t\t\t{key:\"1-2-2\",val:\"GGG\"}\n\t\t\t\t\t]},\n\t\t\t\t\t{key:\"1-3\",val:\"EEE\"}\n\t\t\t\t]},\n\t\t\t\t{key:\"2\",val:\"BBB\",select:2,child:[\n\t\t\t\t\t{key:\"2-1\",val:\"HHH\"},\n\t\t\t\t\t{key:\"2-2\",val:\"III\",select:1},\n\t\t\t\t\t{key:\"2-3\",val:\"JJJ\",select:1,badge:\"2\",child:[\n\t\t\t\t\t\t{key:\"2-2-1\",val:\"KKK\",select:1,icon:\"fa-gamepad\"},\n\t\t\t\t\t\t{key:\"2-2-2\",val:\"LLL\",select:1}\n\t\t\t\t\t]}\n\t\t\t\t]}\n\t\t\t]\n\t\t},\n\t\tof:li1\n\t});"
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "input\\function.js",
+            "line": 15,
+            "description": "ajax请求方法",
+            "itemtype": "method",
+            "name": "ajax",
+            "async": 1,
+            "params": [
+                {
+                    "name": "_object_par",
+                    "description": "请求参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "请求连接",
+                            "type": "String"
+                        },
+                        {
+                            "name": "ct",
+                            "description": "提交内容编码类型",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "'application/x-www-form-urlencoded'"
+                        },
+                        {
+                            "name": "type",
+                            "description": "请求类型",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "'post'"
+                        },
+                        {
+                            "name": "data",
+                            "description": "请求参数",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "dt",
+                            "description": "返回参数类型",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "'jsonp'"
+                        },
+                        {
+                            "name": "pd",
+                            "description": "如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false。",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "bes",
+                            "description": "请求前回调函数",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "cpl",
+                            "description": "请求后回调函数",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "suc",
+                            "description": "请求成功回调函数",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "err",
+                            "description": "请求失败回调函数",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\tpubFun.ajax({\n\t\turl:'login/validat',\n\t\tdata:{\n\t\t\tname:'yourName',\n\t\t\tpassword:'yourPwd'\n\t\t},suc:function(_data){\n\t\t\tif(undefined!==_data){\n\t\t\t\tconsole.log('success: ','login success!');\n\t\t\t}else{\n\t\t\t\tconsole.log('success: ','login error!');\n\t\t\t}\n\t\t},err:function(_data){\n\t\t\tconsole.log('error: ',_data);\n\t\t}\n\t});"
+            ],
+            "class": "pubFun",
+            "module": "function"
+        },
+        {
+            "file": "input\\function.js",
+            "line": 82,
+            "description": "格式化时间",
+            "itemtype": "method",
+            "name": "dateformat",
+            "params": [
+                {
+                    "name": "_int_timestamp",
+                    "description": "时间戳",
+                    "type": "Int"
+                },
+                {
+                    "name": "_string_format",
+                    "description": "时间格式('yyyy-MM-dd HH:mm:ss.S')",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "格式化后时间默认'2000-01-01 00:00:00.0'",
+                "type": "String"
+            },
+            "example": [
+                "\n\tvar string_date=pubFun.dateformat(new Date().getTime(),'yyyy-MM-dd HH:mm:ss.S');\n\tconsole.log('out: ',string_date);\n\tlog(string_date);\n\n\tvar string_date=pubFun.dateformat($.now(),'yyyy-MM-dd HH:mm:ss.S');\n\tconsole.log('out: ',string_date);\n\tlog(string_date);"
+            ],
+            "class": "pubFun",
+            "module": "function"
+        },
+        {
+            "file": "input\\function.js",
+            "line": 128,
+            "description": "加载页面",
+            "itemtype": "method",
+            "name": "load",
+            "async": 1,
+            "params": [
+                {
+                    "name": "_object_par",
+                    "description": "请求参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "请求连接",
+                            "type": "String"
+                        },
+                        {
+                            "name": "data",
+                            "description": "请求参数",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "bes",
+                            "description": "请求前回调函数",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "cpl",
+                            "description": "请求后回调函数",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "suc",
+                            "description": "请求成功回调函数",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "err",
+                            "description": "请求失败回调函数",
+                            "type": "Function",
+                            "optional": true,
+                            "optdefault": "null"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\tpubFun.load({url:'test.html',suc:function(_data){\n\t\t$('body>.page').html(_data);\n\t}});"
+            ],
+            "class": "pubFun",
+            "module": "function"
+        },
+        {
+            "file": "input\\function.js",
+            "line": 166,
+            "description": "String转Json对象",
+            "itemtype": "method",
+            "name": "toJson",
+            "params": [
+                {
+                    "name": "_string_json",
+                    "description": "Json字符串",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Json对象",
+                "type": "Array|object"
+            },
+            "example": [
+                "\n\tvar object_json=pubFun.toJson('[{key:\"1\",value:\"a\"},{key:\"2\",value:\"b\"}]');\n\tconsole.log('out: ',object_json);\n\tlog(object_json);\n\n\tobject_json=pubFun.toJson('[{\"key\":\"1\",\"value\":\"a\"},{\"key\":\"2\",\"value\":\"b\"}]');\n\tconsole.log('out: ',object_json);\n\tlog(object_json);"
+            ],
+            "class": "pubFun",
+            "module": "function"
+        },
+        {
+            "file": "input\\function.js",
+            "line": 183,
+            "description": "获取URL参数",
+            "itemtype": "method",
+            "name": "urlParam",
+            "params": [
+                {
+                    "name": "_obj_par",
+                    "description": "参数对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "url",
+                            "description": "链接",
+                            "type": "String"
+                        },
+                        {
+                            "name": "key",
+                            "description": "获取键",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "键值",
+                "type": "String"
+            },
+            "example": [
+                " \n\tvar string_val=pubFun.urlParam({url:'http://www.baidu.com/s?ie=utf-8&f=8',key:'ie'});\n\tconsole.log('out: ',string_val); //out: utf-8\n\tlog(string_val);"
+            ],
+            "class": "pubFun",
+            "module": "function"
+        },
+        {
+            "file": "input\\function.js",
+            "line": 202,
+            "description": "md5加密",
+            "itemtype": "method",
+            "name": "md5",
+            "params": [
+                {
+                    "name": "_string_val",
+                    "description": "参数对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "返回值",
+                "type": "String"
+            },
+            "example": [
+                "\n\tvar string_val=pubFun.md5('123456');\n console.log('out: ',string_val); //out: utf-8\n log(string_val);"
+            ],
+            "class": "pubFun",
+            "module": "function"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 226,
+            "description": "选中/取消点击事件",
+            "itemtype": "method",
+            "name": "click",
+            "params": [
+                {
+                    "name": "_object_par",
+                    "description": "传入参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "index",
+                            "description": "选项索引",
+                            "type": "Int"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\tobject_check1.checkUI('click',{index:0});"
+            ],
+            "class": "checkUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 237,
+            "description": "获取选项选中状态",
+            "itemtype": "method",
+            "name": "getSelect",
+            "params": [
+                {
+                    "name": "_object_par",
+                    "description": "传入参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "index",
+                            "description": "选项索引",
+                            "type": "Int"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "1：选中，0：未选",
+                "type": "Int"
+            },
+            "example": [
+                "\n\tvar int_active=object_check1.checkUI('getSelect',{index:0});"
+            ],
+            "class": "checkUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 253,
+            "description": "获取选中项键集合",
+            "itemtype": "method",
+            "name": "val",
+            "return": {
+                "description": "键集合",
+                "type": "Object"
+            },
+            "example": [
+                "\n\tvar string_val1=object_check1.checkUI('val');\n\t//or\n\tvar string_val2=object_check1.checkUI();"
+            ],
+            "class": "checkUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 572,
+            "description": "获取选中项键",
+            "itemtype": "method",
+            "name": "val",
+            "return": {
+                "description": "选中项键",
+                "type": "String"
+            },
+            "example": [
+                "\n\tvar string_val1=object_radio1.radioUI('val');\n\t//or\n\tvar string_val2=object_radio1.radioUI();"
+            ],
+            "class": "radioUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 739,
+            "description": "获取选中项键",
+            "itemtype": "method",
+            "name": "val",
+            "return": {
+                "description": "选中项键",
+                "type": "String"
+            },
+            "example": [
+                "\n\tvar string_val1=object_select1.selectUI('val');\n\t//or\n\tvar string_val2=object_select1.selectUI();"
+            ],
+            "class": "selectUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1528,
+            "description": "获取选中节点信息",
+            "itemtype": "method",
+            "name": "val",
+            "return": {
+                "description": "选中节点信息",
+                "type": "Object"
+            },
+            "example": [
+                "\n\tvar string_val1=object_tree1.treeUI('val');\n\t//or\n\tvar string_val2=object_tree1.treeUI();"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1540,
+            "description": "获取所有节点集合",
+            "itemtype": "method",
+            "name": "allVal",
+            "return": {
+                "description": "节点集合",
+                "type": "Object"
+            },
+            "example": [
+                "\n\tvar object_val=object_tree1.treeUI('allVal');"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1558,
+            "description": "获取所有CheckBox选中值集合",
+            "itemtype": "method",
+            "name": "checkVal",
+            "return": {
+                "description": "CheckBox选中值集合",
+                "type": "Object"
+            },
+            "example": [
+                "\n\tvar object_val=object_tree1.treeUI('checkVal');"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1568,
+            "description": "获取所有变更节点集合",
+            "itemtype": "method",
+            "name": "changeVal",
+            "return": {
+                "description": "所有变更节点集合",
+                "type": "Object"
+            },
+            "example": [
+                "\n\tvar object_val=object_tree1.treeUI('changeVal');"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1578,
+            "description": "删除变更标记",
+            "itemtype": "method",
+            "name": "removeTag",
+            "chainable": 1,
+            "return": {
+                "description": "当前节点",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\t_object_data.this.removeTag();"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1590,
+            "description": "打开正在加载显示层",
+            "itemtype": "method",
+            "name": "openLoading",
+            "chainable": 1,
+            "return": {
+                "description": "当前节点",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\t_object_data.this.openLoading();"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1602,
+            "description": "关闭正在加载显示层",
+            "itemtype": "method",
+            "name": "closeLoading",
+            "chainable": 1,
+            "return": {
+                "description": "当前节点",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\t_object_data.this.closeLoading();"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1614,
+            "description": "设置节点key值",
+            "itemtype": "method",
+            "name": "setKey",
+            "chainable": 1,
+            "params": [
+                {
+                    "name": "_str_key",
+                    "description": "传入参数",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "当前节点",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\t_object_data.this.setKey('10001');"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1627,
+            "description": "设置默认值",
+            "itemtype": "method",
+            "name": "setDefault",
+            "chainable": 1,
+            "return": {
+                "description": "当前节点",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\t_object_data.this.setDefault();"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 1638,
+            "description": "清空所有变更值集合",
+            "itemtype": "method",
+            "name": "removeChangeVal",
+            "example": [
+                "\n\tobject_tree1.treeUI('removeChangeVal');"
+            ],
+            "class": "treeUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 2583,
+            "description": "刷新数据列表",
+            "itemtype": "method",
+            "name": "refresh",
+            "example": [
+                "\n\tgrid1.gridUI('refresh');"
+            ],
+            "class": "gridUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 2592,
+            "description": "关闭侧边栏",
+            "itemtype": "method",
+            "name": "refresh",
+            "example": [
+                "\n\tgrid1.gridUI('closeAside');"
+            ],
+            "class": "gridUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 2602,
+            "description": "获取选中数据集合",
+            "itemtype": "method",
+            "name": "getAllVal",
+            "return": {
+                "description": "选中数据对象集合",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\tgrid1.gridUI('getAllVal');"
+            ],
+            "class": "gridUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 2612,
+            "description": "获取侧边栏",
+            "itemtype": "method",
+            "name": "getAside",
+            "params": [
+                {
+                    "name": "_object_par",
+                    "description": "传入参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "class",
+                            "description": "侧边栏Class名称",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "侧边栏对象",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\tgrid1.gridUI('getAside',{class:'_select'});"
+            ],
+            "class": "gridUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 2629,
+            "description": "添加侧边栏",
+            "itemtype": "method",
+            "name": "setAside",
+            "params": [
+                {
+                    "name": "_object_par",
+                    "description": "传入参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "class",
+                            "description": "侧边栏Class名称",
+                            "type": "String"
+                        },
+                        {
+                            "name": "url",
+                            "description": "加载页面链接地址",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "div",
+                            "description": "加载html字符串或jquery对象",
+                            "type": "String|object",
+                            "optional": true
+                        },
+                        {
+                            "name": "fun",
+                            "description": "加载页面后回掉方法",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "display",
+                            "description": "侧边栏默认是否显示\n\t\t1. true： 显示（默认）\n\t\t2. false: 隐藏",
+                            "type": "Boolean",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "加载侧边栏内嵌html后返回侧边栏对象",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\tgrid1.gridUI('setAside',{class:'add1',url:'http://www.google.com'});\n\t//or\n\tgrid1.gridUI('setAside',{class:'add2',url:'http://www.google.com',fun:function(_object_aside){\n\t\tconsole.log(_object_aside);//侧边栏对象\n\t}});\n\t//or\n\tgrid1.gridUI('setAside',{class:'add3',div:'<div>test</div>'});\n\t//or\n\tgrid1.gridUI('setAside',{class:'add4',div:$('<div>',{html:'test'})});\n\t//or\n\tvar object_aside_add5 = grid1.gridUI('setAside',{class:'add5',div:$('<div>',{html:'test'})});\n\tconsole.log(object_aside_add5);//侧边栏对象"
+            ],
+            "class": "gridUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 2698,
+            "description": "移除选中并锁定的数据列",
+            "itemtype": "method",
+            "name": "removeTrash",
+            "example": [
+                "\n\tgrid1.gridUI('removeTrash');"
+            ],
+            "class": "gridUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 2709,
+            "description": "获取选中项键集合",
+            "itemtype": "method",
+            "name": "val",
+            "return": {
+                "description": "选中项键集合",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\tvar a_selectList = grid1.gridUI('val');\n\tif(1!=a_selectList.split(',').length||''==a_selectList.split(',')[0]){//判断选中数据条数并且是一条数据\n\t\talert('请选择一条数据进行操作！');\n\t}\n\t//or\n\tif(''==a_selectList.split(',')[0]){//判断选中数据条数\n\t\talert('请至少选择一条数据进行操作！');\n\t}"
+            ],
+            "class": "gridUI",
+            "module": "UI(User Interface Controls)"
+        },
+        {
+            "file": "input\\orgui.js",
+            "line": 2726,
+            "description": "获取选中项的定制数据集合",
+            "itemtype": "method",
+            "name": "getCustomizeVal",
+            "return": {
+                "description": "选中项键集合",
+                "type": "Jquery object"
+            },
+            "example": [
+                "\n\tvar a_customizeList = grid1.gridUI('getCustomizeVal');\n\tconsole.log(a_customizeList);//选中项定制数据键集合"
+            ],
+            "class": "gridUI",
+            "module": "UI(User Interface Controls)"
+        }
+    ],
+    "warnings": []
+}
