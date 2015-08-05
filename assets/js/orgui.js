@@ -1901,7 +1901,7 @@ $.fn.alertUI=function(_object_cfg){
  * 					}
  * 					//注册修改页面
  * 					div_grid.gridUI("setAside",{
- * 						class:"mod",
+ * 						class:"edit",
  * 						div:$("<div>",{html:"test"})
  * 					});
  * 				}},
@@ -2058,7 +2058,7 @@ $.fn.alertUI=function(_object_cfg){
  * 				}
  * 				//注册修改页面
  * 				div_grid.gridUI('setAside',{
- * 					class:'mod',
+ * 					class:'edit',
  * 					div:$('<div>',{html:'test'})
  * 				});
  * 			}},

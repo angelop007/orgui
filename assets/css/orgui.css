@@ -1,3 +1,4 @@
+html,body{margin:0;padding:0;height:100%;overflow:hidden}
 /*滚动条*/
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-track,::-webkit-scrollbar-thumb{border-radius:999px;border:5px solid transparent}
@@ -82,9 +83,7 @@
 .org-grid{height:100%;padding-bottom:66px}
 .org-grid.no-footer{padding-bottom:34px}
 .org-grid>nav{padding:0}
-.org-grid>nav>div.btn-group{
-	-webkit-transition:width 1s
-}
+.org-grid>nav>div.btn-group{-webkit-transition:width 1s}
 
 .org-grid>nav>div.btn-group>a.btn{border-width:0 1px 0 0;margin-left:0}
 .org-grid>nav>div.btn-group>a>label{font-weight:normal;margin-bottom:0;display:none;cursor:pointer}/*display:none;*/
@@ -106,8 +105,9 @@
 .org-grid>section>article>table td[data-toggle]>div{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .org-grid>section>article>table>thead:last-child{background-color:#fff;top:0;position:absolute;opacity:.8;filter:alpha(opacity=80);font-weight:bold}
 .org-grid>section>article>table>thead:last-child>tr{display:flex}
+.org-grid>section>article>table>tbody{-webkit-user-select:none;-webkit-user-drag:none}
 
-.org-grid>section>aside{display:none;position:absolute;right:0;top:0;height:100%;width:100%;max-width:80%;min-width:20%;box-shadow:-3px 0 rgba(0,0,0,0.05)}
+.org-grid>section>aside{position:absolute;right:0;top:0;height:100%;width:100%;max-width:80%;min-width:20%;box-shadow:-3px 0 rgba(0,0,0,0.05)}
 .org-grid>section>aside>div.panel{height:100%;padding-bottom:37px;border-radius:0;border-bottom-width:0}
 .org-grid>section>aside>div>nav.panel-heading{padding:0}
 .org-grid>section>aside>div>nav.panel-heading>div{width:100%}
