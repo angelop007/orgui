@@ -1,4 +1,4 @@
-html,body{margin:0;padding:0;height:100%;overflow:hidden}
+html,body{margin:0;padding:0;height:100%}
 /*滚动条*/
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-track,::-webkit-scrollbar-thumb{border-radius:999px;border:5px solid transparent}
