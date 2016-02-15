@@ -910,7 +910,7 @@ $.fn.treeUI=function(_object_cfg){
 	}
 	//根据参数，调用相应方法
 	if(!$.isPlainObject(_object_cfg)){
-		//_=_.prevObject;//本行代码正常使用控件时需开启，注释仅为api文档使用模式
+		_=_.prevObject;//本行代码正常使用控件时需开启，注释仅为api文档使用模式
 		return _.refun[_object_cfg]();
 	}
 	//注册内部方法
@@ -2132,7 +2132,7 @@ $.fn.gridUI=function(_object_cfg,_object_par){
 	}
 	//根据参数，调用相应方法
 	if(!$.isPlainObject(_object_cfg)){
-		//_=_.prevObject;//本行代码正常使用控件时需开启，注释仅为api文档使用模式
+		_=_.prevObject;//本行代码正常使用控件时需开启，注释仅为api文档使用模式
 		return _.refun[_object_cfg](_object_par);
 	}
 	//注册内部方法
